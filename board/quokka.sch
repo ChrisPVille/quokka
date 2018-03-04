@@ -1,39 +1,9 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:quokka-cache
-EELAYER 25 0
+EESchema Schematic File Version 4
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 8
+Sheet 1 7
 Title ""
 Date ""
 Rev ""
@@ -44,53 +14,53 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 7650 3300 750  350 
-U 5A989333
-F0 "keyboard" 60
-F1 "sub_kbd.sch" 60
+S 1100 900  1600 850 
+U 5A9C14CE
+F0 "Power" 50
+F1 "sub_power.sch" 50
 $EndSheet
 $Sheet
-S 4500 3250 2300 1350
-U 5A98957A
-F0 "fpga" 60
-F1 "sub_fpga.sch" 60
+S 1450 4750 1800 900 
+U 5A9C14D9
+F0 "6502" 50
+F1 "sub_6502.sch" 50
 $EndSheet
 $Sheet
-S 7700 4050 1400 600 
-U 5A989584
-F0 "display" 60
-F1 "sub_display.sch" 60
+S 5100 1950 1950 1000
+U 5A9C14E5
+F0 "Microcontroller" 50
+F1 "sub_micro.sch" 50
 $EndSheet
 $Sheet
-S 1750 4350 1800 900 
-U 5A989590
-F0 "6502" 60
-F1 "sub_6502.sch" 60
+S 5100 3600 2300 1550
+U 5A9C14F1
+F0 "FPGA" 50
+F1 "sub_fpga.sch" 50
 $EndSheet
 $Sheet
-S 5300 5200 1550 800 
-U 5A989599
-F0 "gpio" 60
-F1 "sub_gpio.sch" 60
+S 5100 5700 2050 750 
+U 5A9C14FD
+F0 "GPIO" 50
+F1 "sub_gpio.sch" 50
 $EndSheet
 $Sheet
-S 5100 1950 1500 800 
-U 5A9895A2
-F0 "micro" 60
-F1 "sub_micro.sch" 60
+S 8350 4650 2450 900 
+U 5A9C150A
+F0 "Display" 50
+F1 "sub_display.sch" 50
 $EndSheet
-Text HLabel 7650 3400 2    60   Input ~ 0
+$Sheet
+S 8400 3650 600  350 
+U 5A9C1519
+F0 "Keyboard" 50
+F1 "sub_keyboard.sch" 50
+$EndSheet
+Text HLabel 8400 3750 2    50   Input ~ 0
 row[5:0]
-Text HLabel 7650 3550 2    60   Output ~ 0
+Text HLabel 8400 3900 2    50   Input ~ 0
 column[4:0]
-Text HLabel 6800 3400 0    60   Output ~ 0
+Text HLabel 7400 3700 0    50   Input ~ 0
 KBD_row[5:0]
-Text HLabel 6800 3550 0    60   Input ~ 0
+Text HLabel 7400 3850 0    50   Input ~ 0
 KBD_col[4:0]
-$Sheet
-S 1800 1000 1050 700 
-U 5A989E5E
-F0 "power" 60
-F1 "sub_power.sch" 60
-$EndSheet
 $EndSCHEMATC
