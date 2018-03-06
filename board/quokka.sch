@@ -1,9 +1,10 @@
 EESchema Schematic File Version 4
+LIBS:quokka-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 7
+Sheet 1 8
 Title ""
 Date ""
 Rev ""
@@ -54,13 +55,7 @@ S 8400 3650 600  350
 U 5A9C1519
 F0 "Keyboard" 50
 F1 "sub_keyboard.sch" 50
+F2 "column[5:0]" I L 8400 3750 50 
+F3 "row[4:0]" O L 8400 3900 50 
 $EndSheet
-Text HLabel 8400 3750 2    50   Input ~ 0
-row[5:0]
-Text HLabel 8400 3900 2    50   Input ~ 0
-column[4:0]
-Text HLabel 7400 3700 0    50   Input ~ 0
-KBD_row[5:0]
-Text HLabel 7400 3850 0    50   Input ~ 0
-KBD_col[4:0]
 $EndSCHEMATC
