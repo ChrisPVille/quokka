@@ -37,6 +37,8 @@ S 5100 3600 2300 1550
 U 5A9C14F1
 F0 "FPGA" 50
 F1 "sub_fpga.sch" 50
+F2 "KBD_col[0:5]" O R 7400 3700 50 
+F3 "KBD_row[0:4]" I R 7400 3800 50 
 $EndSheet
 $Sheet
 S 5100 5700 2050 750 
@@ -51,11 +53,23 @@ F0 "Display" 50
 F1 "sub_display.sch" 50
 $EndSheet
 $Sheet
-S 8400 3650 600  350 
+S 8150 3250 600  350 
 U 5A9C1519
 F0 "Keyboard" 50
 F1 "sub_keyboard.sch" 50
-F2 "column[5:0]" I L 8400 3750 50 
-F3 "row[4:0]" O L 8400 3900 50 
+F2 "column[5:0]" I L 8150 3350 50 
+F3 "row[4:0]" O L 8150 3500 50 
 $EndSheet
+Wire Bus Line
+	7400 3700 7750 3700
+Wire Bus Line
+	7750 3700 7750 3350
+Wire Bus Line
+	7750 3350 8150 3350
+Wire Bus Line
+	7850 3500 7850 3800
+Wire Bus Line
+	7850 3800 7400 3800
+Wire Bus Line
+	8150 3500 7850 3500
 $EndSCHEMATC
