@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name quokka)(type Legacy)(uri /home/christopher/git/quokka/board/quokka.lib)(options "")(descr ""))
+)
