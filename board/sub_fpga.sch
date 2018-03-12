@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 9 10
+Sheet 14 15
 Title ""
 Date ""
 Rev ""
@@ -12,48 +12,146 @@ Comp ""
 Comment1 ""
 Comment2 ""
 Comment3 ""
-Comment4 ""
+Comment4 "Quokka 6502 Microprocessor Trainer"
 $EndDescr
-Text HLabel 2150 1200 0    50   Output ~ 0
+Text HLabel 5800 950  0    50   Output ~ 0
 KBD_col[0:5]
-Text HLabel 2150 1350 0    50   Input ~ 0
+Text HLabel 5800 1100 0    50   Input ~ 0
 KBD_row[0:4]
-Text HLabel 2650 4750 0    50   3State ~ 0
+Text HLabel 1500 750  0    50   3State ~ 0
 6502_DATA[7:0]
-Text HLabel 2650 4900 0    50   BiDi ~ 0
+Text HLabel 1500 850  0    50   BiDi ~ 0
 6502_ADDR[19:0]
-Text HLabel 2650 5050 0    50   BiDi ~ 0
+Text HLabel 1500 950  0    50   BiDi ~ 0
 6502_R~W
-Text HLabel 2650 5200 0    50   BiDi ~ 0
+Text HLabel 1500 1050 0    50   Output ~ 0
 6502_RDY
-Text HLabel 2650 5350 0    50   BiDi ~ 0
+Text HLabel 1500 1150 0    50   BiDi ~ 0
 6502_PHI1
-Text HLabel 2650 5500 0    50   BiDi ~ 0
+Text HLabel 1500 1250 0    50   Output ~ 0
 6502_PHI0
-Text HLabel 2650 5650 0    50   BiDi ~ 0
+Text HLabel 1500 1350 0    50   BiDi ~ 0
 6502_PHI2
-Text HLabel 2650 5800 0    50   BiDi ~ 0
+Text HLabel 1500 1450 0    50   BiDi ~ 0
 6502_~IRQ
-Text HLabel 2650 5950 0    50   BiDi ~ 0
+Text HLabel 1500 1550 0    50   Output ~ 0
 6502_~NMI
-Text HLabel 2650 6100 0    50   Output ~ 0
+Text HLabel 1500 1650 0    50   Output ~ 0
 Physical6502_~RES
-Text HLabel 2650 6400 0    50   BiDi ~ 0
+Text HLabel 1500 1750 0    50   Output ~ 0
 6502_SO
-Text HLabel 2650 6550 0    50   Output ~ 0
+Text HLabel 1500 1850 0    50   Output ~ 0
 RAM_~cs
-Text HLabel 2650 6700 0    50   Output ~ 0
+Text HLabel 1500 1950 0    50   Output ~ 0
 GPIO_~cs
-Text HLabel 2650 6850 0    50   Output ~ 0
+Text HLabel 1500 2050 0    50   Output ~ 0
 OPT1_~cs
-Text HLabel 2650 7000 0    50   Output ~ 0
+Text HLabel 1500 2150 0    50   Output ~ 0
 OPT2_~cs
-Text HLabel 2650 7150 0    50   BiDi ~ 0
+Text HLabel 1500 2250 0    50   BiDi ~ 0
 6502_SYNC
-Text HLabel 2650 6250 0    50   BiDi ~ 0
+Text HLabel 1500 2350 0    50   Output ~ 0
 6502_~RES
-Text HLabel 2650 7300 0    50   Output ~ 0
+Text HLabel 1500 2450 0    50   Output ~ 0
 Physical6502_~BusEnable
-Text HLabel 2650 7450 0    50   BiDi ~ 0
+Text HLabel 1600 3900 0    50   BiDi ~ 0
 FPGA_Expansion[7:0]
+$Sheet
+S 1500 650  2450 2850
+U 5ACF6640
+F0 "Level Converters" 50
+F1 "sub_level_shift.sch" 50
+F2 "5V_DATA[7:0]" T L 1500 750 50 
+F3 "5V_ADDR[19:0]" B L 1500 850 50 
+F4 "5V_R~W" B L 1500 950 50 
+F5 "5V_RDY" O L 1500 1050 50 
+F6 "5V_PHI1" B L 1500 1150 50 
+F7 "5V_PHI0" O L 1500 1250 50 
+F8 "5V_PHI2" B L 1500 1350 50 
+F9 "5V_~IRQ" T L 1500 1450 50 
+F10 "5V_~NMI" O L 1500 1550 50 
+F11 "5V_Physical6502_~RES" O L 1500 1650 50 
+F12 "5V_SO" O L 1500 1750 50 
+F13 "5V_RAM_~cs" O L 1500 1850 50 
+F14 "5V_GPIO_~cs" O L 1500 1950 50 
+F15 "5V_OPT1_~cs" O L 1500 2050 50 
+F16 "5V_OPT2_~cs" O L 1500 2150 50 
+F17 "5V_SYNC" B L 1500 2250 50 
+F18 "5V_~RES" O L 1500 2350 50 
+F19 "5V_Physical6502_~BusEnable" O L 1500 2450 50 
+F20 "3V3_DATA[7:0]" T R 3950 750 50 
+F21 "3V3_ADDR[19:0]" I R 3950 850 50 
+F22 "3V3_R~W" B R 3950 950 50 
+F23 "3V3_RDY" I R 3950 1050 50 
+F24 "3V3_PHI1" B R 3950 1150 50 
+F25 "3V3_PHI0" B R 3950 1250 50 
+F26 "3V3_PHI2" B R 3950 1350 50 
+F27 "3V3_~NMI" I R 3950 1550 50 
+F28 "3V3_Physical6502_~RES" I R 3950 1650 50 
+F29 "3V3_SO" I R 3950 1750 50 
+F30 "3V3_RAM_~cs" I R 3950 1850 50 
+F31 "3V3_GPIO_~cs" I R 3950 1950 50 
+F32 "3V3_OPT1_~cs" I R 3950 2050 50 
+F33 "3V3_OPT2_~cs" I R 3950 2150 50 
+F34 "3V3_SYNC" B R 3950 2250 50 
+F35 "3V3_Physical6502_~BusEnable" I R 3950 2450 50 
+F36 "5V_LED_CLK" O L 1500 2600 50 
+F37 "5V_LED_DATA" O L 1500 2700 50 
+F38 "5V_LED_Load" O L 1500 2800 50 
+F39 "EnableXcvrs" I R 3950 3050 50 
+F40 "Drive6502Bus" I R 3950 3250 50 
+F41 "DataDir" I R 3950 3150 50 
+F42 "3V3_LED_CLK" I R 3950 2600 50 
+F43 "3V3_LED_DATA" I R 3950 2700 50 
+F44 "3V3_LED_Load" I R 3950 2800 50 
+F45 "3V3_LED_~CLR" I R 3950 2900 50 
+F46 "5V_LED_~CLR" O L 1500 2900 50 
+F47 "3V3_IRQ" I R 3950 1450 50 
+F48 "3V3_RES" I R 3950 2350 50 
+F49 "3V3_SENSE_RES" O R 3950 3400 50 
+$EndSheet
+Text HLabel 1500 2600 0    50   Output ~ 0
+LED_CLK
+Text HLabel 1500 2700 0    50   Output ~ 0
+LED_DATA
+Text HLabel 1500 2800 0    50   Output ~ 0
+LED_Load
+Text HLabel 1600 4250 0    50   Input ~ 0
+uC_SCLK
+Text HLabel 1600 4350 0    50   Input ~ 0
+uC_MOSI
+Text HLabel 1600 4450 0    50   Output ~ 0
+uC_MISO
+Text HLabel 1600 4550 0    50   Input ~ 0
+uC_~CS
+Text HLabel 1600 4650 0    50   Output ~ 0
+FPGA_~INT
+Text HLabel 1600 4850 0    50   Input ~ 0
+FPGA_CCLK
+Text HLabel 1600 4950 0    50   Input ~ 0
+FPGA_CDIN
+Text HLabel 1500 2900 0    50   Output ~ 0
+LED_~CLR
+$Comp
+L quokka:XC3S200-TQ144 U201
+U 5 1 5AB59013
+P 7400 1900
+F 0 "U201" H 7181 2815 50  0000 C CNN
+F 1 "XC3S200-TQ144" H 7181 2724 50  0000 C CNN
+F 2 "" H 6950 2000 50  0001 C CNN
+F 3 "" H 6950 2000 50  0001 C CNN
+	5    7400 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:XC3S200-TQ144 U201
+U 6 1 5AB59047
+P 7250 3900
+F 0 "U201" H 7181 4815 50  0000 C CNN
+F 1 "XC3S200-TQ144" H 7181 4724 50  0000 C CNN
+F 2 "" H 6800 4000 50  0001 C CNN
+F 3 "" H 6800 4000 50  0001 C CNN
+	6    7250 3900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 8 10
+Sheet 12 15
 Title ""
 Date ""
 Rev ""
@@ -12,7 +12,7 @@ Comp ""
 Comment1 ""
 Comment2 ""
 Comment3 ""
-Comment4 ""
+Comment4 "Quokka 6502 Microprocessor Trainer"
 $EndDescr
 Text HLabel 3900 1550 0    50   3State ~ 0
 6502_DATA[7:0]

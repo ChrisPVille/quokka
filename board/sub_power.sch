@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 10
+Sheet 2 15
 Title ""
 Date ""
 Rev ""
@@ -12,19 +12,213 @@ Comp ""
 Comment1 ""
 Comment2 ""
 Comment3 ""
-Comment4 ""
+Comment4 "Quokka 6502 Microprocessor Trainer"
 $EndDescr
 $Comp
-L quokka:XC3S200-TQ144 U201
-U 9 1 5AA358A2
-P 6200 4500
-F 0 "U201" H 6056 5415 50  0000 C CNN
-F 1 "XC3S200-TQ144" H 6056 5324 50  0000 C CNN
-F 2 "" H 5750 4600 50  0001 C CNN
-F 3 "" H 5750 4600 50  0001 C CNN
-	9    6200 4500
+L power:+2V5 #PWR0203
+U 1 1 5AA47458
+P 8550 3050
+F 0 "#PWR0203" H 8550 2900 50  0001 C CNN
+F 1 "+2V5" H 8565 3223 50  0000 C CNN
+F 2 "" H 8550 3050 50  0001 C CNN
+F 3 "" H 8550 3050 50  0001 C CNN
+	1    8550 3050
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	8450 3950 8700 3950
+Wire Wire Line
+	8700 3950 8700 3850
+Connection ~ 8700 3850
+Wire Wire Line
+	8700 3850 8450 3850
+Wire Wire Line
+	8700 3750 8700 3850
+Wire Wire Line
+	8700 3750 8700 3650
+Connection ~ 8700 3750
+Wire Wire Line
+	8450 3750 8700 3750
+Wire Wire Line
+	8700 3650 8450 3650
+Connection ~ 8700 3650
+Wire Wire Line
+	8700 3550 8700 3650
+$Comp
+L power:+1V2 #PWR0205
+U 1 1 5ADB9339
+P 8700 3550
+F 0 "#PWR0205" H 8700 3400 50  0001 C CNN
+F 1 "+1V2" H 8715 3723 50  0000 C CNN
+F 2 "" H 8700 3550 50  0001 C CNN
+F 3 "" H 8700 3550 50  0001 C CNN
+	1    8700 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8550 3500 8450 3500
+Wire Wire Line
+	8550 3400 8550 3500
+Wire Wire Line
+	8550 3400 8450 3400
+Connection ~ 8550 3400
+Wire Wire Line
+	8550 3300 8550 3400
+Wire Wire Line
+	8550 3300 8450 3300
+Connection ~ 8550 3300
+Wire Wire Line
+	8550 3200 8550 3300
+Wire Wire Line
+	8550 3200 8450 3200
+Connection ~ 8550 3200
+Wire Wire Line
+	8550 3050 8550 3200
+Wire Wire Line
+	6750 5050 6650 5050
+Wire Wire Line
+	6750 4900 6750 5050
+Connection ~ 6750 4900
+Wire Wire Line
+	6750 4900 6650 4900
+Wire Wire Line
+	6750 4750 6750 4900
+Connection ~ 6750 4750
+Wire Wire Line
+	6750 4750 6650 4750
+Wire Wire Line
+	6750 4600 6750 4750
+Connection ~ 6750 4600
+Wire Wire Line
+	6650 4600 6750 4600
+Wire Wire Line
+	6750 4600 6750 4450
+Connection ~ 6750 4450
+Wire Wire Line
+	6650 4450 6750 4450
+Wire Wire Line
+	6750 4450 6750 4300
+Connection ~ 6750 4300
+Wire Wire Line
+	6650 4300 6750 4300
+Wire Wire Line
+	6750 4300 6750 4150
+Connection ~ 6750 4150
+Wire Wire Line
+	6750 4150 6650 4150
+Wire Wire Line
+	6750 4000 6750 4150
+Wire Wire Line
+	6750 4000 6750 3850
+Connection ~ 6750 4000
+Wire Wire Line
+	6650 4000 6750 4000
+Wire Wire Line
+	6750 3850 6650 3850
+Connection ~ 6750 3850
+Wire Wire Line
+	6750 3700 6750 3850
+$Comp
+L power:+3V3 #PWR0201
+U 1 1 5ADAC278
+P 6750 3700
+F 0 "#PWR0201" H 6750 3550 50  0001 C CNN
+F 1 "+3V3" H 6765 3873 50  0000 C CNN
+F 2 "" H 6750 3700 50  0001 C CNN
+F 3 "" H 6750 3700 50  0001 C CNN
+	1    6750 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0204
+U 1 1 5ADABBB0
+P 8550 5700
+F 0 "#PWR0204" H 8550 5450 50  0001 C CNN
+F 1 "GND" H 8555 5527 50  0000 C CNN
+F 2 "" H 8550 5700 50  0001 C CNN
+F 3 "" H 8550 5700 50  0001 C CNN
+	1    8550 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 4200 8550 4200
+Wire Wire Line
+	8550 4200 8550 4300
+Connection ~ 8550 4300
+Wire Wire Line
+	8550 4300 8450 4300
+Wire Wire Line
+	8550 4300 8550 4400
+Connection ~ 8550 4400
+Wire Wire Line
+	8450 4400 8550 4400
+Wire Wire Line
+	8550 4400 8550 4500
+Connection ~ 8550 4500
+Wire Wire Line
+	8550 4500 8450 4500
+Wire Wire Line
+	8550 4500 8550 4600
+Connection ~ 8550 4600
+Wire Wire Line
+	8450 4600 8550 4600
+Wire Wire Line
+	8550 4600 8550 4700
+Connection ~ 8550 4700
+Wire Wire Line
+	8550 4700 8450 4700
+Wire Wire Line
+	8550 4700 8550 4800
+Connection ~ 8550 4800
+Wire Wire Line
+	8450 4800 8550 4800
+Wire Wire Line
+	8550 4800 8550 4900
+Connection ~ 8550 4900
+Wire Wire Line
+	8450 4900 8550 4900
+Wire Wire Line
+	8550 4900 8550 5000
+Connection ~ 8550 5000
+Wire Wire Line
+	8450 5000 8550 5000
+Wire Wire Line
+	8550 5000 8550 5100
+Connection ~ 8550 5100
+Wire Wire Line
+	8450 5100 8550 5100
+Wire Wire Line
+	8550 5100 8550 5200
+Connection ~ 8550 5200
+Wire Wire Line
+	8450 5200 8550 5200
+Wire Wire Line
+	8550 5200 8550 5300
+Connection ~ 8550 5300
+Wire Wire Line
+	8450 5300 8550 5300
+Wire Wire Line
+	8550 5300 8550 5400
+Connection ~ 8550 5400
+Wire Wire Line
+	8450 5400 8550 5400
+Wire Wire Line
+	8550 5400 8550 5500
+Connection ~ 8550 5500
+Wire Wire Line
+	8450 5500 8550 5500
+Wire Wire Line
+	8550 5500 8550 5600
+Wire Wire Line
+	8550 5600 8550 5700
+Connection ~ 8550 5600
+Wire Wire Line
+	8450 5600 8550 5600
+Connection ~ 8550 4200
+Wire Wire Line
+	8550 4100 8550 4200
+Wire Wire Line
+	8450 4100 8550 4100
 $Comp
 L quokka:XC3S200-TQ144 U201
 U 11 1 5AA358F8
@@ -36,224 +230,40 @@ F 3 "" H 7900 3950 50  0001 C CNN
 	11   8350 3850
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8450 4100 8550 4100
-Wire Wire Line
-	8550 4100 8550 4200
-Wire Wire Line
-	8450 5600 8550 5600
-Connection ~ 8550 5600
-Wire Wire Line
-	8550 5600 8550 5700
-Wire Wire Line
-	8450 5500 8550 5500
-Connection ~ 8550 5500
-Wire Wire Line
-	8550 5500 8550 5600
-Wire Wire Line
-	8450 5400 8550 5400
-Connection ~ 8550 5400
-Wire Wire Line
-	8550 5400 8550 5500
-Wire Wire Line
-	8450 5300 8550 5300
-Connection ~ 8550 5300
-Wire Wire Line
-	8550 5300 8550 5400
-Wire Wire Line
-	8450 5200 8550 5200
-Connection ~ 8550 5200
-Wire Wire Line
-	8550 5200 8550 5300
-Wire Wire Line
-	8450 5100 8550 5100
-Connection ~ 8550 5100
-Wire Wire Line
-	8550 5100 8550 5200
-Wire Wire Line
-	8450 5000 8550 5000
-Connection ~ 8550 5000
-Wire Wire Line
-	8550 5000 8550 5100
-Wire Wire Line
-	8450 4900 8550 4900
-Connection ~ 8550 4900
-Wire Wire Line
-	8550 4900 8550 5000
-Wire Wire Line
-	8450 4800 8550 4800
-Connection ~ 8550 4800
-Wire Wire Line
-	8550 4800 8550 4900
-Wire Wire Line
-	8550 4700 8450 4700
-Connection ~ 8550 4700
-Wire Wire Line
-	8550 4700 8550 4800
-Wire Wire Line
-	8450 4600 8550 4600
-Connection ~ 8550 4600
-Wire Wire Line
-	8550 4600 8550 4700
-Wire Wire Line
-	8550 4500 8450 4500
-Connection ~ 8550 4500
-Wire Wire Line
-	8550 4500 8550 4600
-Wire Wire Line
-	8450 4400 8550 4400
-Connection ~ 8550 4400
-Wire Wire Line
-	8550 4400 8550 4500
-Wire Wire Line
-	8550 4300 8450 4300
-Connection ~ 8550 4300
-Wire Wire Line
-	8550 4300 8550 4400
-Wire Wire Line
-	8450 4200 8550 4200
-Connection ~ 8550 4200
-Wire Wire Line
-	8550 4200 8550 4300
 $Comp
-L power:GND #PWR0102
-U 1 1 5ADABBB0
-P 8550 5700
-F 0 "#PWR0102" H 8550 5450 50  0001 C CNN
-F 1 "GND" H 8555 5527 50  0000 C CNN
-F 2 "" H 8550 5700 50  0001 C CNN
-F 3 "" H 8550 5700 50  0001 C CNN
-	1    8550 5700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR0103
-U 1 1 5ADAC278
-P 6750 3700
-F 0 "#PWR0103" H 6750 3550 50  0001 C CNN
-F 1 "+3V3" H 6765 3873 50  0000 C CNN
-F 2 "" H 6750 3700 50  0001 C CNN
-F 3 "" H 6750 3700 50  0001 C CNN
-	1    6750 3700
+L quokka:XC3S200-TQ144 U201
+U 9 1 5AA358A2
+P 6200 4500
+F 0 "U201" H 6056 5415 50  0000 C CNN
+F 1 "XC3S200-TQ144" H 6056 5324 50  0000 C CNN
+F 2 "" H 5750 4600 50  0001 C CNN
+F 3 "" H 5750 4600 50  0001 C CNN
+	9    6200 4500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6750 3700 6750 3850
+	6650 5200 6900 5200
 Wire Wire Line
-	6750 3850 6650 3850
+	6900 5200 6900 5100
 Wire Wire Line
-	6650 4000 6750 4000
+	6900 5200 6900 5350
 Wire Wire Line
-	6750 4000 6750 3850
-Connection ~ 6750 3850
+	6900 5350 6650 5350
+Connection ~ 6900 5200
 Wire Wire Line
-	6750 4000 6750 4150
+	6900 5350 6900 5500
 Wire Wire Line
-	6750 4150 6650 4150
-Connection ~ 6750 4000
-Wire Wire Line
-	6650 4300 6750 4300
-Wire Wire Line
-	6750 4300 6750 4150
-Connection ~ 6750 4150
-Wire Wire Line
-	6650 4450 6750 4450
-Wire Wire Line
-	6750 4450 6750 4300
-Connection ~ 6750 4300
-Wire Wire Line
-	6650 4600 6750 4600
-Wire Wire Line
-	6750 4600 6750 4450
-Connection ~ 6750 4450
-Wire Wire Line
-	6750 4600 6750 4750
-Wire Wire Line
-	6750 4750 6650 4750
-Connection ~ 6750 4600
-Wire Wire Line
-	6750 4750 6750 4900
-Wire Wire Line
-	6750 4900 6650 4900
-Connection ~ 6750 4750
-Wire Wire Line
-	6750 4900 6750 5050
-Wire Wire Line
-	6750 5050 6650 5050
-Connection ~ 6750 4900
-Wire Wire Line
-	6750 5050 6750 5200
-Wire Wire Line
-	6750 5200 6650 5200
-Connection ~ 6750 5050
-Wire Wire Line
-	6750 5200 6750 5350
-Wire Wire Line
-	6750 5350 6650 5350
-Connection ~ 6750 5200
-Wire Wire Line
-	6750 5350 6750 5500
-Wire Wire Line
-	6750 5500 6650 5500
-Connection ~ 6750 5350
+	6900 5500 6650 5500
+Connection ~ 6900 5350
 $Comp
-L power:+3V3 #PWR0104
-U 1 1 5ADB4AC8
-P 8550 3050
-F 0 "#PWR0104" H 8550 2900 50  0001 C CNN
-F 1 "+3V3" H 8565 3223 50  0000 C CNN
-F 2 "" H 8550 3050 50  0001 C CNN
-F 3 "" H 8550 3050 50  0001 C CNN
-	1    8550 3050
+L power:+2V5 #PWR0202
+U 1 1 5AA5ECC2
+P 6900 5100
+F 0 "#PWR0202" H 6900 4950 50  0001 C CNN
+F 1 "+2V5" H 6915 5273 50  0000 C CNN
+F 2 "" H 6900 5100 50  0001 C CNN
+F 3 "" H 6900 5100 50  0001 C CNN
+	1    6900 5100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8550 3050 8550 3200
-Wire Wire Line
-	8550 3200 8450 3200
-Wire Wire Line
-	8550 3200 8550 3300
-Wire Wire Line
-	8550 3300 8450 3300
-Connection ~ 8550 3200
-Wire Wire Line
-	8550 3300 8550 3400
-Wire Wire Line
-	8550 3400 8450 3400
-Connection ~ 8550 3300
-Wire Wire Line
-	8550 3400 8550 3500
-Wire Wire Line
-	8550 3500 8450 3500
-Connection ~ 8550 3400
-$Comp
-L power:+1V2 #PWR0105
-U 1 1 5ADB9339
-P 8700 3550
-F 0 "#PWR0105" H 8700 3400 50  0001 C CNN
-F 1 "+1V2" H 8715 3723 50  0000 C CNN
-F 2 "" H 8700 3550 50  0001 C CNN
-F 3 "" H 8700 3550 50  0001 C CNN
-	1    8700 3550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8700 3550 8700 3650
-Wire Wire Line
-	8700 3650 8450 3650
-Wire Wire Line
-	8450 3750 8700 3750
-Wire Wire Line
-	8700 3750 8700 3650
-Connection ~ 8700 3650
-Wire Wire Line
-	8700 3750 8700 3850
-Wire Wire Line
-	8700 3850 8450 3850
-Connection ~ 8700 3750
-Wire Wire Line
-	8450 3950 8700 3950
-Wire Wire Line
-	8700 3950 8700 3850
-Connection ~ 8700 3850
 $EndSCHEMATC
