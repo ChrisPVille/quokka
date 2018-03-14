@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 11 15
+Sheet 10 14
 Title ""
 Date ""
 Rev ""
@@ -45,10 +45,10 @@ Text HLabel 6250 5700 2    50   UnSpc ~ 0
 Text HLabel 6550 2650 2    50   BiDi ~ 0
 FPGA_Expansion[7:0]
 $Comp
-L Connector_Generic:Conn_02x36_Counter_Clockwise J?
+L Connector_Generic:Conn_02x36_Counter_Clockwise J1001
 U 1 1 5AB66C6D
 P 5950 4400
-F 0 "J?" H 6000 6317 50  0000 C CNN
+F 0 "J1001" H 6000 6317 50  0000 C CNN
 F 1 "Conn_02x36_Counter_Clockwise" H 6000 6226 50  0000 C CNN
 F 2 "" H 5950 4400 50  0001 C CNN
 F 3 "~" H 5950 4400 50  0001 C CNN
@@ -228,10 +228,10 @@ Wire Bus Line
 Wire Bus Line
 	5350 4900 5450 4900
 $Comp
-L power:GND #PWR?
+L power:GND #PWR01001
 U 1 1 5AB6DD73
 P 5600 4900
-F 0 "#PWR?" H 5600 4650 50  0001 C CNN
+F 0 "#PWR01001" H 5600 4650 50  0001 C CNN
 F 1 "GND" H 5500 5000 50  0001 C CNN
 F 2 "" H 5600 4900 50  0001 C CNN
 F 3 "" H 5600 4900 50  0001 C CNN
@@ -307,9 +307,9 @@ Wire Wire Line
 Wire Bus Line
 	6450 2650 6550 2650
 Wire Bus Line
-	5450 4900 5450 5700
-Wire Bus Line
 	6450 2650 6450 3500
+Wire Bus Line
+	5450 4900 5450 5700
 Wire Bus Line
 	5550 2650 5550 4700
 $EndSCHEMATC

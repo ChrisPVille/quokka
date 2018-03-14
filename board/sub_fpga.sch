@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 14 15
+Sheet 13 14
 Title ""
 Date ""
 Rev ""
@@ -14,9 +14,9 @@ Comment2 ""
 Comment3 ""
 Comment4 "Quokka 6502 Microprocessor Trainer"
 $EndDescr
-Text HLabel 5800 950  0    50   Output ~ 0
+Text HLabel 5950 -300 0    50   Output ~ 0
 KBD_col[0:5]
-Text HLabel 5800 1100 0    50   Input ~ 0
+Text HLabel 5950 -150 0    50   Input ~ 0
 KBD_row[0:4]
 Text HLabel 1500 750  0    50   3State ~ 0
 6502_DATA[7:0]
@@ -135,23 +135,230 @@ LED_~CLR
 $Comp
 L quokka:XC3S200-TQ144 U201
 U 5 1 5AB59013
-P 7400 1900
-F 0 "U201" H 7181 2815 50  0000 C CNN
-F 1 "XC3S200-TQ144" H 7181 2724 50  0000 C CNN
-F 2 "" H 6950 2000 50  0001 C CNN
-F 3 "" H 6950 2000 50  0001 C CNN
-	5    7400 1900
+P 12650 3550
+F 0 "U201" H 12431 4465 50  0000 C CNN
+F 1 "XC3S200-TQ144" H 12431 4374 50  0000 C CNN
+F 2 "" H 12200 3650 50  0001 C CNN
+F 3 "" H 12200 3650 50  0001 C CNN
+	5    12650 3550
 	1    0    0    -1  
 $EndComp
 $Comp
 L quokka:XC3S200-TQ144 U201
 U 6 1 5AB59047
-P 7250 3900
-F 0 "U201" H 7181 4815 50  0000 C CNN
-F 1 "XC3S200-TQ144" H 7181 4724 50  0000 C CNN
-F 2 "" H 6800 4000 50  0001 C CNN
-F 3 "" H 6800 4000 50  0001 C CNN
-	6    7250 3900
+P 12500 5700
+F 0 "U201" H 12431 6615 50  0000 C CNN
+F 1 "XC3S200-TQ144" H 12431 6524 50  0000 C CNN
+F 2 "" H 12050 5800 50  0001 C CNN
+F 3 "" H 12050 5800 50  0001 C CNN
+	6    12500 5700
 	1    0    0    -1  
 $EndComp
+$Comp
+L quokka:XC3S200-TQ144 U?
+U 4 1 5B2B027C
+P 10350 2050
+F 0 "U?" H 10206 2965 50  0000 C CNN
+F 1 "XC3S200-TQ144" H 10206 2874 50  0000 C CNN
+F 2 "" H 9900 2150 50  0001 C CNN
+F 3 "" H 9900 2150 50  0001 C CNN
+	4    10350 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:XC3S200-TQ144 U?
+U 3 1 5B2B02B6
+P 10350 4650
+F 0 "U?" H 10206 5565 50  0000 C CNN
+F 1 "XC3S200-TQ144" H 10206 5474 50  0000 C CNN
+F 2 "" H 9900 4750 50  0001 C CNN
+F 3 "" H 9900 4750 50  0001 C CNN
+	3    10350 4650
+	1    0    0    -1  
+$EndComp
+Wire Bus Line
+	3950 850  9400 850 
+Entry Wire Line
+	11000 5000 10900 4900
+Entry Wire Line
+	11000 5150 10900 5050
+Entry Wire Line
+	11000 5300 10900 5200
+Entry Wire Line
+	11000 5450 10900 5350
+Entry Wire Line
+	11000 5600 10900 5500
+Entry Wire Line
+	11000 5750 10900 5650
+Entry Wire Line
+	11000 5900 10900 5800
+Entry Wire Line
+	11000 6050 10900 5950
+Text Label 10900 5950 2    50   ~ 0
+A0
+Text Label 10900 5800 2    50   ~ 0
+A1
+Text Label 10900 5650 2    50   ~ 0
+A2
+Text Label 10900 5500 2    50   ~ 0
+A3
+Text Label 10900 5350 2    50   ~ 0
+A4
+Text Label 10900 5200 2    50   ~ 0
+A5
+Text Label 10900 5050 2    50   ~ 0
+A6
+Text Label 10900 4900 2    50   ~ 0
+A7
+Wire Wire Line
+	10800 5350 10900 5350
+Wire Wire Line
+	10900 5200 10800 5200
+Wire Wire Line
+	10800 5050 10900 5050
+Wire Wire Line
+	10900 4900 10800 4900
+Wire Wire Line
+	10900 5950 10800 5950
+Wire Wire Line
+	10800 5800 10900 5800
+Wire Wire Line
+	10900 5650 10800 5650
+Wire Wire Line
+	10800 5500 10900 5500
+Wire Wire Line
+	10800 4750 10900 4750
+Wire Wire Line
+	10900 4600 10800 4600
+Wire Wire Line
+	10800 4450 10900 4450
+Wire Wire Line
+	10900 4300 10800 4300
+Wire Wire Line
+	10800 4150 10900 4150
+Wire Wire Line
+	10900 4000 10800 4000
+Wire Wire Line
+	10800 3500 10900 3500
+Wire Wire Line
+	10900 3350 10800 3350
+Text Label 10900 4750 2    50   ~ 0
+A8
+Text Label 10900 4600 2    50   ~ 0
+A9
+Text Label 10900 4450 2    50   ~ 0
+A10
+Text Label 10900 4300 2    50   ~ 0
+A11
+Text Label 10900 3350 2    50   ~ 0
+A15
+Text Label 10900 3500 2    50   ~ 0
+A14
+Text Label 10900 4000 2    50   ~ 0
+A13
+Text Label 10900 4150 2    50   ~ 0
+A12
+Entry Wire Line
+	11000 3450 10900 3350
+Entry Wire Line
+	11000 3600 10900 3500
+Entry Wire Line
+	11000 4100 10900 4000
+Entry Wire Line
+	11000 4250 10900 4150
+Entry Wire Line
+	11000 4400 10900 4300
+Entry Wire Line
+	11000 4550 10900 4450
+Entry Wire Line
+	11000 4700 10900 4600
+Entry Wire Line
+	11000 4850 10900 4750
+Entry Wire Line
+	11000 3300 10900 3200
+Entry Wire Line
+	11000 3150 10900 3050
+Entry Wire Line
+	11000 3000 10900 2900
+Entry Wire Line
+	11000 2850 10900 2750
+Text Label 10900 2750 2    50   ~ 0
+A19
+Text Label 10900 2900 2    50   ~ 0
+A18
+Text Label 10900 3050 2    50   ~ 0
+A17
+Text Label 10900 3200 2    50   ~ 0
+A16
+Wire Wire Line
+	10900 2750 10800 2750
+Wire Wire Line
+	10800 2900 10900 2900
+Wire Wire Line
+	10900 3050 10800 3050
+Wire Wire Line
+	10800 3200 10900 3200
+Entry Wire Line
+	10900 2450 11000 2350
+Entry Wire Line
+	10900 2300 11000 2200
+Entry Wire Line
+	10900 2150 11000 2050
+Entry Wire Line
+	10900 2000 11000 1900
+Entry Wire Line
+	10900 1850 11000 1750
+Entry Wire Line
+	10900 1700 11000 1600
+Entry Wire Line
+	10900 1550 11000 1450
+Entry Wire Line
+	10900 1400 11000 1300
+Text Label 10900 1400 2    50   ~ 0
+D0
+Text Label 10900 1550 2    50   ~ 0
+D1
+Text Label 10900 1700 2    50   ~ 0
+D2
+Text Label 10900 1850 2    50   ~ 0
+D3
+Text Label 10900 2000 2    50   ~ 0
+D4
+Text Label 10900 2150 2    50   ~ 0
+D5
+Text Label 10900 2300 2    50   ~ 0
+D6
+Text Label 10900 2450 2    50   ~ 0
+D7
+Wire Wire Line
+	10800 2450 10900 2450
+Wire Wire Line
+	10900 2300 10800 2300
+Wire Wire Line
+	10800 2150 10900 2150
+Wire Wire Line
+	10900 2000 10800 2000
+Wire Wire Line
+	10800 1850 10900 1850
+Wire Wire Line
+	10900 1700 10800 1700
+Wire Wire Line
+	10800 1550 10900 1550
+Wire Wire Line
+	10900 1400 10800 1400
+NoConn ~ 10800 2600
+Wire Bus Line
+	3950 750  11000 750 
+Wire Bus Line
+	11000 6300 9400 6300
+Wire Bus Line
+	9400 850  9400 6300
+Wire Bus Line
+	11000 750  11000 2350
+Wire Bus Line
+	11000 2850 11000 6300
+Text Label 6300 750  0    50   ~ 0
+D[0:7]
+Text Label 6300 850  0    50   ~ 0
+A[0:19]
 $EndSCHEMATC

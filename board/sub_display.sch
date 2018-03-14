@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 15
+Sheet 5 14
 Title ""
 Date ""
 Rev ""
@@ -15,20 +15,9 @@ Comment3 ""
 Comment4 "Quokka 6502 Microprocessor Trainer"
 $EndDescr
 $Sheet
-S 6350 3100 1600 1000
-U 5AA75030
-F0 "Digit Row" 50
-F1 "sub_digit_row.sch" 50
-F2 "Din" I L 6350 4000 50 
-F3 "Dout" O R 7950 4000 50 
-F4 "CLK" I L 6350 3200 50 
-F5 "~RST" I L 6350 3300 50 
-F6 "Load" I L 6350 3400 50 
-$EndSheet
-$Sheet
 S 4100 3100 1600 1000
 U 5AC1379B
-F0 "Digit Row" 50
+F0 "Digit Row 2" 50
 F1 "sub_digit_row.sch" 50
 F2 "Din" I L 4100 4000 50 
 F3 "Dout" O R 5700 4000 50 
@@ -39,7 +28,7 @@ $EndSheet
 $Sheet
 S 1850 3100 1600 1000
 U 5AC137A8
-F0 "Digit Row" 50
+F0 "Digit Row 1" 50
 F1 "sub_digit_row.sch" 50
 F2 "Din" I L 1850 4000 50 
 F3 "Dout" O R 3450 4000 50 
@@ -48,17 +37,15 @@ F5 "~RST" I L 1850 3300 50
 F6 "Load" I L 1850 3400 50 
 $EndSheet
 $Sheet
-S 8900 3100 1600 1000
+S 6350 3100 1600 1000
 U 5AC14525
 F0 "Last Digit Row" 50
 F1 "sub_last_digit_row.sch" 50
-F2 "Din" I L 8900 4000 50 
-F3 "CLK" I L 8900 3200 50 
-F4 "~RST" I L 8900 3300 50 
-F5 "Load" I L 8900 3400 50 
+F2 "Din" I L 6350 4000 50 
+F3 "CLK" I L 6350 3200 50 
+F4 "~RST" I L 6350 3300 50 
+F5 "Load" I L 6350 3400 50 
 $EndSheet
-Wire Wire Line
-	8900 4000 7950 4000
 Wire Wire Line
 	6350 4000 5700 4000
 Wire Wire Line
@@ -72,16 +59,9 @@ Load
 Wire Wire Line
 	1350 2550 1750 2550
 Wire Wire Line
-	8800 2550 8800 3200
-Wire Wire Line
-	8800 3200 8900 3200
-Wire Wire Line
 	6350 3200 6250 3200
 Wire Wire Line
 	6250 3200 6250 2550
-Connection ~ 6250 2550
-Wire Wire Line
-	6250 2550 8800 2550
 Wire Wire Line
 	4100 3200 4000 3200
 Wire Wire Line
@@ -99,29 +79,15 @@ Wire Wire Line
 Wire Wire Line
 	1350 2650 1650 2650
 Wire Wire Line
-	8700 2650 8700 3300
-Wire Wire Line
-	8700 3300 8900 3300
-Wire Wire Line
-	8900 3400 8600 3400
-Wire Wire Line
-	8600 3400 8600 2750
-Wire Wire Line
 	1350 2750 1550 2750
 Wire Wire Line
 	6350 3300 6150 3300
 Wire Wire Line
 	6150 3300 6150 2650
-Connection ~ 6150 2650
-Wire Wire Line
-	6150 2650 8700 2650
 Wire Wire Line
 	6350 3400 6050 3400
 Wire Wire Line
 	6050 3400 6050 2750
-Connection ~ 6050 2750
-Wire Wire Line
-	6050 2750 8600 2750
 Wire Wire Line
 	4100 3300 3900 3300
 Wire Wire Line
