@@ -15,9 +15,9 @@ Comment3 ""
 Comment4 "Quokka 6502 Microprocessor Trainer"
 $EndDescr
 Text HLabel 6950 600  0    50   3State ~ 0
-5V_DATA[7:0]
+5V_DATA[7..0]
 Text HLabel 1150 600  0    50   BiDi ~ 0
-5V_ADDR[19:0]
+5V_ADDR[19..0]
 Text HLabel 1750 5400 0    50   BiDi ~ 0
 5V_R~W
 Text HLabel 4600 1500 0    50   Output ~ 0
@@ -50,8 +50,8 @@ Text HLabel 7350 5050 3    50   Output ~ 0
 5V_Physical6502_~BusEnable
 Text HLabel 8800 600  2    50   3State ~ 0
 3V3_DATA[7..0]
-Text HLabel 6050 5050 2    50   Input ~ 0
-3V3_ADDR[19:0]
+Text HLabel 6000 4650 2    50   Input ~ 0
+3V3_ADDR[19..0]
 Text HLabel 2800 5400 2    50   BiDi ~ 0
 3V3_R~W
 Text HLabel 5650 1500 2    50   Input ~ 0
@@ -117,37 +117,37 @@ Entry Wire Line
 Entry Wire Line
 	1450 4050 1550 3950
 Text Label 1550 3950 0    50   ~ 0
-A0
+5_A0
 Text Label 1550 3850 0    50   ~ 0
-A1
+5_A1
 Text Label 1550 3750 0    50   ~ 0
-A2
+5_A2
 Text Label 1550 3650 0    50   ~ 0
-A3
+5_A3
 Text Label 1550 3550 0    50   ~ 0
-A4
+5_A4
 Text Label 1550 3450 0    50   ~ 0
-A5
+5_A5
 Text Label 1550 3350 0    50   ~ 0
-A6
+5_A6
 Text Label 1550 3250 0    50   ~ 0
-A7
+5_A7
 Text Label 3000 2000 2    50   ~ 0
-A8
+3_A8
 Text Label 3000 1900 2    50   ~ 0
-A9
+3_A9
 Text Label 3000 1800 2    50   ~ 0
-A10
+3_A10
 Text Label 3000 1700 2    50   ~ 0
-A11
+3_A11
 Text Label 3000 1300 2    50   ~ 0
-A15
+3_A15
 Text Label 3000 1400 2    50   ~ 0
-A14
+3_A14
 Text Label 3000 1500 2    50   ~ 0
-A13
+3_A13
 Text Label 3000 1600 2    50   ~ 0
-A12
+3_A12
 $Comp
 L power:GND #PWR01407
 U 1 1 5ACFA85C
@@ -656,21 +656,21 @@ Entry Wire Line
 Entry Wire Line
 	7150 1300 7050 1200
 Text Label 7150 1300 0    50   ~ 0
-D0
+5_D0
 Text Label 7150 1400 0    50   ~ 0
-D1
+5_D1
 Text Label 7150 1500 0    50   ~ 0
-D2
+5_D2
 Text Label 7150 1600 0    50   ~ 0
-D3
+5_D3
 Text Label 7150 1700 0    50   ~ 0
-D4
+5_D4
 Text Label 7150 1800 0    50   ~ 0
-D5
+5_D5
 Text Label 7150 1900 0    50   ~ 0
-D6
+5_D6
 Text Label 7150 2000 0    50   ~ 0
-D7
+5_D7
 Wire Wire Line
 	7350 2000 7150 2000
 Wire Wire Line
@@ -754,7 +754,7 @@ Wire Wire Line
 Wire Wire Line
 	4450 6100 4600 6100
 Text HLabel 3200 600  2    50   Input ~ 0
-3V3_ADDR[19:0]
+3V3_ADDR[19..0]
 Wire Bus Line
 	6950 600  7050 600 
 Entry Wire Line
@@ -774,21 +774,21 @@ Entry Wire Line
 Entry Wire Line
 	8600 1300 8700 1200
 Text Label 8600 1300 2    50   ~ 0
-D0
+3_D0
 Text Label 8600 1400 2    50   ~ 0
-D1
+3_D1
 Text Label 8600 1500 2    50   ~ 0
-D2
+3_D2
 Text Label 8600 1600 2    50   ~ 0
-D3
+3_D3
 Text Label 8600 1700 2    50   ~ 0
-D4
+3_D4
 Text Label 8600 1800 2    50   ~ 0
-D5
+3_D5
 Text Label 8600 1900 2    50   ~ 0
-D6
+3_D6
 Text Label 8600 2000 2    50   ~ 0
-D7
+3_D7
 Wire Wire Line
 	8400 2000 8600 2000
 Wire Wire Line
@@ -816,13 +816,13 @@ Entry Wire Line
 Entry Wire Line
 	4300 5600 4400 5500
 Text Label 4400 5500 0    50   ~ 0
-A19
+5_A19
 Text Label 4400 5400 0    50   ~ 0
-A18
+5_A18
 Text Label 4400 5300 0    50   ~ 0
-A17
+5_A17
 Text Label 4400 5200 0    50   ~ 0
-A16
+5_A16
 Wire Wire Line
 	4400 5500 4600 5500
 Wire Wire Line
@@ -832,7 +832,7 @@ Wire Wire Line
 Wire Wire Line
 	4600 5200 4400 5200
 Wire Bus Line
-	4300 5050 4200 5050
+	4300 4650 4200 4650
 Entry Wire Line
 	5950 5300 5850 5200
 Entry Wire Line
@@ -842,13 +842,13 @@ Entry Wire Line
 Entry Wire Line
 	5950 5600 5850 5500
 Text Label 5850 5500 2    50   ~ 0
-A19
+3_A19
 Text Label 5850 5400 2    50   ~ 0
-A18
+3_A18
 Text Label 5850 5300 2    50   ~ 0
-A17
+3_A17
 Text Label 5850 5200 2    50   ~ 0
-A16
+3_A16
 Wire Wire Line
 	5850 5500 5650 5500
 Wire Wire Line
@@ -858,9 +858,9 @@ Wire Wire Line
 Wire Wire Line
 	5650 5200 5850 5200
 Wire Bus Line
-	5950 5050 6050 5050
-Text HLabel 4200 5050 0    50   BiDi ~ 0
-5V_ADDR[19:0]
+	5950 4650 6000 4650
+Text HLabel 4200 4650 0    50   BiDi ~ 0
+5V_ADDR[19..0]
 Wire Wire Line
 	8100 2600 8000 2600
 Connection ~ 8000 2600
@@ -1334,37 +1334,37 @@ F 3 "" H 10600 1000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 1550 2000 0    50   ~ 0
-A8
+5_A8
 Text Label 1550 1900 0    50   ~ 0
-A9
+5_A9
 Text Label 1550 1800 0    50   ~ 0
-A10
+5_A10
 Text Label 1550 1700 0    50   ~ 0
-A11
+5_A11
 Text Label 1550 1300 0    50   ~ 0
-A15
+5_A15
 Text Label 1550 1400 0    50   ~ 0
-A14
+5_A14
 Text Label 1550 1500 0    50   ~ 0
-A13
+5_A13
 Text Label 1550 1600 0    50   ~ 0
-A12
+5_A12
 Text Label 3000 3950 2    50   ~ 0
-A0
+3_A0
 Text Label 3000 3850 2    50   ~ 0
-A1
+3_A1
 Text Label 3000 3750 2    50   ~ 0
-A2
+3_A2
 Text Label 3000 3650 2    50   ~ 0
-A3
+3_A3
 Text Label 3000 3550 2    50   ~ 0
-A4
+3_A4
 Text Label 3000 3450 2    50   ~ 0
-A5
+3_A5
 Text Label 3000 3350 2    50   ~ 0
-A6
+3_A6
 Text Label 3000 3250 2    50   ~ 0
-A7
+3_A7
 Wire Wire Line
 	1550 1300 1750 1300
 Wire Wire Line
@@ -1429,10 +1429,20 @@ Wire Wire Line
 	1550 3850 1750 3850
 Wire Wire Line
 	1550 3950 1750 3950
+Text Label 8700 650  3    50   ~ 0
+3_D[7..0]
+Text Label 7050 650  3    50   ~ 0
+5_D[7..0]
+Text Label 1450 650  3    50   ~ 0
+5_A[16..0]
+Text Label 3100 650  3    50   ~ 0
+3_A[16..0]
+Text Label 5950 4700 3    50   ~ 0
+3_A[19..16]
 Wire Bus Line
-	5950 5050 5950 5600
+	5950 4650 5950 5600
 Wire Bus Line
-	4300 5050 4300 5600
+	4300 4650 4300 5600
 Wire Bus Line
 	8700 600  8700 1900
 Wire Bus Line
@@ -1441,4 +1451,6 @@ Wire Bus Line
 	3100 600  3100 4050
 Wire Bus Line
 	1450 600  1450 4050
+Text Label 4300 4700 3    50   ~ 0
+5_A[19..16]
 $EndSCHEMATC

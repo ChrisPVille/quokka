@@ -36,13 +36,13 @@ F 3 "" H 6050 6100 50  0001 C CNN
 	1    5900 6150
 	-1   0    0    -1  
 $EndComp
-Text HLabel 1850 5350 0    50   Output ~ 0
+Text HLabel 9200 3550 2    50   Output ~ 0
 uC_SCLK
-Text HLabel 1850 5450 0    50   Output ~ 0
+Text HLabel 9200 3750 2    50   Output ~ 0
 uC_MOSI
-Text HLabel 1850 5550 0    50   Input ~ 0
+Text HLabel 9200 3650 2    50   Input ~ 0
 uC_MISO
-Text HLabel 1850 5650 0    50   Output ~ 0
+Text HLabel 9200 3450 2    50   Output ~ 0
 uC_~CS
 Text HLabel 1850 5750 0    50   Input ~ 0
 FPGA_~INT
@@ -55,12 +55,12 @@ Wire Wire Line
 Text Label 9550 4250 2    50   ~ 0
 USB_P
 Wire Wire Line
-	5600 6150 4800 6150
+	5600 6150 5300 6150
 Wire Wire Line
-	5600 6250 4800 6250
-Text Label 4800 6250 0    50   ~ 0
+	5600 6250 5300 6250
+Text Label 5300 6250 0    50   ~ 0
 USB_N
-Text Label 4800 6150 0    50   ~ 0
+Text Label 5300 6150 0    50   ~ 0
 USB_P
 $Comp
 L power:GND #PWR0303
@@ -146,8 +146,14 @@ Wire Wire Line
 Wire Wire Line
 	5500 5000 5400 5000
 Connection ~ 5400 5000
-Text HLabel 1850 5950 0    50   Output ~ 0
+Text HLabel 1600 4050 0    50   Output ~ 0
 FPGA_CCLK
-Text HLabel 1850 6050 0    50   Output ~ 0
+Text HLabel 1600 4550 0    50   Output ~ 0
 FPGA_CDIN
+Text HLabel 1350 6300 2    50   Input ~ 0
+FPGA_DONE
+Text HLabel 1350 6400 2    50   Output ~ 0
+FPGA_PROG_B
+Text HLabel 1350 6500 2    50   Input ~ 0
+FPGA_INIT_B
 $EndSCHEMATC

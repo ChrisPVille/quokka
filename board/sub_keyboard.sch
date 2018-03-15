@@ -15,9 +15,9 @@ Comment3 ""
 Comment4 "Quokka 6502 Microprocessor Trainer"
 $EndDescr
 Text HLabel 4050 2200 0    50   Input ~ 0
-column[5:0]
+column[5..0]
 Text HLabel 4050 2300 0    50   Output ~ 0
-row[4:0]
+row[4..0]
 $Comp
 L Switch:SW_SPST SW901
 U 1 1 5A9DE7BF

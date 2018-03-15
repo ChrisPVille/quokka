@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 "Quokka 6502 Microprocessor Trainer"
 $EndDescr
 Text HLabel 3650 1950 0    50   3State ~ 0
-6502_DATA[7:0]
+6502_DATA[7..0]
 Text HLabel 3650 2250 0    50   BiDi ~ 0
 6502_R~W
 Text HLabel 3650 2100 0    50   BiDi ~ 0
