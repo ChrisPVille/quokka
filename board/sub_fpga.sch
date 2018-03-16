@@ -18,119 +18,115 @@ Text HLabel 6750 5600 0    50   Output ~ 0
 KBD_col[5..0]
 Text HLabel 2200 4600 2    50   Input ~ 0
 KBD_row[4..0]
-Text HLabel 1500 750  0    50   3State ~ 0
+Text HLabel 1500 800  0    50   3State ~ 0
 6502_DATA[7..0]
-Text HLabel 1500 850  0    50   BiDi ~ 0
+Text HLabel 1500 900  0    50   BiDi ~ 0
 6502_ADDR[19..0]
-Text HLabel 1500 950  0    50   BiDi ~ 0
+Text HLabel 1500 1000 0    50   BiDi ~ 0
 6502_R~W
-Text HLabel 1500 1050 0    50   Output ~ 0
+Text HLabel 1500 1100 0    50   Output ~ 0
 6502_RDY
-Text HLabel 1500 1150 0    50   BiDi ~ 0
+Text HLabel 1500 1200 0    50   BiDi ~ 0
 6502_PHI1
-Text HLabel 1500 1250 0    50   Output ~ 0
+Text HLabel 1500 1300 0    50   Output ~ 0
 6502_PHI0
-Text HLabel 1500 1350 0    50   BiDi ~ 0
+Text HLabel 1500 1400 0    50   BiDi ~ 0
 6502_PHI2
-Text HLabel 1500 1450 0    50   BiDi ~ 0
+Text HLabel 1500 1500 0    50   BiDi ~ 0
 6502_~IRQ
-Text HLabel 1500 1550 0    50   Output ~ 0
+Text HLabel 1500 1600 0    50   Output ~ 0
 6502_~NMI
-Text HLabel 1500 1650 0    50   Output ~ 0
+Text HLabel 1500 1700 0    50   Output ~ 0
 Physical6502_~RES
-Text HLabel 1500 1750 0    50   Output ~ 0
+Text HLabel 1500 1800 0    50   Output ~ 0
 6502_SO
-Text HLabel 1500 1850 0    50   Output ~ 0
+Text HLabel 1500 1900 0    50   Output ~ 0
 RAM_~cs
-Text HLabel 1500 1950 0    50   Output ~ 0
-GPIO_~cs
-Text HLabel 1500 2050 0    50   Output ~ 0
+Text HLabel 1500 2000 0    50   Output ~ 0
 OPT1_~cs
-Text HLabel 1500 2150 0    50   Output ~ 0
+Text HLabel 1500 2100 0    50   Output ~ 0
 OPT2_~cs
-Text HLabel 1500 2250 0    50   BiDi ~ 0
+Text HLabel 1500 2200 0    50   BiDi ~ 0
 6502_SYNC
-Text HLabel 1500 2350 0    50   Output ~ 0
+Text HLabel 1500 2300 0    50   Output ~ 0
 6502_~RES
-Text HLabel 1500 2450 0    50   Output ~ 0
+Text HLabel 1500 2400 0    50   Output ~ 0
 Physical6502_~BusEnable
 Text HLabel 2200 5950 2    50   BiDi ~ 0
 FPGA_Expansion[7..0]
 $Sheet
-S 1500 650  2450 2850
+S 1500 700  2450 2750
 U 5ACF6640
 F0 "Level Converters" 50
 F1 "sub_level_shift.sch" 50
-F2 "5V_DATA[7..0]" T L 1500 750 50 
-F3 "5V_ADDR[19..0]" B L 1500 850 50 
-F4 "5V_R~W" B L 1500 950 50 
-F5 "5V_RDY" O L 1500 1050 50 
-F6 "5V_PHI1" B L 1500 1150 50 
-F7 "5V_PHI0" O L 1500 1250 50 
-F8 "5V_PHI2" B L 1500 1350 50 
-F9 "5V_~IRQ" T L 1500 1450 50 
-F10 "5V_~NMI" O L 1500 1550 50 
-F11 "5V_Physical6502_~RES" O L 1500 1650 50 
-F12 "5V_SO" O L 1500 1750 50 
-F13 "5V_RAM_~cs" O L 1500 1850 50 
-F14 "5V_GPIO_~cs" O L 1500 1950 50 
-F15 "5V_OPT1_~cs" O L 1500 2050 50 
-F16 "5V_OPT2_~cs" O L 1500 2150 50 
-F17 "5V_SYNC" B L 1500 2250 50 
-F18 "5V_~RES" O L 1500 2350 50 
-F19 "5V_Physical6502_~BusEnable" O L 1500 2450 50 
-F20 "3V3_ADDR[19..0]" I R 3950 850 50 
-F21 "3V3_R~W" B R 3950 950 50 
-F22 "3V3_RDY" I R 3950 1050 50 
-F23 "3V3_PHI1" B R 3950 1150 50 
-F24 "3V3_PHI0" B R 3950 1250 50 
-F25 "3V3_PHI2" B R 3950 1350 50 
-F26 "3V3_~NMI" I R 3950 1550 50 
-F27 "3V3_Physical6502_~RES" I R 3950 1650 50 
-F28 "3V3_SO" I R 3950 1750 50 
-F29 "3V3_RAM_~cs" I R 3950 1850 50 
-F30 "3V3_GPIO_~cs" I R 3950 1950 50 
-F31 "3V3_OPT1_~cs" I R 3950 2050 50 
-F32 "3V3_OPT2_~cs" I R 3950 2150 50 
-F33 "3V3_SYNC" B R 3950 2250 50 
-F34 "3V3_Physical6502_~BusEnable" I R 3950 2450 50 
-F35 "5V_LED_CLK" O L 1500 2600 50 
-F36 "5V_LED_DATA" O L 1500 2700 50 
-F37 "5V_LED_Load" O L 1500 2800 50 
-F38 "EnableXcvrs" I R 3950 3050 50 
-F39 "Drive6502Bus" I R 3950 3250 50 
-F40 "DataDir" I R 3950 3150 50 
-F41 "3V3_LED_CLK" I R 3950 2600 50 
-F42 "3V3_LED_DATA" I R 3950 2700 50 
-F43 "3V3_LED_Load" I R 3950 2800 50 
-F44 "3V3_LED_~CLR" I R 3950 2900 50 
-F45 "5V_LED_~CLR" O L 1500 2900 50 
-F46 "3V3_IRQ" I R 3950 1450 50 
-F47 "3V3_RES" I R 3950 2350 50 
-F48 "3V3_SENSE_RES" O R 3950 3400 50 
-F49 "3V3_DATA[7..0]" T R 3950 750 50 
+F2 "5V_DATA[7..0]" T L 1500 800 50 
+F3 "5V_ADDR[19..0]" B L 1500 900 50 
+F4 "5V_R~W" B L 1500 1000 50 
+F5 "5V_RDY" O L 1500 1100 50 
+F6 "5V_PHI1" B L 1500 1200 50 
+F7 "5V_PHI0" O L 1500 1300 50 
+F8 "5V_PHI2" B L 1500 1400 50 
+F9 "5V_~IRQ" T L 1500 1500 50 
+F10 "5V_~NMI" O L 1500 1600 50 
+F11 "5V_Physical6502_~RES" O L 1500 1700 50 
+F12 "5V_SO" O L 1500 1800 50 
+F13 "5V_RAM_~cs" O L 1500 1900 50 
+F14 "5V_OPT1_~cs" O L 1500 2000 50 
+F15 "5V_OPT2_~cs" O L 1500 2100 50 
+F16 "5V_SYNC" B L 1500 2200 50 
+F17 "5V_~RES" O L 1500 2300 50 
+F18 "5V_Physical6502_~BusEnable" O L 1500 2400 50 
+F19 "3V3_ADDR[19..0]" I R 3950 900 50 
+F20 "3V3_R~W" B R 3950 1000 50 
+F21 "3V3_RDY" I R 3950 1100 50 
+F22 "3V3_PHI1" B R 3950 1200 50 
+F23 "3V3_PHI0" B R 3950 1300 50 
+F24 "3V3_PHI2" B R 3950 1400 50 
+F25 "3V3_~NMI" I R 3950 1600 50 
+F26 "3V3_Physical6502_~RES" I R 3950 1700 50 
+F27 "3V3_SO" I R 3950 1800 50 
+F28 "3V3_RAM_~cs" I R 3950 1900 50 
+F29 "3V3_OPT1_~cs" I R 3950 2000 50 
+F30 "3V3_OPT2_~cs" I R 3950 2100 50 
+F31 "3V3_SYNC" B R 3950 2200 50 
+F32 "3V3_Physical6502_~BusEnable" I R 3950 2400 50 
+F33 "5V_LED_CLK" O L 1500 2550 50 
+F34 "5V_LED_DATA" O L 1500 2650 50 
+F35 "5V_LED_Load" O L 1500 2750 50 
+F36 "EnableXcvrs" I R 3950 3000 50 
+F37 "Drive6502Bus" I R 3950 3200 50 
+F38 "DataDir" I R 3950 3100 50 
+F39 "3V3_LED_CLK" I R 3950 2550 50 
+F40 "3V3_LED_DATA" I R 3950 2650 50 
+F41 "3V3_LED_Load" I R 3950 2750 50 
+F42 "3V3_LED_~CLR" I R 3950 2850 50 
+F43 "5V_LED_~CLR" O L 1500 2850 50 
+F44 "3V3_IRQ" I R 3950 1500 50 
+F45 "3V3_RES" I R 3950 2300 50 
+F46 "3V3_SENSE_RES" O R 3950 3350 50 
+F47 "3V3_DATA[7..0]" T R 3950 800 50 
 $EndSheet
-Text HLabel 1500 2600 0    50   Output ~ 0
+Text HLabel 1500 2550 0    50   Output ~ 0
 LED_CLK
-Text HLabel 1500 2700 0    50   Output ~ 0
+Text HLabel 1500 2650 0    50   Output ~ 0
 LED_DATA
-Text HLabel 1500 2800 0    50   Output ~ 0
+Text HLabel 1500 2750 0    50   Output ~ 0
 LED_Load
-Text HLabel 4700 3850 2    50   Input ~ 0
-uC_SCLK
 Text HLabel 4700 4000 2    50   Input ~ 0
+uC_SCLK
+Text HLabel 4700 4150 2    50   Input ~ 0
 uC_MOSI
-Text HLabel 4700 4150 2    50   Output ~ 0
-uC_MISO
-Text HLabel 4700 4600 2    50   Input ~ 0
-uC_~CS
 Text HLabel 4700 4450 2    50   Output ~ 0
+uC_MISO
+Text HLabel 4700 4750 2    50   Input ~ 0
+uC_~CS
+Text HLabel 4700 4600 2    50   Output ~ 0
 FPGA_~INT
 Text HLabel 5250 5950 2    50   Input ~ 0
 FPGA_CCLK
 Text HLabel 5250 6100 2    50   Input ~ 0
 FPGA_CDIN
-Text HLabel 1500 2900 0    50   Output ~ 0
+Text HLabel 1500 2850 0    50   Output ~ 0
 LED_~CLR
 $Comp
 L quokka:XC3S200-TQ144 U201
@@ -141,17 +137,6 @@ F 1 "XC3S200-TQ144" H 4031 5324 50  0000 C CNN
 F 2 "" H 3800 4600 50  0001 C CNN
 F 3 "" H 3800 4600 50  0001 C CNN
 	5    4250 4500
-	1    0    0    -1  
-$EndComp
-$Comp
-L quokka:XC3S200-TQ144 U201
-U 6 1 5AB59047
-P 1400 7000
-F 0 "U201" H 1331 7915 50  0000 C CNN
-F 1 "XC3S200-TQ144" H 1331 7824 50  0000 C CNN
-F 2 "" H 950 7100 50  0001 C CNN
-F 3 "" H 950 7100 50  0001 C CNN
-	6    1400 7000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -345,9 +330,9 @@ Wire Wire Line
 Wire Wire Line
 	11000 1400 10900 1400
 NoConn ~ 10900 2600
-Text Label 4950 850  2    50   ~ 0
+Text Label 4950 900  2    50   ~ 0
 A[19..0]
-Text Label 4950 750  2    50   ~ 0
+Text Label 4950 800  2    50   ~ 0
 D[7..0]
 $Comp
 L quokka:XC3S200-TQ144 U201
@@ -651,9 +636,9 @@ Text Notes 9800 6050 1    50   ~ 0
 Text Notes 9800 3600 1    50   ~ 0
 (3.3V)
 Wire Bus Line
-	3950 750  4950 750 
+	3950 800  4950 800 
 Wire Bus Line
-	3950 850  4950 850 
+	3950 900  4950 900 
 Text Label 10650 6300 0    50   ~ 0
 A[19..0]
 Text Label 10650 1000 0    50   ~ 0
@@ -663,100 +648,96 @@ Wire Bus Line
 Wire Bus Line
 	11100 6300 10650 6300
 Wire Wire Line
-	3950 950  4950 950 
+	3950 1000 4950 1000
 Wire Wire Line
-	3950 1050 4950 1050
+	3950 1100 4950 1100
 Wire Wire Line
-	3950 1150 4950 1150
+	3950 1200 4950 1200
 Wire Wire Line
-	3950 1250 4950 1250
+	3950 1300 4950 1300
 Wire Wire Line
-	3950 1350 4950 1350
+	3950 1400 4950 1400
 Wire Wire Line
-	3950 1450 4950 1450
+	3950 1500 4950 1500
 Wire Wire Line
-	3950 1550 4950 1550
+	3950 1600 4950 1600
 Wire Wire Line
-	3950 1650 4950 1650
+	3950 1700 4950 1700
 Wire Wire Line
-	3950 1750 4950 1750
+	3950 1800 4950 1800
 Wire Wire Line
-	3950 1850 4950 1850
+	3950 1900 4950 1900
 Wire Wire Line
-	3950 1950 4950 1950
+	3950 2000 4950 2000
 Wire Wire Line
-	3950 2050 4950 2050
+	3950 2100 4950 2100
 Wire Wire Line
-	3950 2150 4950 2150
+	3950 2200 4950 2200
 Wire Wire Line
-	3950 2250 4950 2250
+	3950 2300 4950 2300
 Wire Wire Line
-	3950 2350 4950 2350
+	3950 2400 4950 2400
 Wire Wire Line
-	3950 2450 4950 2450
+	3950 2550 4950 2550
 Wire Wire Line
-	3950 2600 4950 2600
+	3950 2650 4950 2650
 Wire Wire Line
-	3950 2700 4950 2700
+	3950 2750 4950 2750
 Wire Wire Line
-	3950 2800 4950 2800
+	3950 2850 4950 2850
 Wire Wire Line
-	3950 2900 4950 2900
+	3950 3000 4950 3000
 Wire Wire Line
-	3950 3050 4950 3050
+	3950 3100 4950 3100
 Wire Wire Line
-	3950 3150 4950 3150
+	3950 3200 4950 3200
 Wire Wire Line
-	3950 3250 4950 3250
-Wire Wire Line
-	3950 3400 4950 3400
-Text Label 4950 950  2    50   ~ 0
+	3950 3350 4950 3350
+Text Label 4950 1000 2    50   ~ 0
 R~W
-Text Label 4950 1050 2    50   ~ 0
+Text Label 4950 1100 2    50   ~ 0
 RDY
-Text Label 4950 1150 2    50   ~ 0
+Text Label 4950 1200 2    50   ~ 0
 PHI1
-Text Label 4950 1250 2    50   ~ 0
+Text Label 4950 1300 2    50   ~ 0
 PHI0
-Text Label 4950 1350 2    50   ~ 0
+Text Label 4950 1400 2    50   ~ 0
 PHI2
-Text Label 4950 1450 2    50   ~ 0
+Text Label 4950 1500 2    50   ~ 0
 IRQ
-Text Label 4950 2150 2    50   ~ 0
+Text Label 4950 2100 2    50   ~ 0
 OPT2_~cs
-Text Label 4950 2250 2    50   ~ 0
+Text Label 4950 2200 2    50   ~ 0
 SYNC
-Text Label 4950 1950 2    50   ~ 0
-GPIO_~cs
-Text Label 4950 2050 2    50   ~ 0
+Text Label 4950 2000 2    50   ~ 0
 OPT1_~cs
-Text Label 4950 1750 2    50   ~ 0
+Text Label 4950 1800 2    50   ~ 0
 SO
-Text Label 4950 1850 2    50   ~ 0
+Text Label 4950 1900 2    50   ~ 0
 RAM_~cs
-Text Label 4950 1550 2    50   ~ 0
+Text Label 4950 1600 2    50   ~ 0
 ~NMI
-Text Label 4950 1650 2    50   ~ 0
+Text Label 4950 1700 2    50   ~ 0
 Physical6502_~RES
-Text Label 4950 2900 2    50   ~ 0
+Text Label 4950 2850 2    50   ~ 0
 LED_~CLR
-Text Label 4950 3050 2    50   ~ 0
+Text Label 4950 3000 2    50   ~ 0
 EnableXcvers
-Text Label 4950 2700 2    50   ~ 0
+Text Label 4950 2650 2    50   ~ 0
 LED_DATA
-Text Label 4950 2800 2    50   ~ 0
+Text Label 4950 2750 2    50   ~ 0
 LED_LOAD
-Text Label 4950 3150 2    50   ~ 0
+Text Label 4950 3100 2    50   ~ 0
 DataDir
-Text Label 4950 2600 2    50   ~ 0
+Text Label 4950 2550 2    50   ~ 0
 LED_CLK
-Text Label 4950 2350 2    50   ~ 0
+Text Label 4950 2300 2    50   ~ 0
 RES
-Text Label 4950 2450 2    50   ~ 0
+Text Label 4950 2400 2    50   ~ 0
 Physical6502_~BusEnable
-Text Label 4950 3250 2    50   ~ 0
+Text Label 4950 3200 2    50   ~ 0
 Drive6502Bus
-Text Label 4950 3400 2    50   ~ 0
+Text Label 4950 3350 2    50   ~ 0
 SENSE_RES
 Wire Wire Line
 	6650 3250 7300 3250
@@ -784,8 +765,6 @@ Text Label 9500 1600 2    50   ~ 0
 OPT2_~cs
 Text Label 7150 1450 2    50   ~ 0
 SYNC
-Text Label 9500 1300 2    50   ~ 0
-GPIO_~cs
 Text Label 9500 1450 2    50   ~ 0
 OPT1_~cs
 Text Label 7150 2350 2    50   ~ 0
@@ -820,8 +799,6 @@ Wire Wire Line
 	8550 1000 9500 1000
 Wire Wire Line
 	8550 1150 9500 1150
-Wire Wire Line
-	8550 1300 9500 1300
 Wire Wire Line
 	8550 1450 9500 1450
 Wire Wire Line
@@ -933,18 +910,9 @@ NoConn ~ 6650 4150
 NoConn ~ 6650 4300
 NoConn ~ 6650 4450
 NoConn ~ 1850 4600
-NoConn ~ 4700 4750
 NoConn ~ 4700 5050
 NoConn ~ 4700 5200
 NoConn ~ 4700 5350
-NoConn ~ 2000 6350
-NoConn ~ 2000 6500
-NoConn ~ 2000 6650
-NoConn ~ 2000 6800
-NoConn ~ 2000 6950
-NoConn ~ 2000 7100
-NoConn ~ 2000 7250
-NoConn ~ 2000 7550
 $Comp
 L Oscillator:SG-211 X1301
 U 1 1 5AEC2433
@@ -967,10 +935,6 @@ F 3 "" H 2800 7000 50  0001 C CNN
 	1    2800 7000
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2150 7300 2150 7400
-Wire Wire Line
-	2150 7400 2000 7400
 $Comp
 L power:GND #PWR01306
 U 1 1 5AED2164
@@ -1017,7 +981,79 @@ F 3 "" H 3500 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2150 7300 2500 7300
+	2350 7300 2500 7300
+Wire Wire Line
+	2350 7300 2350 7550
+Wire Wire Line
+	2350 7550 2000 7550
+$Comp
+L quokka:XC3S200-TQ144 U201
+U 6 1 5AB59047
+P 1400 7000
+F 0 "U201" H 1331 7915 50  0000 C CNN
+F 1 "XC3S200-TQ144" H 1331 7824 50  0000 C CNN
+F 2 "" H 950 7100 50  0001 C CNN
+F 3 "" H 950 7100 50  0001 C CNN
+	6    1400 7000
+	1    0    0    -1  
+$EndComp
+NoConn ~ 8550 1300
+Entry Wire Line
+	2150 6350 2250 6250
+Entry Wire Line
+	2150 6500 2250 6400
+Entry Wire Line
+	2150 6650 2250 6550
+Entry Wire Line
+	2150 6800 2250 6700
+Entry Wire Line
+	2150 6950 2250 6850
+Entry Wire Line
+	2150 7100 2250 7000
+Entry Wire Line
+	2150 7250 2250 7150
+Entry Wire Line
+	2150 7400 2250 7300
+Text Label 2250 6800 0    50   ~ 0
+G[7..0]
+Text Label 2150 7400 2    50   ~ 0
+G0
+Text Label 2150 7250 2    50   ~ 0
+G1
+Text Label 2150 7100 2    50   ~ 0
+G2
+Text Label 2150 6950 2    50   ~ 0
+G3
+Text Label 2150 6800 2    50   ~ 0
+G4
+Text Label 2150 6650 2    50   ~ 0
+G5
+Text Label 2150 6500 2    50   ~ 0
+G6
+Text Label 2150 6350 2    50   ~ 0
+G7
+Wire Wire Line
+	2000 6350 2150 6350
+Wire Wire Line
+	2150 6500 2000 6500
+Wire Wire Line
+	2000 6650 2150 6650
+Wire Wire Line
+	2150 6800 2000 6800
+Wire Wire Line
+	2000 6950 2150 6950
+Wire Wire Line
+	2150 7100 2000 7100
+Wire Wire Line
+	2000 7250 2150 7250
+Wire Wire Line
+	2150 7400 2000 7400
+Text HLabel 2350 6200 2    50   BiDi ~ 0
+GPIO[7..0]
+Wire Bus Line
+	2350 6200 2250 6200
+Text HLabel 4700 3850 2    50   Output ~ 0
+GPIO_R~W
 Wire Bus Line
 	2100 3950 2100 4600
 Wire Bus Line
@@ -1026,6 +1062,8 @@ Wire Bus Line
 	11100 1000 11100 2350
 Wire Bus Line
 	2100 4850 2100 5950
+Wire Bus Line
+	2250 6200 2250 7300
 Wire Bus Line
 	11100 2850 11100 6300
 $EndSCHEMATC

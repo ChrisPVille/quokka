@@ -39,10 +39,8 @@ Text HLabel 4600 1900 0    50   Output ~ 0
 Text HLabel 4600 3250 0    50   Output ~ 0
 5V_RAM_~cs
 Text HLabel 4600 3350 0    50   Output ~ 0
-5V_GPIO_~cs
-Text HLabel 4600 3450 0    50   Output ~ 0
 5V_OPT1_~cs
-Text HLabel 4600 3550 0    50   Output ~ 0
+Text HLabel 4600 3450 0    50   Output ~ 0
 5V_OPT2_~cs
 Text HLabel 1750 5500 0    50   BiDi ~ 0
 5V_SYNC
@@ -73,10 +71,8 @@ Text HLabel 5650 1900 2    50   Input ~ 0
 Text HLabel 5650 3250 2    50   Input ~ 0
 3V3_RAM_~cs
 Text HLabel 5650 3350 2    50   Input ~ 0
-3V3_GPIO_~cs
-Text HLabel 5650 3450 2    50   Input ~ 0
 3V3_OPT1_~cs
-Text HLabel 5650 3550 2    50   Input ~ 0
+Text HLabel 5650 3450 2    50   Input ~ 0
 3V3_OPT2_~cs
 Text HLabel 2800 5500 2    50   BiDi ~ 0
 3V3_SYNC
@@ -462,11 +458,11 @@ Wire Wire Line
 	4450 4250 4450 4150
 Wire Wire Line
 	4450 4150 4600 4150
-Text HLabel 4600 3650 0    50   Output ~ 0
+Text HLabel 4600 3550 0    50   Output ~ 0
 5V_LED_CLK
-Text HLabel 4600 3750 0    50   Output ~ 0
+Text HLabel 4600 3650 0    50   Output ~ 0
 5V_LED_DATA
-Text HLabel 4600 3850 0    50   Output ~ 0
+Text HLabel 4600 3750 0    50   Output ~ 0
 5V_LED_Load
 $Comp
 L Device:R R1403
@@ -933,15 +929,15 @@ Wire Wire Line
 	7250 2350 7250 2200
 Wire Wire Line
 	7250 2200 7350 2200
-Text HLabel 5650 3650 2    50   Input ~ 0
+Text HLabel 5650 3550 2    50   Input ~ 0
 3V3_LED_CLK
-Text HLabel 5650 3750 2    50   Input ~ 0
+Text HLabel 5650 3650 2    50   Input ~ 0
 3V3_LED_DATA
-Text HLabel 5650 3850 2    50   Input ~ 0
+Text HLabel 5650 3750 2    50   Input ~ 0
 3V3_LED_Load
-Text HLabel 5650 3950 2    50   Input ~ 0
+Text HLabel 5650 3850 2    50   Input ~ 0
 3V3_LED_~CLR
-Text HLabel 4600 3950 0    50   Output ~ 0
+Text HLabel 4600 3850 0    50   Output ~ 0
 5V_LED_~CLR
 Wire Wire Line
 	7350 4950 7350 5000
@@ -1439,6 +1435,10 @@ Text Label 3100 650  3    50   ~ 0
 3_A[16..0]
 Text Label 5950 4700 3    50   ~ 0
 3_A[19..16]
+Text Label 4300 4700 3    50   ~ 0
+5_A[19..16]
+NoConn ~ 5650 3950
+NoConn ~ 4600 3950
 Wire Bus Line
 	5950 4650 5950 5600
 Wire Bus Line
@@ -1451,6 +1451,4 @@ Wire Bus Line
 	3100 600  3100 4050
 Wire Bus Line
 	1450 600  1450 4050
-Text Label 4300 4700 3    50   ~ 0
-5_A[19..16]
 $EndSCHEMATC
