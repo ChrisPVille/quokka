@@ -373,10 +373,10 @@ F 3 "http://www.littelfuse.com/~/media/files/littelfuse/technical%20resources/do
 	-1   0    0    1   
 $EndComp
 $Comp
-L Power_Protection:SP0504BAJT D?
+L Power_Protection:SP0504BAJT D410
 U 1 1 5ABECE71
 P 4775 2200
-F 0 "D?" V 5175 2300 50  0000 R CNN
+F 0 "D410" V 5175 2300 50  0000 R CNN
 F 1 "DF5A6.8F" V 5100 2300 50  0000 R CNN
 F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 5075 2150 50  0001 L CNN
 F 3 "http://www.littelfuse.com/~/media/files/littelfuse/technical%20resources/documents/data%20sheets/sp05xxba.pdf" H 4900 2325 50  0001 C CNN
@@ -468,10 +468,10 @@ Wire Wire Line
 Wire Wire Line
 	3900 2400 3900 2500
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0408
 U 1 1 5AC0745E
 P 4425 1800
-F 0 "#PWR?" H 4425 1550 50  0001 C CNN
+F 0 "#PWR0408" H 4425 1550 50  0001 C CNN
 F 1 "GND" H 4525 1700 50  0000 C CNN
 F 2 "" H 4425 1800 50  0001 C CNN
 F 3 "" H 4425 1800 50  0001 C CNN
@@ -490,10 +490,10 @@ Wire Wire Line
 	4775 1725 4775 2000
 Connection ~ 4425 1725
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0407
 U 1 1 5AC0C5ED
 P 4250 4225
-F 0 "#PWR?" H 4250 3975 50  0001 C CNN
+F 0 "#PWR0407" H 4250 3975 50  0001 C CNN
 F 1 "GND" H 4350 4125 50  0000 C CNN
 F 2 "" H 4250 4225 50  0001 C CNN
 F 3 "" H 4250 4225 50  0001 C CNN
@@ -542,10 +542,10 @@ Connection ~ 4250 4175
 Wire Wire Line
 	4250 4175 4300 4175
 $Comp
-L Device:C C?
+L Device:C C402
 U 1 1 5AC1AF1D
 P 7300 2850
-F 0 "C?" H 7415 2896 50  0000 L CNN
+F 0 "C402" H 7415 2896 50  0000 L CNN
 F 1 "1u" H 7415 2805 50  0000 L CNN
 F 2 "" H 7338 2700 50  0001 C CNN
 F 3 "~" H 7300 2850 50  0001 C CNN
@@ -553,27 +553,27 @@ F 3 "~" H 7300 2850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0410
 U 1 1 5AC1AF23
 P 7300 3000
-F 0 "#PWR?" H 7300 2750 50  0001 C CNN
+F 0 "#PWR0410" H 7300 2750 50  0001 C CNN
 F 1 "GND" H 7305 2827 50  0000 C CNN
 F 2 "" H 7300 3000 50  0001 C CNN
 F 3 "" H 7300 3000 50  0001 C CNN
 	1    7300 3000
 	1    0    0    -1  
 $EndComp
-Wire Bus Line
-	6350 1800 6350 3100
 $Comp
-L power:+3V3 #PWR?
+L power:+3V3 #PWR0409
 U 1 1 5AC1C826
 P 7300 2700
-F 0 "#PWR?" H 7300 2550 50  0001 C CNN
+F 0 "#PWR0409" H 7300 2550 50  0001 C CNN
 F 1 "+3V3" H 7450 2750 50  0000 C CNN
 F 2 "" H 7300 2700 50  0001 C CNN
 F 3 "" H 7300 2700 50  0001 C CNN
 	1    7300 2700
 	1    0    0    -1  
 $EndComp
+Wire Bus Line
+	6350 1800 6350 3100
 $EndSCHEMATC
