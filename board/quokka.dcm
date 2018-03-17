@@ -10,6 +10,12 @@ K BUS 3State
 F https://assets.nexperia.com/documents/data-sheet/74LVC4245A.pdf
 $ENDCMP
 #
+$CMP AS6C8008
+D 1024K X 8 BIT SUPER LOW POWER CMOS SRAM
+K RAM
+F https://www.alliancememory.com/wp-content/uploads/pdf/AS6C8008.pdf
+$ENDCMP
+#
 $CMP TPIC6D595
 D Power logic 8-bit shift register
 K shift register 8bit

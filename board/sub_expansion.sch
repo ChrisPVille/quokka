@@ -308,14 +308,14 @@ Wire Bus Line
 	5500 2650 5350 2650
 Text Label 5500 3900 1    50   ~ 0
 A[19..0]
+Text Label 6500 3050 0    50   ~ 0
+E[7..0]
+Text Label 5450 5450 1    50   ~ 0
+D[7..0]
 Wire Bus Line
 	6500 2650 6500 3500
 Wire Bus Line
 	5450 4900 5450 5700
 Wire Bus Line
 	5500 2650 5500 4700
-Text Label 6500 3050 0    50   ~ 0
-E[7..0]
-Text Label 5450 5450 1    50   ~ 0
-D[7..0]
 $EndSCHEMATC
