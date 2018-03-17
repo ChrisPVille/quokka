@@ -312,6 +312,26 @@ Text Label 6500 3050 0    50   ~ 0
 E[7..0]
 Text Label 5450 5450 1    50   ~ 0
 D[7..0]
+NoConn ~ 6250 3500
+NoConn ~ 6250 3600
+NoConn ~ 6250 3700
+NoConn ~ 6250 3800
+NoConn ~ 6250 3900
+NoConn ~ 6250 4000
+NoConn ~ 6250 4100
+NoConn ~ 6250 4200
+NoConn ~ 6250 4300
+NoConn ~ 6250 4400
+NoConn ~ 6250 4500
+NoConn ~ 6250 4600
+NoConn ~ 6250 4700
+NoConn ~ 6250 4800
+NoConn ~ 6250 4900
+NoConn ~ 6250 5000
+NoConn ~ 6250 5100
+NoConn ~ 6250 5200
+NoConn ~ 6250 5300
+NoConn ~ 6250 5400
 Wire Bus Line
 	6500 2650 6500 3500
 Wire Bus Line

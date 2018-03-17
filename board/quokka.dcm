@@ -22,4 +22,10 @@ K shift register 8bit
 F http://www.st.com/content/ccc/resource/technical/document/datasheet/e5/1c/d3/4a/66/f5/41/dc/CD00163738.pdf/files/CD00163738.pdf/jcr:content/translations/en.CD00163738.pdf
 $ENDCMP
 #
+$CMP USBLC6-2SC6
+D Bidirectional ESD Protection Diode, SOT-23-6
+K usb ethernet
+F http://www2.st.com/resource/en/datasheet/CD00050750.pdf
+$ENDCMP
+#
 #End Doc Library
