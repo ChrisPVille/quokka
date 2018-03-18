@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 14
+Sheet 3 15
 Title ""
 Date ""
 Rev ""
@@ -37,13 +37,13 @@ F 3 "" H 3825 6950 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Text HLabel 9975 4425 2    50   Output ~ 0
-uC_SCLK
+SPI_SCLK
 Text HLabel 9975 4625 2    50   Output ~ 0
-uC_MOSI
+SPU_MOSI
 Text HLabel 9975 4525 2    50   Input ~ 0
-uC_MISO
+SPI_MISO
 Text HLabel 9975 4325 2    50   Output ~ 0
-uC_~CS
+SPI_FPGA_~CS
 Text HLabel 9975 3925 2    50   Input ~ 0
 FPGA_~INT
 Text Label 9475 5025 2    50   ~ 0
@@ -648,7 +648,6 @@ NoConn ~ 1525 3325
 NoConn ~ 1525 3525
 NoConn ~ 1525 3625
 NoConn ~ 1525 3725
-NoConn ~ 1525 3925
 NoConn ~ 1525 4025
 NoConn ~ 1525 4125
 NoConn ~ 1525 4225
@@ -793,4 +792,6 @@ Wire Wire Line
 	800  5600 1000 5600
 Wire Wire Line
 	1000 5600 1000 5650
+Text HLabel 1525 3925 0    50   Output ~ 0
+SPI_FLASH_~CS
 $EndSCHEMATC
