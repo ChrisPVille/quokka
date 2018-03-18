@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 13 15
+Sheet 13 14
 Title ""
 Date ""
 Rev ""
@@ -470,7 +470,7 @@ U 1 1 5ABDAC09
 P 6650 7150
 F 0 "J1301" V 6750 6775 50  0000 L CNN
 F 1 "FPGA JTAG" H 6300 6725 50  0000 L CNN
-F 2 "" H 6650 7150 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 6650 7150 50  0001 C CNN
 F 3 "~" H 6650 7150 50  0001 C CNN
 	1    6650 7150
 	1    0    0    -1  

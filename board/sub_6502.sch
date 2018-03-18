@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 12 15
+Sheet 12 14
 Title ""
 Date ""
 Rev ""
@@ -64,7 +64,7 @@ U 1 1 5AA3B01C
 P 8400 1100
 F 0 "JP1201" H 8300 1050 50  0000 L CNN
 F 1 "Jumper_NC_Small" H 8400 1221 50  0001 C CNN
-F 2 "" H 8400 1100 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8400 1100 50  0001 C CNN
 F 3 "~" H 8400 1100 50  0001 C CNN
 	1    8400 1100
 	0    1    1    0   
@@ -898,7 +898,7 @@ U 1 1 5AC1C274
 P 8550 1100
 F 0 "JP1202" H 8450 1050 50  0000 L CNN
 F 1 "WireJumper" H 8550 1200 50  0001 C CNN
-F 2 "" H 8550 1100 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8550 1100 50  0001 C CNN
 F 3 "~" H 8550 1100 50  0001 C CNN
 	1    8550 1100
 	0    1    1    0   

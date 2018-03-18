@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 11 15
+Sheet 11 14
 Title ""
 Date ""
 Rev ""
@@ -20,7 +20,7 @@ Text HLabel 4350 1625 0    50   Input ~ 0
 6502_ADDR[19..0]
 Text HLabel 6000 2575 2    50   Input ~ 0
 6502_R~W
-Text HLabel 6975 2475 2    50   Input ~ 0
+Text HLabel 6000 2475 2    50   Input ~ 0
 RAM_~cs
 $Comp
 L quokka:AS6C8008 U1101
@@ -306,22 +306,6 @@ F 3 "" H 6750 3150 50  0001 C CNN
 	1    6750 3150
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6000 2475 6650 2475
-$Comp
-L Connector_Specialized:Test_Point TP1101
-U 1 1 5ABC743D
-P 6650 2475
-F 0 "TP1101" H 6525 2700 50  0000 L CNN
-F 1 "Test_Point" H 6708 2504 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 6850 2475 50  0001 C CNN
-F 3 "~" H 6850 2475 50  0001 C CNN
-	1    6650 2475
-	1    0    0    -1  
-$EndComp
-Connection ~ 6650 2475
-Wire Wire Line
-	6650 2475 6975 2475
 Wire Bus Line
 	6300 1475 6300 2275
 Wire Bus Line

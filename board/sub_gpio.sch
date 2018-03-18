@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 15
+Sheet 4 14
 Title ""
 Date ""
 Rev ""
@@ -569,7 +569,7 @@ U 1 1 5ACF6504
 P 2225 2900
 F 0 "J401" H 2145 3517 50  0000 C CNN
 F 1 "Conn_01x09" H 2145 3426 50  0000 C CNN
-F 2 "" H 2225 2900 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x09_P2.54mm_Vertical" H 2225 2900 50  0001 C CNN
 F 3 "~" H 2225 2900 50  0001 C CNN
 	1    2225 2900
 	-1   0    0    -1  

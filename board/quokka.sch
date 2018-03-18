@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
-Sheet 1 15
+Sheet 1 14
 Title ""
 Date ""
 Rev ""
@@ -306,129 +306,23 @@ Wire Wire Line
 	7950 3925 7950 4175
 Wire Wire Line
 	7950 4175 7400 4175
-Connection ~ 4100 3000
-Connection ~ 4300 2800
-Wire Bus Line
-	4300 2800 4300 2425
-Wire Bus Line
-	4200 2425 4200 2900
-Wire Wire Line
-	4100 3000 4100 2425
-Wire Wire Line
-	4000 2425 4000 3100
-Connection ~ 4000 3100
-Wire Wire Line
-	3900 3200 3900 2425
-Connection ~ 3900 3200
-Wire Wire Line
-	3700 3400 3700 2425
-Connection ~ 3700 3400
-Wire Wire Line
-	3500 2425 3500 3600
-Connection ~ 3500 3600
-Wire Wire Line
-	3400 3700 3400 2425
-Connection ~ 3400 3700
-Wire Wire Line
-	3300 2425 3300 3800
-Connection ~ 3300 3800
-Wire Wire Line
-	3200 3900 3200 2425
-Connection ~ 3200 3900
-$Sheet
-S 3100 1475 1700 950 
-U 5ACDB86C
-F0 "Test Points" 50
-F1 "sub_test.sch" 50
-F2 "6502_DATA[7..0]" U B 4300 2425 50 
-F3 "6502_ADDR[19..0]" U B 4200 2425 50 
-F4 "6502_R~W" U B 4100 2425 50 
-F5 "6502_RDY" U B 4000 2425 50 
-F6 "6502_PHI1" U B 3900 2425 50 
-F7 "6502_PHI0" U B 3800 2425 50 
-F8 "6502_PHI2" U B 3700 2425 50 
-F9 "6502_~IRQ" U B 3600 2425 50 
-F10 "6502_~NMI" U B 3500 2425 50 
-F11 "6502_~RES" U B 3400 2425 50 
-F12 "6502_SO" U B 3300 2425 50 
-F13 "OPT1_~cs" U B 4625 2425 50 
-F14 "OPT2_~cs" U B 4550 2425 50 
-F15 "6502_SYNC" U B 3200 2425 50 
-F16 "FPGA_Expansion[7..0]" B B 4475 2425 50 
-$EndSheet
-Wire Wire Line
-	3600 2425 3600 3400
-Wire Wire Line
-	3800 2425 3800 3200
 Wire Wire Line
 	3050 3300 3800 3300
-Connection ~ 3800 3300
 Wire Wire Line
 	3800 3300 3800 5375
 Wire Wire Line
 	3050 3500 3600 3500
-Connection ~ 3600 3500
 Wire Wire Line
 	3600 3500 3600 5575
-Wire Wire Line
-	3600 3400 3600 3500
-Wire Wire Line
-	3800 3200 3800 3300
 Wire Wire Line
 	3050 3200 3900 3200
 Wire Wire Line
 	3050 3400 3700 3400
-Connection ~ 4200 2900
 Connection ~ 4200 4975
 Wire Bus Line
 	4200 4975 4750 4975
 Wire Bus Line
 	3050 4975 4200 4975
-Wire Bus Line
-	3050 4300 4525 4300
-Wire Wire Line
-	3050 4150 4600 4150
-Wire Wire Line
-	3050 4050 4675 4050
-Wire Bus Line
-	4475 2425 4475 2800
-Wire Bus Line
-	4475 2800 5675 2800
-Wire Bus Line
-	5675 2800 5675 3600
-Wire Bus Line
-	5675 3600 4525 3600
-Wire Bus Line
-	4525 3600 4525 4300
-Connection ~ 4525 4300
-Wire Bus Line
-	4525 4300 4750 4300
-Wire Wire Line
-	4600 4150 4600 3675
-Wire Wire Line
-	4600 3675 5750 3675
-Wire Wire Line
-	5750 3675 5750 2725
-Wire Wire Line
-	5750 2725 4550 2725
-Wire Wire Line
-	4550 2725 4550 2425
-Connection ~ 4600 4150
-Wire Wire Line
-	4600 4150 4750 4150
-Wire Wire Line
-	4625 2425 4625 2650
-Wire Wire Line
-	4625 2650 5825 2650
-Wire Wire Line
-	5825 2650 5825 3750
-Wire Wire Line
-	5825 3750 4675 3750
-Wire Wire Line
-	4675 3750 4675 4050
-Connection ~ 4675 4050
-Wire Wire Line
-	4675 4050 4750 4050
 Wire Wire Line
 	4750 3250 4100 3250
 Connection ~ 4100 3250
@@ -450,4 +344,10 @@ Wire Wire Line
 	4425 4475 4750 4475
 Wire Wire Line
 	4425 3350 4750 3350
+Wire Bus Line
+	3050 4300 4750 4300
+Wire Wire Line
+	3050 4150 4750 4150
+Wire Wire Line
+	3050 4050 4750 4050
 $EndSCHEMATC

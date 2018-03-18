@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 15
+Sheet 3 14
 Title ""
 Date ""
 Rev ""
@@ -26,10 +26,10 @@ F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/da
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Specialized:USB_B J303
+L Connector_Specialized:USB_B J305
 U 1 1 5AA35CDE
 P 3675 7000
-F 0 "J303" H 3446 6991 50  0000 R CNN
+F 0 "J305" H 3446 6991 50  0000 R CNN
 F 1 "USB_B" H 3446 6900 50  0000 R CNN
 F 2 "" H 3825 6950 50  0001 C CNN
 F 3 "" H 3825 6950 50  0001 C CNN
@@ -59,10 +59,10 @@ USB_N
 Text Label 950  7000 0    50   ~ 0
 USB_P
 $Comp
-L power:GND #PWR0324
+L power:GND #PWR0326
 U 1 1 5AA58CA8
 P 3725 7450
-F 0 "#PWR0324" H 3725 7200 50  0001 C CNN
+F 0 "#PWR0326" H 3725 7200 50  0001 C CNN
 F 1 "GND" H 3730 7277 50  0000 C CNN
 F 2 "" H 3725 7450 50  0001 C CNN
 F 3 "" H 3725 7450 50  0001 C CNN
@@ -100,10 +100,10 @@ Wire Wire Line
 	5425 2025 5425 2125
 Connection ~ 5325 2025
 $Comp
-L power:GND #PWR0321
+L power:GND #PWR0323
 U 1 1 5AA5F8A6
 P 5275 5925
-F 0 "#PWR0321" H 5275 5675 50  0001 C CNN
+F 0 "#PWR0323" H 5275 5675 50  0001 C CNN
 F 1 "GND" H 5280 5752 50  0000 C CNN
 F 2 "" H 5275 5925 50  0001 C CNN
 F 3 "" H 5275 5925 50  0001 C CNN
@@ -131,9 +131,9 @@ Wire Wire Line
 Wire Wire Line
 	5425 5875 5325 5875
 Connection ~ 5325 5875
-Text HLabel 1350 4925 0    50   Output ~ 0
+Text HLabel 1000 4925 0    50   Output ~ 0
 FPGA_CCLK
-Text HLabel 1350 5425 0    50   Output ~ 0
+Text HLabel 1000 5425 0    50   Output ~ 0
 FPGA_CDIN
 Text HLabel 9975 4225 2    50   Input ~ 0
 FPGA_DONE
@@ -187,10 +187,10 @@ Wire Wire Line
 Wire Wire Line
 	1700 6150 1700 6175
 $Comp
-L power:GND #PWR0322
+L power:GND #PWR0324
 U 1 1 5AC0839F
 P 1700 6775
-F 0 "#PWR0322" H 1700 6525 50  0001 C CNN
+F 0 "#PWR0324" H 1700 6525 50  0001 C CNN
 F 1 "GND" H 1800 6675 50  0000 C CNN
 F 2 "" H 1700 6775 50  0001 C CNN
 F 3 "" H 1700 6775 50  0001 C CNN
@@ -253,10 +253,10 @@ Wire Wire Line
 Wire Wire Line
 	2000 7050 2000 7325
 $Comp
-L power:GND #PWR0323
+L power:GND #PWR0325
 U 1 1 5AAE95B9
 P 2000 7325
-F 0 "#PWR0323" H 2000 7075 50  0001 C CNN
+F 0 "#PWR0325" H 2000 7075 50  0001 C CNN
 F 1 "GND" H 2100 7200 50  0000 C CNN
 F 2 "" H 2000 7325 50  0001 C CNN
 F 3 "" H 2000 7325 50  0001 C CNN
@@ -526,7 +526,7 @@ U 1 1 5AF9BC57
 P 800 2825
 F 0 "J302" H 825 2625 50  0000 C CNN
 F 1 "Conn_01x02" H 720 2591 50  0001 C CNN
-F 2 "" H 800 2825 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 800 2825 50  0001 C CNN
 F 3 "~" H 800 2825 50  0001 C CNN
 	1    800  2825
 	-1   0    0    1   
@@ -542,8 +542,6 @@ F 3 "" H 1000 2675 50  0001 C CNN
 	1    1000 2675
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1525 2825 1150 2825
 Wire Wire Line
 	1000 2725 1000 2675
 $Comp
@@ -587,7 +585,7 @@ U 1 1 5AFAA1FC
 P 10000 2675
 F 0 "J301" H 10050 3092 50  0000 C CNN
 F 1 "ARM SWD" H 10050 3001 50  0000 C CNN
-F 2 "" H 10000 2675 50  0001 C CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD" H 10000 2675 50  0001 C CNN
 F 3 "~" H 10000 2675 50  0001 C CNN
 	1    10000 2675
 	1    0    0    -1  
@@ -596,16 +594,10 @@ Wire Wire Line
 	1525 2625 1250 2625
 Text Label 1250 2625 0    50   ~ 0
 NRST
-Wire Wire Line
-	10300 2475 10475 2475
-Wire Wire Line
-	10300 2575 10475 2575
 Text Label 10825 2575 2    50   ~ 0
 SWCLK
 Text Label 10825 2475 2    50   ~ 0
 SWDIO
-Wire Wire Line
-	10300 2875 10475 2875
 Text Label 10825 2875 2    50   ~ 0
 NRST
 NoConn ~ 10300 2775
@@ -673,161 +665,6 @@ NoConn ~ 1525 5325
 NoConn ~ 9125 4725
 NoConn ~ 9125 4825
 NoConn ~ 9125 5425
-$Comp
-L Connector_Specialized:Test_Point TP315
-U 1 1 5AB9CD96
-P 1700 6475
-F 0 "TP315" V 1700 6650 50  0000 L CNN
-F 1 "Test_Point" H 1758 6504 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 1900 6475 50  0001 C CNN
-F 3 "~" H 1900 6475 50  0001 C CNN
-	1    1700 6475
-	0    1    1    0   
-$EndComp
-$Comp
-L Connector_Specialized:Test_Point TP303
-U 1 1 5ABA28C3
-P 1150 2825
-F 0 "TP303" H 1200 2950 50  0000 L CNN
-F 1 "Test_Point" H 1208 2854 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 1350 2825 50  0001 C CNN
-F 3 "~" H 1350 2825 50  0001 C CNN
-	1    1150 2825
-	1    0    0    -1  
-$EndComp
-Connection ~ 1150 2825
-Wire Wire Line
-	1150 2825 1075 2825
-$Comp
-L Connector_Specialized:Test_Point TP301
-U 1 1 5ABBE333
-P 10475 2475
-F 0 "TP301" H 10375 2700 50  0000 L CNN
-F 1 "Test_Point" H 10533 2504 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 10675 2475 50  0001 C CNN
-F 3 "~" H 10675 2475 50  0001 C CNN
-	1    10475 2475
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Specialized:Test_Point TP302
-U 1 1 5ABBFC5D
-P 10475 2575
-F 0 "TP302" H 10200 2725 50  0000 L CNN
-F 1 "Test_Point" H 10533 2604 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 10675 2575 50  0001 C CNN
-F 3 "~" H 10675 2575 50  0001 C CNN
-	1    10475 2575
-	-1   0    0    1   
-$EndComp
-Connection ~ 10475 2575
-Wire Wire Line
-	10475 2575 10825 2575
-$Comp
-L Connector_Specialized:Test_Point TP304
-U 1 1 5ABBFCF7
-P 10475 2875
-F 0 "TP304" H 10200 3025 50  0000 L CNN
-F 1 "Test_Point" H 10533 2904 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 10675 2875 50  0001 C CNN
-F 3 "~" H 10675 2875 50  0001 C CNN
-	1    10475 2875
-	-1   0    0    1   
-$EndComp
-Connection ~ 10475 2875
-Wire Wire Line
-	10475 2875 10825 2875
-Connection ~ 10475 2475
-Wire Wire Line
-	10475 2475 10825 2475
-$Comp
-L Connector_Specialized:Test_Point TP305
-U 1 1 5ABBB660
-P 9200 3850
-F 0 "TP305" V 9200 4025 50  0000 L CNN
-F 1 "Test_Point" H 9258 3879 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 9400 3850 50  0001 C CNN
-F 3 "~" H 9400 3850 50  0001 C CNN
-	1    9200 3850
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector_Specialized:Test_Point TP306
-U 1 1 5ABBE70B
-P 9300 3850
-F 0 "TP306" V 9300 4025 50  0000 L CNN
-F 1 "Test_Point" H 9358 3879 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 9500 3850 50  0001 C CNN
-F 3 "~" H 9500 3850 50  0001 C CNN
-	1    9300 3850
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector_Specialized:Test_Point TP307
-U 1 1 5ABBE74D
-P 9400 3850
-F 0 "TP307" V 9400 4025 50  0000 L CNN
-F 1 "Test_Point" H 9458 3879 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 9600 3850 50  0001 C CNN
-F 3 "~" H 9600 3850 50  0001 C CNN
-	1    9400 3850
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector_Specialized:Test_Point TP308
-U 1 1 5ABBE791
-P 9500 3850
-F 0 "TP308" V 9500 4025 50  0000 L CNN
-F 1 "Test_Point" H 9558 3879 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 9700 3850 50  0001 C CNN
-F 3 "~" H 9700 3850 50  0001 C CNN
-	1    9500 3850
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector_Specialized:Test_Point TP309
-U 1 1 5ABBE8CB
-P 9600 3850
-F 0 "TP309" V 9600 4025 50  0000 L CNN
-F 1 "Test_Point" H 9658 3879 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 9800 3850 50  0001 C CNN
-F 3 "~" H 9800 3850 50  0001 C CNN
-	1    9600 3850
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector_Specialized:Test_Point TP310
-U 1 1 5ABBE8D1
-P 9700 3850
-F 0 "TP310" V 9700 4025 50  0000 L CNN
-F 1 "Test_Point" H 9758 3879 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 9900 3850 50  0001 C CNN
-F 3 "~" H 9900 3850 50  0001 C CNN
-	1    9700 3850
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector_Specialized:Test_Point TP311
-U 1 1 5ABBE8D7
-P 9800 3850
-F 0 "TP311" V 9800 4025 50  0000 L CNN
-F 1 "Test_Point" H 9858 3879 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 10000 3850 50  0001 C CNN
-F 3 "~" H 10000 3850 50  0001 C CNN
-	1    9800 3850
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector_Specialized:Test_Point TP312
-U 1 1 5ABBE8DD
-P 9900 3850
-F 0 "TP312" V 9900 4025 50  0000 L CNN
-F 1 "Test_Point" H 9958 3879 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 10100 3850 50  0001 C CNN
-F 3 "~" H 10100 3850 50  0001 C CNN
-	1    9900 3850
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	9125 3925 9200 3925
 Wire Wire Line
@@ -845,83 +682,115 @@ Wire Wire Line
 Wire Wire Line
 	9975 4625 9900 4625
 Wire Wire Line
-	9200 3850 9200 3925
+	9200 3650 9200 3925
 Connection ~ 9200 3925
 Wire Wire Line
 	9200 3925 9975 3925
 Wire Wire Line
-	9300 3850 9300 4025
+	9300 3650 9300 4025
 Connection ~ 9300 4025
 Wire Wire Line
 	9300 4025 9125 4025
 Wire Wire Line
-	9400 3850 9400 4125
+	9400 3650 9400 4125
 Connection ~ 9400 4125
 Wire Wire Line
 	9400 4125 9975 4125
 Wire Wire Line
-	9500 3850 9500 4225
+	9500 3650 9500 4225
 Connection ~ 9500 4225
 Wire Wire Line
 	9500 4225 9125 4225
 Wire Wire Line
-	9600 3850 9600 4325
+	9600 3650 9600 4325
 Connection ~ 9600 4325
 Wire Wire Line
 	9600 4325 9975 4325
 Wire Wire Line
-	9700 3850 9700 4425
+	9700 3650 9700 4425
 Connection ~ 9700 4425
 Wire Wire Line
 	9700 4425 9125 4425
 Wire Wire Line
-	9800 3850 9800 4525
+	9800 3650 9800 4525
 Connection ~ 9800 4525
 Wire Wire Line
 	9800 4525 9975 4525
 Wire Wire Line
-	9900 3850 9900 4625
+	9900 3650 9900 4625
 Connection ~ 9900 4625
 Wire Wire Line
 	9900 4625 9125 4625
+Wire Wire Line
+	10300 2575 10825 2575
+Wire Wire Line
+	10300 2875 10825 2875
+Wire Wire Line
+	10300 2475 10825 2475
+Wire Wire Line
+	1075 2825 1525 2825
 $Comp
-L Connector_Specialized:Test_Point TP314
-U 1 1 5ABDF20D
-P 1350 5525
-F 0 "TP314" V 1350 5700 50  0000 L CNN
-F 1 "Test_Point" H 1408 5554 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 1550 5525 50  0001 C CNN
-F 3 "~" H 1550 5525 50  0001 C CNN
-	1    1350 5525
+L Connector_Generic:Conn_01x09 J303
+U 1 1 5AB29A76
+P 9600 3450
+F 0 "J303" V 9817 3446 50  0000 C CNN
+F 1 "Conn_01x09" V 9726 3446 50  0000 C CNN
+F 2 "" H 9600 3450 50  0001 C CNN
+F 3 "~" H 9600 3450 50  0001 C CNN
+	1    9600 3450
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector_Specialized:Test_Point TP313
-U 1 1 5ABE1BB6
-P 1350 4825
-F 0 "TP313" V 1350 5000 50  0000 L CNN
-F 1 "Test_Point" H 1408 4854 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 1550 4825 50  0001 C CNN
-F 3 "~" H 1550 4825 50  0001 C CNN
-	1    1350 4825
-	0    -1   -1   0   
+L power:GND #PWR0321
+U 1 1 5AB29B43
+P 10000 3650
+F 0 "#PWR0321" H 10000 3400 50  0001 C CNN
+F 1 "GND" H 10100 3550 50  0000 C CNN
+F 2 "" H 10000 3650 50  0001 C CNN
+F 3 "" H 10000 3650 50  0001 C CNN
+	1    10000 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 J304
+U 1 1 5AB327D0
+P 1100 5850
+F 0 "J304" V 1100 6050 50  0000 L CNN
+F 1 "Conn_01x03" V 1200 5650 50  0000 L CNN
+F 2 "" H 1100 5850 50  0001 C CNN
+F 3 "~" H 1100 5850 50  0001 C CNN
+	1    1100 5850
+	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1350 4925 1425 4925
-Connection ~ 1425 4925
+	1000 4925 1100 4925
 Wire Wire Line
-	1425 4925 1525 4925
+	1000 5425 1200 5425
 Wire Wire Line
-	1350 5425 1425 5425
-Connection ~ 1425 5425
+	1100 5650 1100 4925
+Connection ~ 1100 4925
 Wire Wire Line
-	1425 5425 1525 5425
+	1100 4925 1525 4925
 Wire Wire Line
-	1425 4825 1350 4825
+	1200 5650 1200 5425
+Connection ~ 1200 5425
 Wire Wire Line
-	1425 4825 1425 4925
+	1200 5425 1525 5425
+$Comp
+L power:GND #PWR0322
+U 1 1 5AB4029B
+P 800 5800
+F 0 "#PWR0322" H 800 5550 50  0001 C CNN
+F 1 "GND" H 700 5675 50  0000 C CNN
+F 2 "" H 800 5800 50  0001 C CNN
+F 3 "" H 800 5800 50  0001 C CNN
+	1    800  5800
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	1350 5525 1425 5525
+	800  5800 800  5600
 Wire Wire Line
-	1425 5425 1425 5525
+	800  5600 1000 5600
+Wire Wire Line
+	1000 5600 1000 5650
 $EndSCHEMATC
