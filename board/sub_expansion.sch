@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 10 14
+Sheet 10 15
 Title ""
 Date ""
 Rev ""
@@ -228,16 +228,16 @@ Wire Bus Line
 $Comp
 L power:GND #PWR01001
 U 1 1 5AB6DD73
-P 5600 4900
-F 0 "#PWR01001" H 5600 4650 50  0001 C CNN
-F 1 "GND" H 5500 5000 50  0001 C CNN
-F 2 "" H 5600 4900 50  0001 C CNN
-F 3 "" H 5600 4900 50  0001 C CNN
-	1    5600 4900
+P 5600 4825
+F 0 "#PWR01001" H 5600 4575 50  0001 C CNN
+F 1 "GND" H 5500 4925 50  0001 C CNN
+F 2 "" H 5600 4825 50  0001 C CNN
+F 3 "" H 5600 4825 50  0001 C CNN
+	1    5600 4825
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5750 4700 5600 4700
+	5750 4700 5700 4700
 Wire Wire Line
 	5750 5000 5700 5000
 Wire Wire Line
@@ -250,10 +250,7 @@ Wire Wire Line
 Wire Wire Line
 	5700 4800 5700 4900
 Wire Wire Line
-	5600 4700 5600 4900
-Wire Wire Line
-	5600 4900 5700 4900
-Connection ~ 5600 4900
+	5600 4700 5600 4825
 Entry Wire Line
 	6500 3300 6400 3200
 Entry Wire Line
@@ -332,6 +329,12 @@ NoConn ~ 6250 5100
 NoConn ~ 6250 5200
 NoConn ~ 6250 5300
 NoConn ~ 6250 5400
+Wire Wire Line
+	5700 4800 5700 4700
+Connection ~ 5700 4800
+Connection ~ 5700 4700
+Wire Wire Line
+	5700 4700 5600 4700
 Wire Bus Line
 	6500 2650 6500 3500
 Wire Bus Line
