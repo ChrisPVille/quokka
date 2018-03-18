@@ -93,18 +93,18 @@ F32 "3V3_Physical6502_~BusEnable" I R 4000 2400 50
 F33 "5V_LED_CLK" O L 1550 2550 50 
 F34 "5V_LED_DATA" O L 1550 2650 50 
 F35 "5V_LED_LOAD" O L 1550 2750 50 
-F36 "EnableXcvrs" I R 4000 3000 50 
-F37 "Drive6502Bus" I R 4000 3200 50 
-F38 "DataDir" I R 4000 3100 50 
-F39 "3V3_LED_CLK" I R 4000 2550 50 
-F40 "3V3_LED_DATA" I R 4000 2650 50 
-F41 "3V3_LED_LOAD" I R 4000 2750 50 
-F42 "3V3_LED_~CLR" I R 4000 2850 50 
-F43 "5V_LED_~CLR" O L 1550 2850 50 
-F44 "3V3_IRQ" I R 4000 1500 50 
-F45 "3V3_RES" I R 4000 2300 50 
-F46 "3V3_SENSE_RES" O R 4000 3350 50 
-F47 "3V3_DATA[7..0]" T R 4000 800 50 
+F36 "DataDir" I R 4000 3100 50 
+F37 "3V3_LED_CLK" I R 4000 2550 50 
+F38 "3V3_LED_DATA" I R 4000 2650 50 
+F39 "3V3_LED_LOAD" I R 4000 2750 50 
+F40 "3V3_LED_~CLR" I R 4000 2850 50 
+F41 "5V_LED_~CLR" O L 1550 2850 50 
+F42 "3V3_IRQ" I R 4000 1500 50 
+F43 "3V3_RES" I R 4000 2300 50 
+F44 "3V3_SENSE_RES" O R 4000 3350 50 
+F45 "3V3_DATA[7..0]" T R 4000 800 50 
+F46 "~EnableXcvrs" I R 4000 3000 50 
+F47 "~Drive6502Bus" I R 4000 3200 50 
 $EndSheet
 Text HLabel 1500 2550 0    50   Output ~ 0
 LED_CLK
@@ -649,7 +649,7 @@ Physical6502_~RES
 Text Label 5000 2850 2    50   ~ 0
 LED_~CLR
 Text Label 5000 3000 2    50   ~ 0
-EnableXcvers
+~EnableXcvers
 Text Label 5000 2650 2    50   ~ 0
 LED_DATA
 Text Label 5000 2750 2    50   ~ 0
@@ -663,7 +663,7 @@ RES
 Text Label 5000 2400 2    50   ~ 0
 Physical6502_~BusEnable
 Text Label 5000 3200 2    50   ~ 0
-Drive6502Bus
+~Drive6502Bus
 Text Label 5000 3350 2    50   ~ 0
 SENSE_RES
 Wire Wire Line
@@ -705,7 +705,7 @@ Physical6502_~RES
 Text Label 9200 3275 2    50   ~ 0
 LED_~CLR
 Text Label 9200 3425 2    50   ~ 0
-EnableXcvers
+~EnableXcvers
 Text Label 9500 1900 2    50   ~ 0
 LED_DATA
 Text Label 9500 1750 2    50   ~ 0
@@ -719,7 +719,7 @@ RES
 Text Label 9500 1000 2    50   ~ 0
 Physical6502_~BusEnable
 Text Label 9200 3725 2    50   ~ 0
-Drive6502Bus
+~Drive6502Bus
 Text Label 9200 3875 2    50   ~ 0
 SENSE_RES
 Wire Wire Line

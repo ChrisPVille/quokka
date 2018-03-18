@@ -877,20 +877,8 @@ Wire Wire Line
 Connection ~ 5250 6500
 Wire Wire Line
 	5350 6500 5250 6500
-Text HLabel 4600 2350 3    50   Input ~ 0
-EnableXcvrs
-Text HLabel 4600 4300 3    50   Input ~ 0
-EnableXcvrs
-Text HLabel 4600 6250 3    50   Input ~ 0
-EnableXcvrs
-Text HLabel 1750 6250 3    50   Input ~ 0
-EnableXcvrs
-Text HLabel 1750 4300 3    50   Input ~ 0
-EnableXcvrs
 Text HLabel 1750 2350 3    50   Input ~ 0
-EnableXcvrs
-Text HLabel 7350 2350 3    50   Input ~ 0
-EnableXcvrs
+~EnableXcvrs
 Wire Wire Line
 	7350 2350 7350 2300
 Wire Wire Line
@@ -906,11 +894,11 @@ Wire Wire Line
 Wire Wire Line
 	1750 6250 1750 6200
 Text HLabel 1650 2350 3    50   Input ~ 0
-Drive6502Bus
+~Drive6502Bus
 Text HLabel 1650 4300 3    50   Input ~ 0
-Drive6502Bus
+~Drive6502Bus
 Text HLabel 1650 6250 3    50   Input ~ 0
-Drive6502Bus
+~Drive6502Bus
 Wire Wire Line
 	1650 2350 1650 2200
 Wire Wire Line
@@ -1716,4 +1704,16 @@ Wire Bus Line
 	3100 600  3100 4050
 Wire Bus Line
 	1450 600  1450 4050
+Text HLabel 7350 2350 3    50   Input ~ 0
+~EnableXcvrs
+Text HLabel 1750 4300 3    50   Input ~ 0
+~EnableXcvrs
+Text HLabel 1750 6250 3    50   Input ~ 0
+~EnableXcvrs
+Text HLabel 4600 6250 3    50   Input ~ 0
+~EnableXcvrs
+Text HLabel 4600 4300 3    50   Input ~ 0
+~EnableXcvrs
+Text HLabel 4600 2350 3    50   Input ~ 0
+~EnableXcvrs
 $EndSCHEMATC
