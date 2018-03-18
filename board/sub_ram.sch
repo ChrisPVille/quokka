@@ -28,7 +28,7 @@ U 1 1 5AACCF3F
 P 5400 2675
 F 0 "U1101" H 5075 3825 50  0000 C CNN
 F 1 "AS6C8008" H 5625 3825 50  0000 C CNN
-F 2 "" H 5000 3125 50  0001 C CNN
+F 2 "quokka:AS6C8008-SOIC-44" H 5000 3125 50  0001 C CNN
 F 3 "https://www.alliancememory.com/wp-content/uploads/pdf/AS6C8008.pdf" H 5000 3125 50  0001 C CNN
 	1    5400 2675
 	1    0    0    -1  

@@ -1692,18 +1692,6 @@ Wire Wire Line
 Connection ~ 5800 5900
 Wire Wire Line
 	5800 5900 5800 5975
-Wire Bus Line
-	5950 4650 5950 5600
-Wire Bus Line
-	4300 4650 4300 5600
-Wire Bus Line
-	8700 600  8700 1900
-Wire Bus Line
-	7050 600  7050 1900
-Wire Bus Line
-	3100 600  3100 4050
-Wire Bus Line
-	1450 600  1450 4050
 Text HLabel 7350 2350 3    50   Input ~ 0
 ~EnableXcvrs
 Text HLabel 1750 4300 3    50   Input ~ 0
@@ -1716,4 +1704,16 @@ Text HLabel 4600 4300 3    50   Input ~ 0
 ~EnableXcvrs
 Text HLabel 4600 2350 3    50   Input ~ 0
 ~EnableXcvrs
+Wire Bus Line
+	5950 4650 5950 5600
+Wire Bus Line
+	4300 4650 4300 5600
+Wire Bus Line
+	8700 600  8700 1900
+Wire Bus Line
+	7050 600  7050 1900
+Wire Bus Line
+	3100 600  3100 4050
+Wire Bus Line
+	1450 600  1450 4050
 $EndSCHEMATC
