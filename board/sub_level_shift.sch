@@ -1425,7 +1425,6 @@ Text Label 5950 4700 3    50   ~ 0
 3_A[19..16]
 Text Label 4300 4700 3    50   ~ 0
 5_A[19..16]
-NoConn ~ 5650 3950
 NoConn ~ 4600 3950
 $Comp
 L Device:C C1411
@@ -1704,6 +1703,21 @@ Text HLabel 4600 4300 3    50   Input ~ 0
 ~EnableXcvrs
 Text HLabel 4600 2350 3    50   Input ~ 0
 ~EnableXcvrs
+$Comp
+L power:GND #PWR?
+U 1 1 5AB2F0F1
+P 5700 4000
+F 0 "#PWR?" H 5700 3750 50  0001 C CNN
+F 1 "GND" H 5705 3827 50  0000 C CNN
+F 2 "" H 5700 4000 50  0001 C CNN
+F 3 "" H 5700 4000 50  0001 C CNN
+	1    5700 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 4000 5700 3950
+Wire Wire Line
+	5700 3950 5650 3950
 Wire Bus Line
 	5950 4650 5950 5600
 Wire Bus Line

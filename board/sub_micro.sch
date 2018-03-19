@@ -152,10 +152,6 @@ F 3 "~" H 1425 7050 50  0001 C CNN
 	1    1425 7050
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	950  7100 1325 7100
-Wire Wire Line
-	950  7000 1325 7000
 $Comp
 L Device:R R303
 U 1 1 5AC07574
@@ -761,4 +757,8 @@ Wire Wire Line
 	1000 5600 1000 5650
 Text HLabel 1525 3925 0    50   Output ~ 0
 SPI_FLASH_~CS
+Wire Wire Line
+	950  7100 1325 7100
+Wire Wire Line
+	950  7000 1325 7000
 $EndSCHEMATC
