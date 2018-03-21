@@ -18,15 +18,15 @@ Text HLabel 8450 4300 0    50   3State ~ 0
 6502_DATA[7..0]
 Text HLabel 4150 6250 0    50   3State ~ 0
 6502_ADDR[15..0]
-Text HLabel 4800 2150 0    50   3State ~ 0
+Text HLabel 4800 1850 0    50   3State ~ 0
 6502_R~W
 Text HLabel 7100 1950 0    50   Input ~ 0
 6502_RDY
-Text HLabel 4800 1850 0    50   3State ~ 0
+Text HLabel 4800 2050 0    50   3State ~ 0
 6502_PHI1
 Text HLabel 9850 1900 2    50   Input ~ 0
 6502_PHI0
-Text HLabel 4800 1950 0    50   3State ~ 0
+Text HLabel 4800 2150 0    50   3State ~ 0
 6502_PHI2
 Text HLabel 8550 1900 0    50   Input ~ 0
 6502_~IRQ
@@ -263,21 +263,21 @@ Entry Wire Line
 	10050 5100 10150 5000
 Entry Wire Line
 	10050 5200 10150 5100
-Text Label 10050 4500 2    50   ~ 0
-D0
-Text Label 10050 4600 2    50   ~ 0
-D1
-Text Label 10050 4700 2    50   ~ 0
-D2
-Text Label 10050 4800 2    50   ~ 0
-D3
-Text Label 10050 4900 2    50   ~ 0
-D4
-Text Label 10050 5000 2    50   ~ 0
-D5
-Text Label 10050 5100 2    50   ~ 0
-D6
 Text Label 10050 5200 2    50   ~ 0
+D0
+Text Label 10050 5100 2    50   ~ 0
+D1
+Text Label 10050 5000 2    50   ~ 0
+D2
+Text Label 10050 4900 2    50   ~ 0
+D3
+Text Label 10050 4800 2    50   ~ 0
+D4
+Text Label 10050 4700 2    50   ~ 0
+D5
+Text Label 10050 4600 2    50   ~ 0
+D6
+Text Label 10050 4500 2    50   ~ 0
 D7
 Entry Wire Line
 	8650 4500 8550 4400
@@ -296,36 +296,36 @@ Entry Wire Line
 Entry Wire Line
 	8650 5200 8550 5100
 Wire Wire Line
-	8650 5200 8850 5200
+	8650 4500 8850 4500
 Wire Wire Line
-	8850 5100 8650 5100
+	8850 4600 8650 4600
 Wire Wire Line
-	8650 5000 8850 5000
+	8650 4700 8850 4700
 Wire Wire Line
-	8850 4900 8650 4900
+	8850 4800 8650 4800
 Wire Wire Line
-	8650 4800 8850 4800
+	8650 4900 8850 4900
 Wire Wire Line
-	8850 4700 8650 4700
+	8850 5000 8650 5000
 Wire Wire Line
-	8650 4600 8850 4600
+	8650 5100 8850 5100
 Wire Wire Line
-	8850 4500 8650 4500
-Text Label 8650 4500 0    50   ~ 0
-B_D0
-Text Label 8650 4600 0    50   ~ 0
-B_D1
-Text Label 8650 4700 0    50   ~ 0
-B_D2
-Text Label 8650 4800 0    50   ~ 0
-B_D3
-Text Label 8650 4900 0    50   ~ 0
-B_D4
-Text Label 8650 5000 0    50   ~ 0
-B_D5
-Text Label 8650 5100 0    50   ~ 0
-B_D6
+	8850 5200 8650 5200
 Text Label 8650 5200 0    50   ~ 0
+B_D0
+Text Label 8650 5100 0    50   ~ 0
+B_D1
+Text Label 8650 5000 0    50   ~ 0
+B_D2
+Text Label 8650 4900 0    50   ~ 0
+B_D3
+Text Label 8650 4800 0    50   ~ 0
+B_D4
+Text Label 8650 4700 0    50   ~ 0
+B_D5
+Text Label 8650 4600 0    50   ~ 0
+B_D6
+Text Label 8650 4500 0    50   ~ 0
 B_D7
 Wire Bus Line
 	8550 4300 8450 4300
@@ -689,7 +689,7 @@ F 3 "" H 5300 3150 50  0001 C CNN
 	1    5300 3150
 	1    0    0    -1  
 $EndComp
-Text HLabel 4800 2050 0    50   3State ~ 0
+Text HLabel 4800 1950 0    50   3State ~ 0
 6502_SYNC
 Text HLabel 4800 2900 3    50   Input ~ 0
 ~BusEnable
@@ -720,24 +720,24 @@ Text Label 8450 1800 0    50   ~ 0
 PHI1
 Text Label 8450 2200 0    50   ~ 0
 SYNC
-Text Label 6000 1850 2    50   ~ 0
+Text Label 6000 2050 2    50   ~ 0
 PHI1
 Text Label 9950 1700 2    50   ~ 0
 PHI2
-Text Label 6000 1950 2    50   ~ 0
-PHI2
-Text Label 6000 2050 2    50   ~ 0
-SYNC
 Text Label 6000 2150 2    50   ~ 0
+PHI2
+Text Label 6000 1950 2    50   ~ 0
+SYNC
+Text Label 6000 1850 2    50   ~ 0
 R~W
-Wire Wire Line
-	6000 1850 5800 1850
-Wire Wire Line
-	5800 1950 6000 1950
 Wire Wire Line
 	6000 2050 5800 2050
 Wire Wire Line
-	6000 2150 5800 2150
+	5800 2150 6000 2150
+Wire Wire Line
+	6000 1950 5800 1950
+Wire Wire Line
+	6000 1850 5800 1850
 $Comp
 L Device:R R1203
 U 1 1 5AB86026

@@ -2273,7 +2273,7 @@ U 1 1 5AB701A3
 P 1200 800
 F 0 "TP201" H 1258 874 50  0000 L CNN
 F 1 "Test_Point" H 1258 829 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 1400 800 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 1400 800 50  0001 C CNN
 F 3 "~" H 1400 800 50  0001 C CNN
 	1    1200 800 
 	1    0    0    -1  
@@ -2287,7 +2287,7 @@ U 1 1 5AB7211A
 P 3725 875
 F 0 "TP202" V 3800 900 50  0000 L CNN
 F 1 "Test_Point" H 3783 904 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 3925 875 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 3925 875 50  0001 C CNN
 F 3 "~" H 3925 875 50  0001 C CNN
 	1    3725 875 
 	1    0    0    -1  
@@ -2298,7 +2298,7 @@ U 1 1 5AB72500
 P 6375 1075
 F 0 "TP203" H 6250 1300 50  0000 L CNN
 F 1 "Test_Point" H 6433 1104 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 6575 1075 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 6575 1075 50  0001 C CNN
 F 3 "~" H 6575 1075 50  0001 C CNN
 	1    6375 1075
 	1    0    0    -1  
@@ -2309,7 +2309,7 @@ U 1 1 5AB7378A
 P 9875 1275
 F 0 "TP204" H 9750 1500 50  0000 L CNN
 F 1 "Test_Point" H 9933 1304 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 10075 1275 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 10075 1275 50  0001 C CNN
 F 3 "~" H 10075 1275 50  0001 C CNN
 	1    9875 1275
 	1    0    0    -1  
@@ -2320,7 +2320,7 @@ U 1 1 5AB76F66
 P 2700 2600
 F 0 "TP205" H 2575 2825 50  0000 L CNN
 F 1 "Test_Point" H 2758 2629 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 2900 2600 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 2900 2600 50  0001 C CNN
 F 3 "~" H 2900 2600 50  0001 C CNN
 	1    2700 2600
 	1    0    0    -1  
@@ -2331,7 +2331,7 @@ U 1 1 5AB89472
 P 3675 2600
 F 0 "TP206" V 3675 2775 50  0000 L CNN
 F 1 "Test_Point" H 3733 2629 50  0001 L CNN
-F 2 "TestPoint:TestPoint_Plated_Hole_D2.0mm" H 3875 2600 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 3875 2600 50  0001 C CNN
 F 3 "~" H 3875 2600 50  0001 C CNN
 	1    3675 2600
 	0    1    1    0   

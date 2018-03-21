@@ -94,16 +94,6 @@ F 3 "~" V 8625 3225 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	9925 2675 9925 3125
-Wire Wire Line
-	9825 2675 9925 2675
-Connection ~ 9825 2675
-Wire Wire Line
-	9825 2675 9825 3125
-Wire Wire Line
-	9725 2675 9825 2675
-Connection ~ 9725 2675
-Wire Wire Line
 	9725 2675 9725 3125
 Wire Wire Line
 	9625 2675 9725 2675
@@ -156,28 +146,6 @@ Wire Wire Line
 Connection ~ 8725 2675
 Wire Wire Line
 	8725 3125 8725 2675
-$Comp
-L Device:LED_Small D815
-U 1 1 5AF22EC2
-P 9925 3225
-F 0 "D815" H 10175 3275 50  0000 R CNN
-F 1 "LED_Small" V 9880 3157 50  0001 R CNN
-F 2 "LED_SMD:LED_0805_2012Metric" V 9925 3225 50  0001 C CNN
-F 3 "~" V 9925 3225 50  0001 C CNN
-	1    9925 3225
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:LED_Small D814
-U 1 1 5AF22EBC
-P 9825 3225
-F 0 "D814" H 10075 3275 50  0000 R CNN
-F 1 "LED_Small" V 9780 3157 50  0001 R CNN
-F 2 "LED_SMD:LED_0805_2012Metric" V 9825 3225 50  0001 C CNN
-F 3 "~" V 9825 3225 50  0001 C CNN
-	1    9825 3225
-	0    -1   -1   0   
-$EndComp
 $Comp
 L Device:LED_Small D813
 U 1 1 5AF22EB6
@@ -299,22 +267,6 @@ F 3 "~" V 8725 3225 50  0001 C CNN
 	1    8725 3225
 	0    -1   -1   0   
 $EndComp
-$Comp
-L Device:LED_Small D816
-U 1 1 5AF22EC8
-P 10025 3225
-F 0 "D816" H 10275 3275 50  0000 R CNN
-F 1 "LED_Small" V 9980 3157 50  0001 R CNN
-F 2 "LED_SMD:LED_0805_2012Metric" V 10025 3225 50  0001 C CNN
-F 3 "~" V 10025 3225 50  0001 C CNN
-	1    10025 3225
-	0    -1   -1   0   
-$EndComp
-Connection ~ 9925 2675
-Wire Wire Line
-	9925 2675 10025 2675
-Wire Wire Line
-	10025 2675 10025 3125
 Text HLabel 1350 875  0    50   Input ~ 0
 Din
 Text HLabel 1650 5950 0    50   Input ~ 0
@@ -907,17 +859,11 @@ Wire Wire Line
 	9625 6050 7825 6050
 Wire Wire Line
 	7925 6150 9725 6150
-Wire Wire Line
-	9825 6250 8025 6250
-Wire Wire Line
-	8125 6350 9925 6350
 Connection ~ 7525 5750
 Connection ~ 7625 5850
 Connection ~ 7725 5950
 Connection ~ 7825 6050
 Connection ~ 7925 6150
-Connection ~ 8025 6250
-Connection ~ 8125 6350
 Wire Wire Line
 	2350 875  4775 875 
 Text HLabel 1350 1075 0    50   Input ~ 0
@@ -1416,10 +1362,6 @@ Wire Wire Line
 Wire Wire Line
 	9725 3325 9725 6150
 Wire Wire Line
-	9825 3325 9825 6250
-Wire Wire Line
-	9925 3325 9925 6350
-Wire Wire Line
 	3825 3675 3825 4800
 Wire Wire Line
 	3725 3675 3725 4700
@@ -1448,20 +1390,6 @@ Wire Wire Line
 Connection ~ 7975 2275
 Wire Wire Line
 	7975 2275 8725 2275
-$Comp
-L Device:R R823
-U 1 1 5B0EC92D
-P 2800 6450
-F 0 "R823" V 2750 6100 50  0000 L CNN
-F 1 "160" V 2800 6375 50  0000 L CNN
-F 2 "Resistor_SMD:R_1206_3216Metric" V 2730 6450 50  0001 C CNN
-F 3 "~" H 2800 6450 50  0001 C CNN
-	1    2800 6450
-	0    -1   -1   0   
-$EndComp
 NoConn ~ 2650 6650
-Wire Wire Line
-	2950 6450 10025 6450
-Wire Wire Line
-	10025 6450 10025 3325
+NoConn ~ 2650 6450
 $EndSCHEMATC

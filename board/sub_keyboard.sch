@@ -589,17 +589,17 @@ Wire Wire Line
 	8100 2500 8100 3050
 Entry Wire Line
 	8100 2300 8200 2200
-Text Label 4850 2350 2    50   ~ 0
-column0
-Text Label 5500 2350 2    50   ~ 0
-column1
-Text Label 6150 2350 2    50   ~ 0
-column2
-Text Label 6800 2350 2    50   ~ 0
-column3
-Text Label 7450 2350 2    50   ~ 0
-column4
 Text Label 8100 2350 2    50   ~ 0
+column0
+Text Label 7450 2350 2    50   ~ 0
+column1
+Text Label 6800 2350 2    50   ~ 0
+column2
+Text Label 6150 2350 2    50   ~ 0
+column3
+Text Label 5500 2350 2    50   ~ 0
+column4
+Text Label 4850 2350 2    50   ~ 0
 column5
 Entry Wire Line
 	4150 2750 4250 2850
@@ -613,15 +613,15 @@ Entry Wire Line
 	4150 4950 4250 5050
 Wire Bus Line
 	4150 2300 4050 2300
-Text Label 4300 2850 1    50   ~ 0
+Text Label 4300 5050 1    50   ~ 0
 row0
-Text Label 4300 3400 1    50   ~ 0
+Text Label 4300 4500 1    50   ~ 0
 row1
 Text Label 4300 3950 1    50   ~ 0
 row2
-Text Label 4300 4500 1    50   ~ 0
+Text Label 4300 3400 1    50   ~ 0
 row3
-Text Label 4300 5050 1    50   ~ 0
+Text Label 4300 2850 1    50   ~ 0
 row4
 Wire Wire Line
 	7650 2500 7650 2850

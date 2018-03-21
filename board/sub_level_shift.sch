@@ -458,11 +458,11 @@ Wire Wire Line
 	4450 4250 4450 4150
 Wire Wire Line
 	4450 4150 4600 4150
-Text HLabel 4600 3550 0    50   Output ~ 0
+Text HLabel 4600 3850 0    50   Output ~ 0
 5V_LED_CLK
 Text HLabel 4600 3650 0    50   Output ~ 0
 5V_LED_DATA
-Text HLabel 4600 3750 0    50   Output ~ 0
+Text HLabel 4600 3550 0    50   Output ~ 0
 5V_LED_LOAD
 $Comp
 L Device:R R1404
@@ -917,15 +917,15 @@ Wire Wire Line
 	7250 2350 7250 2200
 Wire Wire Line
 	7250 2200 7350 2200
-Text HLabel 5650 3550 2    50   Input ~ 0
+Text HLabel 5650 3850 2    50   Input ~ 0
 3V3_LED_CLK
 Text HLabel 5650 3650 2    50   Input ~ 0
 3V3_LED_DATA
-Text HLabel 5650 3750 2    50   Input ~ 0
+Text HLabel 5650 3550 2    50   Input ~ 0
 3V3_LED_LOAD
-Text HLabel 5650 3850 2    50   Input ~ 0
+Text HLabel 5650 3750 2    50   Input ~ 0
 3V3_LED_~CLR
-Text HLabel 4600 3850 0    50   Output ~ 0
+Text HLabel 4600 3750 0    50   Output ~ 0
 5V_LED_~CLR
 Wire Wire Line
 	6550 6000 6550 6050
@@ -1704,10 +1704,10 @@ Text HLabel 4600 4300 3    50   Input ~ 0
 Text HLabel 4600 2350 3    50   Input ~ 0
 ~EnableXcvrs
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0101
 U 1 1 5AB2F0F1
 P 5700 4000
-F 0 "#PWR?" H 5700 3750 50  0001 C CNN
+F 0 "#PWR0101" H 5700 3750 50  0001 C CNN
 F 1 "GND" H 5705 3827 50  0000 C CNN
 F 2 "" H 5700 4000 50  0001 C CNN
 F 3 "" H 5700 4000 50  0001 C CNN

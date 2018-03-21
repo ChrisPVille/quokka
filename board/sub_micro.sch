@@ -761,4 +761,12 @@ Wire Wire Line
 	950  7100 1325 7100
 Wire Wire Line
 	950  7000 1325 7000
+Text Label 3200 7100 0    50   ~ 0
+U1_N
+Text Label 3200 7000 0    50   ~ 0
+U1_P
+Text Label 1650 7000 0    50   ~ 0
+U2_P
+Text Label 1650 7100 0    50   ~ 0
+U2_N
 $EndSCHEMATC

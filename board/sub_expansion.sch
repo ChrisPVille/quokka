@@ -37,9 +37,9 @@ Text HLabel 8050 5100 0    50   UnSpc ~ 0
 Text HLabel 8050 5000 0    50   UnSpc ~ 0
 6502_SO
 Text HLabel 8050 4800 0    50   UnSpc ~ 0
-OPT1_~cs
+6502_OPT1_~cs
 Text HLabel 8050 4700 0    50   UnSpc ~ 0
-OPT2_~cs
+6502_OPT2_~cs
 Text HLabel 8050 4900 0    50   UnSpc ~ 0
 6502_SYNC
 Text HLabel 7700 2250 0    50   BiDi ~ 0
