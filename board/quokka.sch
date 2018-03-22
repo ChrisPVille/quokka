@@ -353,7 +353,7 @@ $Sheet
 S 8625 3450 650  450 
 U 5AAED127
 F0 "Flash" 50
-F1 "flash.sch" 50
+F1 "sub_flash.sch" 50
 F2 "SCLK" I L 8625 3525 50 
 F3 "MOSI" I L 8625 3625 50 
 F4 "MISO" O L 8625 3725 50 
