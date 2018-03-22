@@ -388,4 +388,70 @@ Wire Wire Line
 	8450 3725 8625 3725
 Wire Wire Line
 	8350 3625 8625 3625
+$Comp
+L Mechanical:Mounting_Hole MK101
+U 1 1 5AB418EE
+P 950 7650
+F 0 "MK101" V 950 7750 50  0000 L CNN
+F 1 "Mounting_Hole" H 1050 7605 50  0001 L CNN
+F 2 "MountingHole:MountingHole_4.5mm" H 950 7650 50  0001 C CNN
+F 3 "" H 950 7650 50  0001 C CNN
+	1    950  7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Mounting_Hole MK102
+U 1 1 5AB41A93
+P 1175 7650
+F 0 "MK102" V 1175 7750 50  0000 L CNN
+F 1 "Mounting_Hole" H 1275 7605 50  0001 L CNN
+F 2 "MountingHole:MountingHole_4.5mm" H 1175 7650 50  0001 C CNN
+F 3 "" H 1175 7650 50  0001 C CNN
+	1    1175 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Mounting_Hole MK104
+U 1 1 5AB44047
+P 1625 7650
+F 0 "MK104" V 1625 7750 50  0000 L CNN
+F 1 "Mounting_Hole" H 1725 7605 50  0001 L CNN
+F 2 "MountingHole:MountingHole_4.5mm" H 1625 7650 50  0001 C CNN
+F 3 "" H 1625 7650 50  0001 C CNN
+	1    1625 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Mounting_Hole MK103
+U 1 1 5AB44041
+P 1400 7650
+F 0 "MK103" V 1400 7750 50  0000 L CNN
+F 1 "Mounting_Hole" H 1500 7605 50  0001 L CNN
+F 2 "MountingHole:MountingHole_4.5mm" H 1400 7650 50  0001 C CNN
+F 3 "" H 1400 7650 50  0001 C CNN
+	1    1400 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Mounting_Hole MK106
+U 1 1 5AB48BB3
+P 2075 7650
+F 0 "MK106" V 2075 7750 50  0000 L CNN
+F 1 "Mounting_Hole" H 2175 7605 50  0001 L CNN
+F 2 "MountingHole:MountingHole_4.5mm" H 2075 7650 50  0001 C CNN
+F 3 "" H 2075 7650 50  0001 C CNN
+	1    2075 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Mounting_Hole MK105
+U 1 1 5AB48BB9
+P 1850 7650
+F 0 "MK105" V 1850 7750 50  0000 L CNN
+F 1 "Mounting_Hole" H 1950 7605 50  0001 L CNN
+F 2 "MountingHole:MountingHole_4.5mm" H 1850 7650 50  0001 C CNN
+F 3 "" H 1850 7650 50  0001 C CNN
+	1    1850 7650
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
