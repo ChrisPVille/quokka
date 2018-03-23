@@ -1,3 +1,4 @@
 *.bak
 quokka.bck
 quokka.kicad_pcb-bak
+gerbers/*/*.zip
