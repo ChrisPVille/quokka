@@ -454,4 +454,136 @@ F 3 "" H 1850 7650 50  0001 C CNN
 	1    1850 7650
 	1    0    0    -1  
 $EndComp
+$Comp
+L quokka:Fiducial FID101
+U 1 1 5AB5F301
+P 2650 7325
+F 0 "FID101" V 2475 7200 50  0000 L CNN
+F 1 "Fiducial" H 2650 7450 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop" H 2650 7325 50  0001 C CNN
+F 3 "" H 2650 7325 50  0001 C CNN
+	1    2650 7325
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID102
+U 1 1 5AB5F428
+P 3025 7325
+F 0 "FID102" V 2850 7200 50  0000 L CNN
+F 1 "Fiducial" H 3025 7450 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop" H 3025 7325 50  0001 C CNN
+F 3 "" H 3025 7325 50  0001 C CNN
+	1    3025 7325
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID103
+U 1 1 5AB5F4F2
+P 3400 7325
+F 0 "FID103" V 3225 7200 50  0000 L CNN
+F 1 "Fiducial" H 3400 7450 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop" H 3400 7325 50  0001 C CNN
+F 3 "" H 3400 7325 50  0001 C CNN
+	1    3400 7325
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID104
+U 1 1 5AB5F4F8
+P 3775 7325
+F 0 "FID104" V 3600 7200 50  0000 L CNN
+F 1 "Fiducial" H 3775 7450 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperBottom" H 3775 7325 50  0001 C CNN
+F 3 "" H 3775 7325 50  0001 C CNN
+	1    3775 7325
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID105
+U 1 1 5AB61C6E
+P 4150 7325
+F 0 "FID105" V 3975 7200 50  0000 L CNN
+F 1 "Fiducial" H 4150 7450 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperBottom" H 4150 7325 50  0001 C CNN
+F 3 "" H 4150 7325 50  0001 C CNN
+	1    4150 7325
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID106
+U 1 1 5AB61C74
+P 4525 7325
+F 0 "FID106" V 4350 7200 50  0000 L CNN
+F 1 "Fiducial" H 4525 7450 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperBottom" H 4525 7325 50  0001 C CNN
+F 3 "" H 4525 7325 50  0001 C CNN
+	1    4525 7325
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID107
+U 1 1 5AB8207D
+P 2650 7650
+F 0 "FID107" V 2475 7525 50  0000 L CNN
+F 1 "Fiducial" H 2650 7775 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop" H 2650 7650 50  0001 C CNN
+F 3 "" H 2650 7650 50  0001 C CNN
+	1    2650 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID108
+U 1 1 5AB82083
+P 3025 7650
+F 0 "FID108" V 2850 7525 50  0000 L CNN
+F 1 "Fiducial" H 3025 7775 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop" H 3025 7650 50  0001 C CNN
+F 3 "" H 3025 7650 50  0001 C CNN
+	1    3025 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID109
+U 1 1 5AB82089
+P 3400 7650
+F 0 "FID109" V 3225 7525 50  0000 L CNN
+F 1 "Fiducial" H 3400 7775 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop" H 3400 7650 50  0001 C CNN
+F 3 "" H 3400 7650 50  0001 C CNN
+	1    3400 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID110
+U 1 1 5AB84731
+P 3775 7650
+F 0 "FID110" V 3600 7525 50  0000 L CNN
+F 1 "Fiducial" H 3775 7775 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop" H 3775 7650 50  0001 C CNN
+F 3 "" H 3775 7650 50  0001 C CNN
+	1    3775 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID111
+U 1 1 5AB84737
+P 4150 7650
+F 0 "FID111" V 3975 7525 50  0000 L CNN
+F 1 "Fiducial" H 4150 7775 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop" H 4150 7650 50  0001 C CNN
+F 3 "" H 4150 7650 50  0001 C CNN
+	1    4150 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L quokka:Fiducial FID112
+U 1 1 5AB8473D
+P 4525 7650
+F 0 "FID112" V 4350 7525 50  0000 L CNN
+F 1 "Fiducial" H 4525 7775 50  0001 C CNN
+F 2 "Fiducial:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop" H 4525 7650 50  0001 C CNN
+F 3 "" H 4525 7650 50  0001 C CNN
+	1    4525 7650
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

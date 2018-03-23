@@ -1,4 +1,4 @@
-update=Sun 18 Mar 2018 01:39:40 PM EDT
+update=Thu 22 Mar 2018 08:52:45 PM EDT
 version=1
 last_client=kicad
 [general]
@@ -34,7 +34,7 @@ LibDir=
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=./quokka.pdf
+PlotDirectoryName=.
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=

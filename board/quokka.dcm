@@ -16,6 +16,10 @@ K RAM
 F https://www.alliancememory.com/wp-content/uploads/pdf/AS6C8008.pdf
 $ENDCMP
 #
+$CMP Fiducial
+D Fiducial
+$ENDCMP
+#
 $CMP TPIC6D595
 D Power logic 8-bit shift register
 K shift register 8bit
