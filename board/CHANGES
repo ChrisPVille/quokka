@@ -1,0 +1,10 @@
+Rev B
+- Moved some traces inward for mechanical reasons
+- Moved fiducials for better contrast
+- Swapped can capacitor footprints
+- Increased ZIF and 14-segment drill size for ease of mounting
+- Moved tall capacitor to top layer
+- Increased rubber foot drill size slightly
+- Updated 5V TVS diodes
+- Used TVS diode on power input (reverse polarity protection was somewhat useless before)
+- Added additional input filtering on the power supply
