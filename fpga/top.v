@@ -18,7 +18,11 @@ module top(
 
     assign G[7:0] = counter[28:21];
     
-    display display1(.clk(CLK25MHZ), .rst_n(1), .display_bits(72'b0),
+    wire rst_n;
+    
+    reset por(.clk(CLK25MHZ), .rst_n(rst_n));
+    
+    display display1(.clk(CLK25MHZ), .rst_n(rst_n), .display_bits({72{G[4]}}),
                      .sclk(LCD_CLK), .sdata(LCD_DATA), .sload(LCD_LOAD),
                      .sclr_n(LCD_CLR));
 
