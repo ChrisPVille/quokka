@@ -22,7 +22,7 @@ module top(
     
     reset por(.clk(CLK25MHZ), .rst_n(rst_n));
     
-    display display1(.clk(CLK25MHZ), .rst_n(rst_n), .display_bits({72{G[4]}}),
+    display display1(.clk(CLK25MHZ), .rst_n(rst_n),
                      .sclk(LCD_CLK), .sdata(LCD_DATA), .sload(LCD_LOAD),
                      .sclr_n(LCD_CLR));
 
