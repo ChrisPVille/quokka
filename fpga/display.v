@@ -72,14 +72,14 @@ module display(
                 STATE_DIGIT3: begin
                     rowA <= {8'b00001000, led_map(led_y[7:4])};
                     rowB <= {8'b00001000, led_map(led_sp[15:12])};
-                    rowC <= {8'b00001000, led_map(led_mem[15:12])};
+                    rowC <= {8'b00001000, led_map(led_mem[7:4])};
                     if(digitDone) state <= STATE_DIGIT4;
                 end
                 
                 STATE_DIGIT4: begin
                     rowA <= {8'b00000100, led_map(led_y[3:0])};
                     rowB <= {8'b00000100, led_map(led_sp[11:8])};
-                    rowC <= {8'b00000100, led_map(led_mem[11:8])};
+                    rowC <= {8'b00000100, led_map(led_mem[3:0])};
                     if(digitDone) state <= STATE_DIGIT5;
                 end
                 
@@ -100,14 +100,14 @@ module display(
                 STATE_DIGIT7: begin
                     rowA <= {8'b00100000, 16'b11111111_11110100};
                     rowB <= {8'b00100000, led_map(led_pc[7:4])};
-                    rowC <= {8'b00100000, led_map(led_mem[7:4])};
+                    rowC <= {8'b00100000, led_map(led_mem[15:12])};
                     if(digitDone) state <= STATE_DIGIT8;
                 end                
                 
                 STATE_DIGIT8: begin
                     rowA <= {8'b00010000, 16'b11111111_11110100};
                     rowB <= {8'b00010000, led_map(led_pc[3:0])};
-                    rowC <= {8'b00010000, led_map(led_mem[3:0])};
+                    rowC <= {8'b00010000, led_map(led_mem[11:8])};
                     if(digitDone) state <= STATE_DIGIT1;
                 end
             endcase
