@@ -29,13 +29,14 @@ module raw_display(
     output reg sclr_n
     );
 
-reg[16:0] counter;
+reg[13:0] counter;
+//reg[23:0] counter;
 always@(posedge clk or negedge rst_n) begin
     if(~rst_n) counter <= 0;
     else counter <= counter + 1;
 end
 
-assign timerOverflow = &counter[16:0];
+assign timerOverflow = &counter;
 
 `define SHIFTDIG 2'b00
 `define LOADPULSE 2'b01
