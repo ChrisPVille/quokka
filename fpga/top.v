@@ -1,6 +1,6 @@
 module top(
-    input CLK25MHZ,
-    inout[7:0] G,
+    input RAW25MHZ,
+    output[7:0] G,
     output GPIO_RW,
     
     output LCD_CLK,
@@ -9,10 +9,53 @@ module top(
     output LCD_CLR,
     
     output[4:0] KBD_row,
-    input[5:0] KBD_col
+    input[5:0] KBD_col,
+    
+    input PHI1,
+    input PHI2,
+    input RW,
+    input SYNC,
+    input senseRES,
+    
+    output RAM_csN,
+    output OPT1_csN,
+    output OPT2_csN,
+    output PHI0,
+    output IRQ,
+    output RDY,
+    output NMIn,
+    output phys6502_RESn,
+    output RES,
+    output SO,
+    
+    input[15:0] A,
+    output[19:16] Ahigh,
+    
+    inout[7:0] D,
+    
+    output Drive6502BusN,
+    output EnableXceversN,
+    output phys6502_BusEnableN,
+    output DataDir
     );
 
     assign GPIO_RW = 0;
+    assign EnableXceversN = 0;
+    
+    assign Drive6502BusN = 1; //For the love of everything, don't change this
+    assign phys6502_BusEnableN = ~Drive6502BusN; //Or this
+    
+    assign RAM_csN = 1;
+    assign OPT1_csN = 1;
+    assign OPT2_csN = 1;
+        
+    assign IRQ = 0;
+    assign RDY = 0;
+    assign NMIn = 1;
+    assign SO = 1;
+    assign DataDir = 1; //Data Input always (for now)
+    
+    assign Ahigh = 4'h0;
     
     wire b_0;
     wire b_1;
@@ -43,16 +86,53 @@ module top(
     wire b_toY;
     wire b_toPC;
     
+    wire CLK25MHZ, CLK10MHZ;
+
+    clkman clk1(.CLKIN_IN(RAW25MHZ), 
+    .RST_IN(1'b0), 
+    .CLKDV_OUT(CLK10MHZ),
+    .CLK0_OUT(CLK25MHZ)
+    );
+
+    wire rst_n;
+
+    reset por(.clk(CLK25MHZ), .rst_n(rst_n));
+
+    reg CLK1MHZ;
+    reg[3:0] clkDivCtr;
+    always@(posedge CLK10MHZ or negedge rst_n) begin
+        if(~rst_n) begin
+            clkDivCtr <= 0;
+            CLK1MHZ <= 0;
+        end else begin
+            if(clkDivCtr == 3'h4) begin
+                CLK1MHZ <= ~CLK1MHZ;
+                clkDivCtr <= 0;
+            end else begin
+                clkDivCtr <= clkDivCtr + 1;
+            end
+        end
+    end
+    
+    assign PHI0 = CLK1MHZ;
+    
     reg[7:0] counter;
     always@(posedge CLK25MHZ) begin
         if(b_0) counter <= counter + 1;
     end
 
     assign G[7:0] = counter;
+        
+    assign phys6502_RESn = rst_n;
+    assign RES = rst_n;
+        
     
-    wire rst_n;
-    
-    reset por(.clk(CLK25MHZ), .rst_n(rst_n));
+    cpu_control pcpu(
+        .clk(CLK25MHZ),
+        .rst_n(rst_n),
+        .A(A[15:0]),
+        .D(D)
+        );
     
     keyboard keyboard1(
         .clk(CLK25MHZ),

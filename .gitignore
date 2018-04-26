@@ -2,3 +2,4 @@
 !/fpga/*.xise
 !/fpga/*.v
 !/fpga/*.ucf
+!/fpga/**/*.xaw
