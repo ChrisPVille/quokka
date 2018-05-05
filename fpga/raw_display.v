@@ -6,17 +6,20 @@ module raw_display(
     output sclk,
     output sdata,
     output reg sload,
-    output reg sclr_n
+    output sclr_n
     );
 
 reg[13:0] counter;
-//reg[23:0] counter;
 always@(posedge clk or negedge rst_n) begin
     if(~rst_n) counter <= 0;
     else counter <= counter + 1;
 end
 
 assign timerOverflow = &counter;
+//Because our FETs take a while to switch off, here is a configurable reset
+//that will turn them off early. Based on experimentation, just resetting them
+//during the configuration period is plenty of time to prevent ghosting.
+assign sclr_n = ~timerOverflow;
 
 `define SHIFTDIG 2'b00
 `define LOADPULSE 2'b01
@@ -28,12 +31,9 @@ reg[1:0] state;
 always@(posedge clk or negedge rst_n) begin
     if(~rst_n) begin
         state <= `SHIFTDIG;
-        sclr_n <= 0;
         sload <= 0;
         output_enable <= 0;
     end else begin
-        sclr_n <= 1;
-        
         case(state)
         
         `SHIFTDIG: begin
@@ -50,7 +50,7 @@ always@(posedge clk or negedge rst_n) begin
         
         `WAIT: begin
             sload <= 0;
-            if(timerOverflow) state <= `SHIFTDIG;
+            if(&counter[13:0]) state <= `SHIFTDIG;
         end
                 
         endcase

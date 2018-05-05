@@ -33,9 +33,11 @@ module display(
     //States: DIG1 DIG2 DIG3 DIG4 DIG5 DIG6 DIG7/LED DIG8/LED
     reg[23:0] rowA, rowB, rowC;
     wire digitDone;
-    raw_display raw_display1(.clk(clk), .rst_n(rst_n), 
-        .display_bits({rowC,rowB,rowA}), .timerOverflow(digitDone),
-        .sclk(sclk), .sdata(sdata), .sload(sload), .sclr_n(sclr_n));
+    wire enableCathodes;
+    raw_display raw_display1(.clk(clk), .rst_n(rst_n),
+        .display_bits({rowC,rowB,rowA}),
+        .timerOverflow(digitDone), .sclk(sclk), .sdata(sdata), .sload(sload), 
+        .sclr_n(sclr_n));
         
     localparam STATE_DIGIT1 = 3'h0;
     localparam STATE_DIGIT2 = 3'h1;
@@ -46,7 +48,31 @@ module display(
     localparam STATE_DIGIT7 = 3'h6;
     localparam STATE_DIGIT8 = 3'h7;
     
+    wire[15:0] discrete_map;
+    assign discrete_map = ledsValid ? {led_brk, led_dash, led_ovf, led_neg, 
+                                       led_irq, led_dec, led_carry, led_zero,
+                                       led_physical, led_test, led_halt, 
+                                       led_run, 1'b0, led_soft, 2'b00} : 
+                                      {8'b00000000, led_physical, led_test, 
+                                       led_halt, led_run, 1'b0, led_soft, 
+                                       2'b00};
+
     reg[2:0] state;
+    
+    reg[7:0] cathodes;
+    always@(*) begin
+        case(state)
+        STATE_DIGIT1: cathodes = 8'b00000010;
+        STATE_DIGIT2: cathodes = 8'b00000001;
+        STATE_DIGIT3: cathodes = 8'b00001000;
+        STATE_DIGIT4: cathodes = 8'b00000100;
+        STATE_DIGIT5: cathodes = 8'b10000000;
+        STATE_DIGIT6: cathodes = 8'b01000000;
+        STATE_DIGIT7: cathodes = 8'b00100000;
+        STATE_DIGIT8: cathodes = 8'b00010000;
+        endcase
+    end
+    
     always@(posedge clk or negedge rst_n) begin
         if(~rst_n) begin
             state <= STATE_DIGIT1;
@@ -56,58 +82,58 @@ module display(
         end else begin
             case(state)
                 STATE_DIGIT1: begin
-                    rowA <= {8'b00000010, led_map(led_x[7:4])};
-                    rowB <= {8'b00000010, led_map(led_sp[7:4])};
-                    rowC <= {8'b00000010, led_map(led_data[7:4])};
+                    rowA <= {cathodes, led_map(led_x[7:4], 0)};
+                    rowB <= {cathodes, led_map(led_sp[7:4], 0)};
+                    rowC <= {cathodes, led_map(led_data[7:4], 1)};
                     if(digitDone) state <= STATE_DIGIT2;
                 end
                 
                 STATE_DIGIT2: begin
-                    rowA <= {8'b00000001, led_map(led_x[3:0])};
-                    rowB <= {8'b00000001, led_map(led_sp[3:0])};
-                    rowC <= {8'b00000001, led_map(led_data[3:0])};
+                    rowA <= {cathodes, led_map(led_x[3:0], 0)};
+                    rowB <= {cathodes, led_map(led_sp[3:0], 0)};
+                    rowC <= {cathodes, led_map(led_data[3:0], 1)};
                     if(digitDone) state <= STATE_DIGIT3;
                 end
                 
                 STATE_DIGIT3: begin
-                    rowA <= {8'b00001000, led_map(led_y[7:4])};
-                    rowB <= {8'b00001000, led_map(led_sp[15:12])};
-                    rowC <= {8'b00001000, led_map(led_mem[7:4])};
+                    rowA <= {cathodes, led_map(led_y[7:4], 0)};
+                    rowB <= {cathodes, led_map(led_sp[15:12], 0)};
+                    rowC <= {cathodes, led_map(led_mem[7:4], 1)};
                     if(digitDone) state <= STATE_DIGIT4;
                 end
                 
                 STATE_DIGIT4: begin
-                    rowA <= {8'b00000100, led_map(led_y[3:0])};
-                    rowB <= {8'b00000100, led_map(led_sp[11:8])};
-                    rowC <= {8'b00000100, led_map(led_mem[3:0])};
+                    rowA <= {cathodes, led_map(led_y[3:0], 0)};
+                    rowB <= {cathodes, led_map(led_sp[11:8], 0)};
+                    rowC <= {cathodes, led_map(led_mem[3:0], 1)};
                     if(digitDone) state <= STATE_DIGIT5;
                 end
                 
                 STATE_DIGIT5: begin
-                    rowA <= {8'b10000000, led_map(led_a[7:4])};
-                    rowB <= {8'b10000000, led_map(led_pc[15:12])};
-                    rowC <= {8'b10000000, led_map(led_mem[23:20])};
+                    rowA <= {cathodes, led_map(led_a[7:4], 0)};
+                    rowB <= {cathodes, led_map(led_pc[15:12], 0)};
+                    rowC <= {cathodes, led_map(led_mem[23:20], 1)};
                     if(digitDone) state <= STATE_DIGIT6;
                 end
                 
                 STATE_DIGIT6: begin
-                    rowA <= {8'b01000000, led_map(led_a[3:0])};
-                    rowB <= {8'b01000000, led_map(led_pc[11:8])};
-                    rowC <= {8'b01000000, led_map(led_mem[19:16])};
+                    rowA <= {cathodes, led_map(led_a[3:0], 0)};
+                    rowB <= {cathodes, led_map(led_pc[11:8], 0)};
+                    rowC <= {cathodes, led_map(led_mem[19:16], 1)};
                     if(digitDone) state <= STATE_DIGIT7;
                 end
                 
                 STATE_DIGIT7: begin
-                    rowA <= {8'b00100000, 16'b11111111_11110100};
-                    rowB <= {8'b00100000, led_map(led_pc[7:4])};
-                    rowC <= {8'b00100000, led_map(led_mem[15:12])};
+                    rowA <= {cathodes, discrete_map};
+                    rowB <= {cathodes, led_map(led_pc[7:4], 0)};
+                    rowC <= {cathodes, led_map(led_mem[15:12], 1)};
                     if(digitDone) state <= STATE_DIGIT8;
                 end                
                 
                 STATE_DIGIT8: begin
-                    rowA <= {8'b00010000, 16'b11111111_11110100};
-                    rowB <= {8'b00010000, led_map(led_pc[3:0])};
-                    rowC <= {8'b00010000, led_map(led_mem[11:8])};
+                    rowA <= {cathodes, discrete_map};
+                    rowB <= {cathodes, led_map(led_pc[3:0], 0)};
+                    rowC <= {cathodes, led_map(led_mem[11:8], 1)};
                     if(digitDone) state <= STATE_DIGIT1;
                 end
             endcase

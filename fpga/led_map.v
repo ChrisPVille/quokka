@@ -1,8 +1,10 @@
 //Maps a single hex digit to the 14-segment lines
 function[15:0] led_map;
 input[3:0] in;
+input ignoreValidFlag;
 begin
-    case(in)
+    if(~ignoreValidFlag & ~ledsValid) led_map = 16'b00000100_01000000;
+    else case(in)
     4'h0: led_map = 16'b00111010_10110001;
     4'h1: led_map = 16'b00000010_10010000;
     4'h2: led_map = 16'b00011100_01110000;
