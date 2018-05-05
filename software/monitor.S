@@ -38,6 +38,11 @@ chkstatus:  bit status
             ;Restore the clobbered X and A
             ldx x_disp
             lda a_disp
+;Writing anything to status immediately after being told to resume (by bit 7
+;of the status word) will inform the FPGA that only 2 instructions remain to be
+;executed before it should stop us again (in the case of single stepping). The
+;write otherwise has no effect, and does nothing in all other states.
+            stx status
             rti
 
 .segment "EXCHANGE"

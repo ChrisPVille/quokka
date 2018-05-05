@@ -135,14 +135,11 @@ module top(
     wire FPGA_csNsync;
     ff_sync sync_fpgaCSn(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(FPGA_csN), .out(FPGA_csNsync));
     
-    reg[1:0] phi2track;
-    always@(posedge CLK25MHZ or negedge rst_n) begin
-        if(~rst_n) phi2track <= 0;
-        else phi2track <= {phi2track[0:0], PHI2sync};
-    end
+    wire phi2rising;
+    edge_detect rising_phi2(.clk(CLK25MHZ), .rst_n(rst_n), .in(PHI2sync), .out(phi2rising));
     
     //Write on the rising edge of phi2 when RW is low (write)
-    assign writeNow = (phi2track==2'b01) & ~RWsync;
+    assign writeNow = phi2rising & ~RWsync;
     
     wire[7:0] acc;
     wire[7:0] x;
@@ -171,7 +168,8 @@ module top(
         .sp(sp),
         .sr(sr),
         .nmi(NMIn),
-        .stopped(stopped)
+        .stopped(stopped),
+        .sync(SYNCsync)
         );
     
     assign led_neg = sr[7];
@@ -209,8 +207,8 @@ module top(
 		.led_test(led_test), 
 		.led_physical(led_physical), 
 		.led_soft(led_soft), 
-		.led_run(stopped), 
-		.led_halt(~stopped), 
+		.led_run(~stopped), 
+		.led_halt(stopped), 
 		.led_neg(led_neg), 
 		.led_ovf(led_ovf), 
 		.led_dash(led_dash), 
