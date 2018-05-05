@@ -141,7 +141,7 @@ module cpu_control(
                 CPUSTATE_STEPWAIT: begin
                     if(syncRising) begin
                         syncCount <= syncCount + 1;
-                        if(syncCount == 2'h2) begin
+                        if(syncCount == 2'h1) begin
                             doNmi <= 1;
                             cpuState <= CPUSTATE_STOP;
                         end
