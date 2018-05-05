@@ -2,11 +2,15 @@
 .segment    "PROG" 
 
 reset:      ;Initialize SP
-            ldx $ff
+            ldx #$ff
             txs
+            ldx #$00
+            ldy #$00
+            lda #$00
 
 loop:       inx
-            sty y_disp
+            iny
+            nop
             jmp loop
             
 nmi_handler:
@@ -27,20 +31,24 @@ nmi_handler:
             dex
             dex
             txs
-            
+
+chkstatus:  bit status
+            bmi chkstatus            
+
             ;Restore the clobbered X and A
             ldx x_disp
             lda a_disp
             rti
 
 .segment "EXCHANGE"
-a_disp:     .byte $01
-x_disp:     .byte $23
-y_disp:     .byte $45
-sp_disp:    .byte $67
-pcl_disp:   .byte $89
-pch_disp:   .byte $ab
-sr_disp:    .byte $cd
+a_disp:     .byte $00
+x_disp:     .byte $00
+y_disp:     .byte $00
+sp_disp:    .byte $00
+pcl_disp:   .byte $00
+pch_disp:   .byte $00
+sr_disp:    .byte $00
+status:     .byte $00
 
 .segment "VECTORS"
 vec_nmi:    .addr nmi_handler

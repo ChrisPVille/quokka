@@ -109,11 +109,12 @@ module top(
     //We treat PHI1 and PHI2 as asynchronous signals. Although they are derived from
     //our PHI0 clock, they have an unknown phase offset that we cannot predict
     
-    wire PHI2sync, RWsync;
+    wire PHI2sync, RWsync, SYNCsync;
     wire[15:0] Async;
     wire[7:0] Dsync;
     ff_sync sync_phi2(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(PHI2), .out(PHI2sync));
     ff_sync sync_rw(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(RW), .out(RWsync));
+    ff_sync sync_sync(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(SYNC), .out(SYNCsync));
     ff_sync #(.WIDTH(16)) sync_a(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(A[15:0]), .out(Async));
     ff_sync #(.WIDTH(8)) sync_d(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(D), .out(Dsync));
     
@@ -133,24 +134,7 @@ module top(
     
     wire FPGA_csNsync;
     ff_sync sync_fpgaCSn(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(FPGA_csN), .out(FPGA_csNsync));
-
-    reg[6:0] nmiCounter; //Ensures a minimum pulse width on the NMI line
-    reg nmiCounterEn;
-    always@(posedge CLK25MHZ or negedge rst_n) begin
-        if(~rst_n) begin
-            nmiCounter <= 0;
-            nmiCounterEn <= 0;
-        end else begin
-            if(b_step) nmiCounterEn <= 1;
-            else if(nmiCounterEn) begin
-                nmiCounter <= nmiCounter + 1;
-                if(nmiCounter == 7'h7f) nmiCounterEn <= 0;
-            end
-        end
-    end
     
-    assign NMIn = ~nmiCounterEn;
-
     reg[1:0] phi2track;
     always@(posedge CLK25MHZ or negedge rst_n) begin
         if(~rst_n) phi2track <= 0;
@@ -169,6 +153,7 @@ module top(
     
     assign G[7:0] = DataDir ? 8'h00 : Dout;
     
+    wire stopped;
     cpu_control pcpu(
         .clk(CLK25MHZ),
         .rst_n(rst_n),
@@ -177,12 +162,16 @@ module top(
         .write(writeNow),
         .Din(Dsync),
         .Dout(Dout),
+        .b_step(b_step),
+        .b_runhalt(b_runhalt),
         .acc(acc),
         .x(x),
         .y(y),
         .pc(pc),
         .sp(sp),
-        .sr(sr)
+        .sr(sr),
+        .nmi(NMIn),
+        .stopped(stopped)
         );
     
     assign led_neg = sr[7];
@@ -201,7 +190,7 @@ module top(
         .b_0(b_0), .b_1(b_1), .b_2(b_2), .b_3(b_3), .b_4(b_4), .b_5(b_5),
         .b_6(b_6), .b_7(b_7), .b_8(b_8), .b_9(b_9), .b_a(b_a), .b_b(b_b),
         .b_c(b_c), .b_d(b_d), .b_e(b_e), .b_f(b_f),
-        .b_runhalt(runhalt), .b_reset(b_reset), .b_step(b_step),
+        .b_runhalt(b_runhalt), .b_reset(b_reset), .b_step(b_step),
         .b_storeinc(b_storeinc), .b_irq(b_irq), .b_dec(b_dec), .b_load(b_load),
         .b_toA(b_toA), .b_toSP(b_toSP), .b_toX(b_toX), .b_toY(b_toY), 
         .b_toPC(b_toPC)
@@ -220,8 +209,8 @@ module top(
 		.led_test(led_test), 
 		.led_physical(led_physical), 
 		.led_soft(led_soft), 
-		.led_run(led_run), 
-		.led_halt(led_halt), 
+		.led_run(stopped), 
+		.led_halt(~stopped), 
 		.led_neg(led_neg), 
 		.led_ovf(led_ovf), 
 		.led_dash(led_dash), 
@@ -230,7 +219,7 @@ module top(
 		.led_irq(led_irq), 
 		.led_zero(led_zero), 
 		.led_carry(led_carry), 
-		.ledsValid(1'b1), 
+		.ledsValid(stopped), 
 		.sclk(LCD_CLK), 
 		.sdata(LCD_DATA), 
 		.sload(LCD_LOAD), 

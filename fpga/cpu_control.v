@@ -4,87 +4,129 @@ module cpu_control(
     input[7:0] A,
     input csP,
     input write,
+    input b_step,
+    input b_runhalt,
     input[7:0] Din,
-    output reg[7:0] Dout,
+    output[7:0] Dout,
     output reg[7:0] acc,
     output reg[7:0] x,
     output reg[7:0] y,
     output reg[7:0] sp,
     output reg[15:0] pc,
-    output reg[7:0] sr
+    output reg[7:0] sr,
+    output nmi,
+    output stopped
     );
 
-    reg[7:0] controlRAM[255:0];
+    reg[7:0] controlROM[255:0];
+    reg[7:0] ROMout;
+    reg[7:0] RAMout;
+    always @(posedge clk) begin
+        ROMout <= controlROM[A];
+    end
     
-    reg[7:0] dispData;
-    reg[7:0] dispAddr;
-
     initial
-        $readmemh("../software/monitor.hex", controlRAM);
-
+        $readmemh("../software/monitor.hex", controlROM);
+    
     wire rwRange;
     assign rwRange = (A < 8'hFA) && (A >= 8'hF0);
     
-    //Keep the structure as close as possible to the synthesizer's example for
-    //block ram to ensure it gets inferred properly.
-    always @(posedge clk) begin
-        if (csP) begin
-            if (write & rwRange)
-                controlRAM[A] <= Din;
-            Dout <= controlRAM[A];
+    assign Dout = rwRange ? RAMout : ROMout;
+    
+
+    reg doNmi;
+    reg[6:0] nmiCounter; //Ensures a minimum pulse width on the NMI line
+    reg nmiCounterEn;
+    always@(posedge clk or negedge rst_n) begin
+        if(~rst_n) begin
+            nmiCounter <= 0;
+            nmiCounterEn <= 0;
+        end else begin
+            if(doNmi) nmiCounterEn <= 1;
+            else if(nmiCounterEn) begin
+                nmiCounter <= nmiCounter + 1;
+                if(nmiCounter == 7'h7f) nmiCounterEn <= 0;
+            end
         end
-        if (1)
-            dispData <= controlRAM[dispAddr];
     end
     
-    reg[2:0] readoutState;
+    assign nmi = ~nmiCounterEn;    
+
     always @(posedge clk or negedge rst_n) begin
         if(~rst_n) begin
-            readoutState <= 0;
-            dispAddr <= 0;
             acc <= 0;
             x <= 0;
             y <= 0;
             sp <= 0;
             pc <= 0;
-            sr <= 0;
-        end else begin
-            if(readoutState == 6) readoutState <= 0;
-            else readoutState <= readoutState + 1;
-            case(readoutState)
-            //Right after reset, PCh and SR will be wrong for a 7 clock cycles.
-            //This probably won't be perceptible
-            0: begin
-                dispAddr <= 8'hf0;
-                pc[15:8] <= dispData;
-            end
-            1: begin
-                dispAddr <= 8'hf1;
-                sr <= dispData;
-            end
-            2: begin
-                dispAddr <= 8'hf2;
-                acc <= dispData;
-            end
-            3: begin
-                dispAddr <= 8'hf3;
-                x <= dispData;
-            end
-            4: begin
-                dispAddr <= 8'hf4;
-                y <= dispData;
-            end
-            5: begin
-                dispAddr <= 8'hf5;
-                sp <= dispData;
-            end
-            6: begin
-                dispAddr <= 8'hf6;
-                pc[7:0] <= dispData;
-            end
+            sr <= 0;            
+        end else if(rwRange) begin
+            case(A[3:0])
+                4'h0: begin
+                    RAMout <= acc;
+                    if(write) acc <= Din;
+                end
+                4'h1: begin
+                    RAMout <= x;
+                    if(write) x <= Din;
+                end
+                4'h2: begin
+                    RAMout <= y;
+                    if(write) y <= Din;
+                end
+                4'h3: begin
+                    RAMout <= sp;
+                    if(write) sp <= Din;
+                end
+                4'h4: begin
+                    RAMout <= pc[7:0];
+                    if(write) pc[7:0] <= Din;
+                end
+                4'h5: begin
+                    RAMout <= pc[15:8];
+                    if(write) pc[15:8] <= Din;
+                end
+                4'h6: begin
+                    RAMout <= sr;
+                    if(write) sr <= Din;
+                end
+                4'h7: begin
+                    RAMout <= {stopped, 7'h00};
+                end
             endcase
         end
     end
+    
+    //States: run, stop, step
+    localparam CPUSTATE_RUN = 2'h0;
+    localparam CPUSTATE_STOP = 2'h1;
+    localparam CPUSTATE_STEP = 2'h2;
+    reg[1:0] cpuState;
+    always @(posedge clk or negedge rst_n) begin
+        if(~rst_n) begin
+            doNmi <= 0;
+            cpuState <= CPUSTATE_RUN;
+        end else begin
+            doNmi <= 0;
+            case (cpuState)
+                CPUSTATE_RUN: begin
+                    if(b_step | b_runhalt) begin
+                        doNmi <= 1;
+                        cpuState <= CPUSTATE_STOP;
+                    end
+                end
+                CPUSTATE_STOP: begin
+                    if(b_runhalt) begin
+                        cpuState <= CPUSTATE_RUN;
+                    end
+                end
+                CPUSTATE_STEP: begin
+                end
+            endcase
+        end
+    end
+    
+    assign stopped = (cpuState == CPUSTATE_STOP);
     
     //STATES: 
     //Normal (operation from RAM, freerunning)
