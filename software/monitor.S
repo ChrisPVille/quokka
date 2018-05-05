@@ -1,9 +1,9 @@
 .segment    "PROG" 
 
 reset:      ;Initialize SP
-            ldx $ff
+            ldx #$ff
             txs
-
+            php
 loop:       inx
             iny
             txa
@@ -14,7 +14,9 @@ allOnes:    .byte $FF
             
 nmi_handler:
             sta a_disp      ;store Acc
+            ldx #$ff
             stx x_disp      ;store X
+            jmp nmi_handler
             sty y_disp      ;store Y
             pla             ;pull P (Status) from stack
             sta sr_disp     ;store Status
