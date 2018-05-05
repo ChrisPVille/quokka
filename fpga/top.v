@@ -102,8 +102,6 @@ module top(
     always@(posedge CLK25MHZ) begin
         if(b_0) counter <= counter + 1;
     end
-
-    assign G[7:0] = counter;
         
     assign phys6502_RESn = counter[0];
     assign RES = rst_n;
@@ -122,17 +120,16 @@ module top(
     //TODO we will eventually only take over the RAM when a user action has 
     //been requested, or possibly we will allow writes into the FPGA acting
     //as RAM but override the vectors on a UI interrupt
-    wire candidateRAM_csN, FPGA_csN;
+    wire FPGA_csN;
     
-    //RAM - 0x8000-0xFEFF
+    //RAM - 0x0000-0xFEFF (Default, fills all empty portions of map)
     //FPGA- 0xFF00-0xFFFF
-    chip_select ramsel(.PHI2(PHI2sync), .RW(RWsync), .A(A), .mask(16'h8000), .bitPattern(16'h8000), .ceN(candidateRAM_csN));
-    chip_select fpgasel(.PHI2(PHI2sync), .RW(RWsync), .A(A), .mask(16'hFF00), .bitPattern(16'hFF00), .ceN(FPGA_csN));
-    assign RAM_csN = candidateRAM_csN | ~FPGA_csN;
+    assign RAM_csN = ~(FPGA_csN & OPT1_csN & OPT1_csN & PHI2);
+    chip_select fpgasel(.PHI2(PHI2), .A(A), .mask(16'hFF00), .bitPattern(16'hFF00), .ceN(FPGA_csN));
     
     wire[7:0] Dout;
-    assign DataDir = ~(RW&~FPGA_csN);
-    assign D = ~DataDir ? Dout : 8'hzz;
+    assign DataDir = ~(RW&~FPGA_csN); //DataDir is false only when the FPGA drives the data bus
+    assign D = DataDir ? 8'hzz : Dout;
     
     wire FPGA_csNsync;
     ff_sync sync_fpgaCSn(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(FPGA_csN), .out(FPGA_csNsync));
@@ -157,10 +154,10 @@ module top(
     reg[1:0] phi2track;
     always@(posedge CLK25MHZ or negedge rst_n) begin
         if(~rst_n) phi2track <= 0;
-        else phi2track <= {phi2track[0], PHI2sync};
+        else phi2track <= {phi2track[0:0], PHI2sync};
     end
     
-    //Write on the rising edge of phi2 when RW is low (write) when we are chip selected
+    //Write on the rising edge of phi2 when RW is low (write)
     assign writeNow = (phi2track==2'b01) & ~RWsync;
     
     wire[7:0] acc;
@@ -170,11 +167,13 @@ module top(
     wire[7:0] sr;
     wire[15:0] pc;
     
+    assign G[7:0] = DataDir ? 8'h00 : Dout;
+    
     cpu_control pcpu(
         .clk(CLK25MHZ),
         .rst_n(rst_n),
-        .A(Async),
-        .cs(FPGA_csNsync),
+        .A(Async[7:0]),
+        .csP(~FPGA_csNsync),
         .write(writeNow),
         .Din(Dsync),
         .Dout(Dout),

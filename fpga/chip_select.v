@@ -1,20 +1,23 @@
 module chip_select(
     input PHI2,
-    input RW,
     input[15:0] A, //Input Address
     input[15:0] mask, //Sets which bits of the below bitPattern are significant
     input[15:0] bitPattern, //Actual pattern to be matched with the address
-    output reg ceN
+    output ceN
     );
     
+    reg[15:0] match;
     integer i;
     always@(*) begin
-        ceN = 1;
+        match = 16'h0000;
         if(PHI2) begin //Only compare and assert chip-select on PHI2
             for(i = 0; i<16; i = i+1) begin
-                if(A[i] & mask[i] & bitPattern[i]) ceN = 0;
+                if(~mask[i]) match[i] = 1;
+                else if(A[i] & bitPattern[i]) match[i] = 1;
             end
         end
     end
+    
+    assign ceN = ~&match;
 
 endmodule

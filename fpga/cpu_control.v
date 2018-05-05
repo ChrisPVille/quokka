@@ -1,11 +1,9 @@
 module cpu_control(
     input clk,
     input rst_n,
-    input[15:0] A,
-    input cs,
+    input[7:0] A,
+    input csP,
     input write,
-    input b_runhalt,
-    input b_step,
     input[7:0] Din,
     output reg[7:0] Dout,
     output reg[7:0] acc,
@@ -25,15 +23,15 @@ module cpu_control(
         $readmemh("../software/monitor.hex", controlRAM);
 
     wire rwRange;
-    assign rwRange = (A[7:0] < 8'hFA) & (A[7:0] >= 8'hF0);
+    assign rwRange = (A < 8'hFA) && (A >= 8'hF0);
     
     //Keep the structure as close as possible to the synthesizer's example for
     //block ram to ensure it gets inferred properly.
     always @(posedge clk) begin
-        if (cs) begin
+        if (csP) begin
             if (write & rwRange)
-                controlRAM[A[7:0]] <= Din;
-            Dout <= controlRAM[A[7:0]];
+                controlRAM[A] <= Din;
+            Dout <= controlRAM[A];
         end
         if (1)
             dispData <= controlRAM[dispAddr];

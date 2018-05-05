@@ -1,22 +1,17 @@
+.P02
 .segment    "PROG" 
 
 reset:      ;Initialize SP
-            ldx #$ff
+            ldx $ff
             txs
-            php
-loop:       inx
-            iny
-            txa
-            eor allOnes
-            jmp loop
 
-allOnes:    .byte $FF
+loop:       inx
+            sty y_disp
+            jmp loop
             
 nmi_handler:
             sta a_disp      ;store Acc
-            ldx #$ff
             stx x_disp      ;store X
-            jmp nmi_handler
             sty y_disp      ;store Y
             pla             ;pull P (Status) from stack
             sta sr_disp     ;store Status
@@ -39,13 +34,13 @@ nmi_handler:
             rti
 
 .segment "EXCHANGE"
-a_disp:     .byte $00
-x_disp:     .byte $00
-y_disp:     .byte $00
-sp_disp:    .byte $00
-pcl_disp:   .byte $00
-pch_disp:   .byte $00
-sr_disp:    .byte $00
+a_disp:     .byte $01
+x_disp:     .byte $23
+y_disp:     .byte $45
+sp_disp:    .byte $67
+pcl_disp:   .byte $89
+pch_disp:   .byte $ab
+sr_disp:    .byte $cd
 
 .segment "VECTORS"
 vec_nmi:    .addr nmi_handler
