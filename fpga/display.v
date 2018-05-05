@@ -131,7 +131,7 @@ module display(
                 end                
                 
                 STATE_DIGIT8: begin
-                    rowA <= {cathodes, discrete_map};
+                    rowA <= {cathodes, 16'h0000};
                     rowB <= {cathodes, led_map(led_pc[3:0], 0)};
                     rowC <= {cathodes, led_map(led_mem[11:8], 1)};
                     if(digitDone) state <= STATE_DIGIT1;
