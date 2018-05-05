@@ -5,7 +5,12 @@ reset:      ;Initialize SP
             txs
 
 loop:       inx
+            iny
+            txa
+            eor allOnes
             jmp loop
+
+allOnes:    .byte $FF
             
 nmi_handler:
             sta a_disp      ;store Acc

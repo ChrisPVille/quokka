@@ -186,6 +186,15 @@ module top(
         .sr(sr)
         );
     
+    assign led_neg = sr[7];
+    assign led_ovf = sr[6];
+    assign led_dash = sr[5];
+    assign led_brk = sr[4];
+    assign led_dec = sr[3];
+    assign led_irq = sr[2];
+    assign led_zero = sr[1];
+    assign led_carry = sr[0];
+    
     keyboard keyboard1(
         .clk(CLK25MHZ),
         .rst_n(rst_n),
