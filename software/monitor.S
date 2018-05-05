@@ -1,12 +1,34 @@
 .segment    "PROG" 
 
-reset:      inx
-            jmp reset
+reset:      ;Initialize SP
+            ldx $ff
+            txs
+
+loop:       inx
+            jmp loop
             
 nmi_handler:
-            sta a_disp
-            stx x_disp
-            sty y_disp
+            sta a_disp      ;store Acc
+            stx x_disp      ;store X
+            sty y_disp      ;store Y
+            pla             ;pull P (Status) from stack
+            sta sr_disp     ;store Status
+            pla             ;pull PCl from stack
+            sta pcl_disp    ;store PCl
+            pla             ;pull PCh from stack
+            sta pch_disp    ;store PCh
+            tsx             ;SP is now the original value
+            stx sp_disp     ;store SP
+
+            ;restore the SP to its original value
+            dex
+            dex
+            dex
+            txs
+            
+            ;Restore the clobbered X and A
+            ldx x_disp
+            lda a_disp
             rti
 
 .segment "EXCHANGE"
@@ -14,7 +36,8 @@ a_disp:     .byte $00
 x_disp:     .byte $00
 y_disp:     .byte $00
 sp_disp:    .byte $00
-pc_disp:    .word $0000
+pcl_disp:   .byte $00
+pch_disp:   .byte $00
 sr_disp:    .byte $00
 
 .segment "VECTORS"
