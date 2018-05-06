@@ -29,7 +29,8 @@ module cpu_control(
     input b_toX,
     input b_toY,
     input b_toPC,
-    output reg[7:0] userData
+    output reg[7:0] userData,
+    output[3:0] test
     );
         
     reg[7:0] controlROM[255:0];
@@ -165,6 +166,7 @@ module cpu_control(
     localparam CPUSTATE_STEPWAIT = 3'h3;
     localparam CPUSTATE_RESETSTEP = 3'h4;
     reg[2:0] cpuState;
+    assign test = cpuState;
     always @(posedge clk or negedge rst_n) begin
         if(~rst_n) begin
             doNmi <= 0;
@@ -200,7 +202,7 @@ module cpu_control(
                     if(b_reset) cpuState <= CPUSTATE_RUN;
                     else if(syncRising) begin
                         syncCount <= syncCount + 1;
-                        if(syncCount == 2'h1) begin
+                        if(syncCount == 2'h2) begin
                             doNmi <= 1;
                             cpuState <= CPUSTATE_STOP;
                         end

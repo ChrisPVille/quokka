@@ -54,6 +54,7 @@ chkstatus:
 ;write otherwise has no effect, and does nothing at all in other states.
             ldx #$20
             stx status
+            ldx x_disp
             rti
 
 readWord:

@@ -2,6 +2,7 @@ module uiControl(
     input clk,
     input rst_n,
     input stopped,
+    input clearDisp,
     input b_0,
     input b_1,
     input b_2,
@@ -52,13 +53,26 @@ module uiControl(
         else lowerDigit = 4'h0;
     end
     
+    reg clearOnNext;
+    always@(posedge clk or negedge rst_n) begin
+        if(~rst_n) begin
+            clearOnNext <= 0;
+        end else begin
+            if(clearDisp) clearOnNext <= 1;
+            else if(somethingPressed) clearOnNext <= 0;
+        end
+    end
+
     always@(posedge clk or negedge rst_n) begin
         if(~rst_n) begin
             disp <= 0;
-        end else if(stopping) begin
-            disp <= 0;
-        end else if(somethingPressed) begin
-            disp <= {disp[19:0], lowerDigit};
+        end else begin
+            if(stopping) begin
+                disp <= 0;
+            end else if(somethingPressed) begin
+                if(clearOnNext) disp <= {20'h00000, lowerDigit};
+                else disp <= {disp[19:0], lowerDigit};
+            end
         end
     end
 

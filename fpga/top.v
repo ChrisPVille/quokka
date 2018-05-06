@@ -147,19 +147,25 @@ module top(
     wire[7:0] sr;
     wire[15:0] pc;
     
-    assign G[7:0] = 8'h00;
+    wire[3:0] test;
+    assign G[7:0] = {test, 4'h0};
     
     wire stopped;
     wire[23:0] uiDisp;
     wire[7:0] uiData;
     wire uiDispValid;
+    wire clearDisp;
     uiControl ui(.clk(CLK25MHZ), .rst_n(rst_n), .stopped(stopped),
         .b_0(b_0), .b_1(b_1), .b_2(b_2), .b_3(b_3), .b_4(b_4), .b_5(b_5),
         .b_6(b_6), .b_7(b_7), .b_8(b_8), .b_9(b_9), .b_a(b_a), .b_b(b_b),
-        .b_c(b_c), .b_d(b_d), .b_e(b_e), .b_f(b_f),
+        .b_c(b_c), .b_d(b_d), .b_e(b_e), .b_f(b_f), .clearDisp(clearDisp),
         .disp(uiDisp), .dispValid(uiDispValid)
         );
     
+    assign clearDisp = b_runhalt | b_reset | b_reset | b_step | b_storeinc |
+                       b_irq | b_dec | b_load | b_toA | b_toSP | b_toX | 
+                       b_toY | b_toPC;
+        
     cpu_control pcpu(
         .clk(CLK25MHZ),
         .rst_n(rst_n),
@@ -191,7 +197,8 @@ module top(
         .b_toX(b_toX),
         .b_toY(b_toY),
         .b_toPC(b_toPC),
-        .userData(uiData)
+        .userData(uiData),
+        .test(test)
         );
     
     wire led_neg, led_ovf, led_dash, led_brk, led_dec, led_irq, led_zero;
