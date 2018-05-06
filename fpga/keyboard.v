@@ -205,8 +205,8 @@ module keyboard(
                 if(KBD_row[3]) begin
                     `PROCESS_BTN(KBD_col[0],prev_f,b_f);
                     `PROCESS_BTN(KBD_col[1],prev_e,b_e);
-                    `PROCESS_BTN(KBD_col[2],prev_c,b_c);
-                    `PROCESS_BTN(KBD_col[3],prev_d,b_d);
+                    `PROCESS_BTN(KBD_col[2],prev_c,b_d);
+                    `PROCESS_BTN(KBD_col[3],prev_d,b_c);
                     //`PROCESS_BTN(KBD_col[4],prev_NONE,b_NONE);
                     `PROCESS_BTN(KBD_col[5],prev_toA,b_toA);
                 end
