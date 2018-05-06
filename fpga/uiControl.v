@@ -63,7 +63,7 @@ module uiControl(
             addrPreferenceMode <= 0;
         end else begin
             if(b_load) addrPreferenceMode <= 1;
-            else if(clearDisp & ~(b_storeinc|b_dec)) addrPreferenceMode <= 0;
+            else if(somethingPressed | (clearDisp & ~(b_storeinc|b_dec))) addrPreferenceMode <= 0;
         end
     end
     
@@ -84,9 +84,10 @@ module uiControl(
             if(stopping) begin
                 disp <= 0;
             end else if(somethingPressed) begin
-                if(addrPreferenceMode) disp <= {4'h0, addr};
-                else if(clearOnNext) disp <= {20'h00000, lowerDigit};
+                if(clearOnNext) disp <= {20'h00000, lowerDigit};
                 else disp <= {disp[19:0], lowerDigit};
+            end else if(addrPreferenceMode) begin
+                disp <= {4'h0, addr};
             end
         end
     end

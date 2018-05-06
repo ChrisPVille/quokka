@@ -88,7 +88,8 @@ module cpu_control(
             end else if(b_storeinc & stopped) begin
                 doStore <= 1;
                 incrementing <= 1;
-                if(inputValid) userData <= userInput[7:0];
+                if(inputValid & ~incrementing)
+                    userData <= userInput[7:0];
             end else if(b_toA & inputValid) begin
                 acc <= userInput[7:0];
             end else if(b_toSP & inputValid) begin
