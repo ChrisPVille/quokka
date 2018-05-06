@@ -33,7 +33,6 @@ module display(
     //States: DIG1 DIG2 DIG3 DIG4 DIG5 DIG6 DIG7/LED DIG8/LED
     reg[23:0] rowA, rowB, rowC;
     wire digitDone;
-    wire enableCathodes;
     raw_display raw_display1(.clk(clk), .rst_n(rst_n),
         .display_bits({rowC,rowB,rowA}),
         .timerOverflow(digitDone), .sclk(sclk), .sdata(sdata), .sload(sload), 

@@ -2,7 +2,6 @@ module cpu_control(
     input clk,
     input rst_n,
     input[7:0] A,
-    input csP,
     input write,
     input b_step,
     input b_reset,
@@ -15,11 +14,23 @@ module cpu_control(
     output reg[7:0] sp,
     output reg[15:0] pc,
     output reg[7:0] sr,
-    output nmi,
+    output nmiN,
+    output irq,
     output stopped,
-    input sync
+    input sync,
+    input[15:0] userInput,
+    input inputValid,
+    input b_storeinc,
+    input b_irq,
+    input b_dec,
+    input b_load,
+    input b_toA,
+    input b_toSP,
+    input b_toX,
+    input b_toY,
+    input b_toPC
     );
-
+        
     reg[7:0] controlROM[255:0];
     reg[7:0] ROMout;
     reg[7:0] RAMout;
@@ -31,32 +42,22 @@ module cpu_control(
         $readmemh("../software/monitor.hex", controlROM);
     
     wire rwRange;
-    assign rwRange = (A < 8'hFA) && (A >= 8'hF0);
+    assign rwRange = (A < 8'hFA) && (A >= 8'hE0) && (A != 8'hE9) && (A != 8'hEC) && (A != 8'hED) && (A != 8'hEE) && (A != 8'hEF) && (A != 8'hF2) && (A != 8'hF3) && (A != 8'hF4);
     
     assign Dout = rwRange ? RAMout : ROMout;
     
     wire syncRising;
     edge_detect phi2rising(.clk(clk), .rst_n(rst_n), .in(sync), .out(syncRising));
 
-    reg doNmi;
-    reg[6:0] nmiCounter; //Ensures a minimum pulse width on the NMI line
-    reg nmiCounterEn;
-    always@(posedge clk or negedge rst_n) begin
-        if(~rst_n) begin
-            nmiCounter <= 0;
-            nmiCounterEn <= 0;
-        end else begin
-            if(doNmi) nmiCounterEn <= 1;
-            else if(nmiCounterEn) begin
-                nmiCounter <= nmiCounter + 1;
-                if(nmiCounter == 7'h7f) nmiCounterEn <= 0;
-            end
-        end
-    end
-    
-    assign nmi = ~nmiCounterEn;    
+    reg doNmi, doIrq;
+    wire irqN;
+    interrupt_counter nmiCounter(.clk(clk), .rst_n(rst_n), .start(doNmi), .intN(nmiN));
+    interrupt_counter irqCounter(.clk(clk), .rst_n(rst_n), .start(doIrq), .intN(irqN));
+    assign irq = ~irqN;
 
-    reg readyToStep;
+    reg[7:0] userData;
+    reg[15:0] userAddr;
+    reg readyToStep, doStore, doLoad, updateStoreAddr;
     always @(posedge clk or negedge rst_n) begin
         if(~rst_n) begin
             acc <= 0;
@@ -64,44 +65,90 @@ module cpu_control(
             y <= 0;
             sp <= 0;
             pc <= 0;
-            sr <= 0;       
+            sr <= 0;    
+            userData <= 0;
+            userAddr <= 0;
             readyToStep <= 0;
-        end else if(rwRange) begin
-            readyToStep <= 0;
-            case(A[3:0])
-                4'h0: begin
-                    RAMout <= acc;
-                    if(write) acc <= Din;
-                end
-                4'h1: begin
-                    RAMout <= x;
-                    if(write) x <= Din;
-                end
-                4'h2: begin
-                    RAMout <= y;
-                    if(write) y <= Din;
-                end
-                4'h3: begin
-                    RAMout <= sp;
-                    if(write) sp <= Din;
-                end
-                4'h4: begin
-                    RAMout <= pc[7:0];
-                    if(write) pc[7:0] <= Din;
-                end
-                4'h5: begin
-                    RAMout <= pc[15:8];
-                    if(write) pc[15:8] <= Din;
-                end
-                4'h6: begin
-                    RAMout <= sr;
-                    if(write) sr <= Din;
-                end
-                4'h7: begin
-                    RAMout <= {stopped, 7'h00};
-                    if(write) readyToStep <= 1;
-                end
-            endcase
+            doStore <= 0;
+            doLoad <= 0;
+            updateStoreAddr <= 0;
+        end else begin
+            if(updateStoreAddr) begin
+                userAddr <= userAddr + 1;
+            end else if(b_load & inputValid) begin
+                userAddr <= userInput;
+                if(stopped) doLoad <= 1;
+            end else if(b_dec) begin
+                userAddr <= userAddr - 1;
+                if(stopped) doLoad <= 1;
+            end else if(b_irq) begin
+                doIrq <= 1; //TODO Should we provide some additional support other than just firing the interrupt?
+            end else if(b_storeinc) begin
+                if(stopped) doStore <= 1;
+                if(inputValid) userData <= userInput[7:0];
+            end else if(b_toA & inputValid) begin
+                acc <= userData[7:0];
+            end else if(b_toSP & inputValid) begin
+                //sp <= userData[7:0]; //TODO need a clean way to implement without blowing up NMI return
+            end else if(b_toX & inputValid) begin
+                x <= userData[7:0];
+            end else if(b_toY & inputValid) begin
+                y <= userData[7:0];
+            end else if(b_toPC & inputValid) begin
+                pc <= userData;
+            end
+            
+            if(rwRange) begin
+                readyToStep <= 0;
+                case(A[4:0])
+                    5'h0: begin
+                        RAMout <= acc;
+                        if(write) acc <= Din;
+                    end
+                    5'h1: begin
+                        RAMout <= x;
+                        if(write) x <= Din;
+                    end
+                    5'h2: begin
+                        RAMout <= y;
+                        if(write) y <= Din;
+                    end
+                    5'h3: begin
+                        RAMout <= sp;
+                        if(write) sp <= Din;
+                    end
+                    5'h4: begin
+                        RAMout <= pc[7:0];
+                        if(write) pc[7:0] <= Din;
+                    end
+                    5'h5: begin
+                        RAMout <= pc[15:8];
+                        if(write) pc[15:8] <= Din;
+                    end
+                    5'h6: begin
+                        RAMout <= sr;
+                        if(write) sr <= Din;
+                    end
+                    5'h7: begin
+                        RAMout <= {doStore, doLoad, stopped, 5'h00};
+                        doStore <= 0;
+                        doLoad <= 0;
+                        updateStoreAddr <= 1;
+                        if(write) readyToStep <= 1;
+                    end
+                    5'h8: begin
+                        RAMout <= userData;
+                        if(write) userData <= Din;
+                    end
+                    
+                    5'hA, 5'h10: begin
+                        RAMout <= userAddr[7:0];
+                    end
+                    5'hB, 5'h11: begin
+                        RAMout <= userAddr[15:8];
+                    end
+                endcase
+            end
         end
     end
     
@@ -168,16 +215,6 @@ module cpu_control(
         end
     end
     
-    assign stopped = (cpuState == CPUSTATE_STOP);
-    
-    //STATES: 
-    //Normal (operation from RAM, freerunning)
-    //Armed (interrupt has gone out and the CPU will be processing it soon)
-    //Overlay (we take over the upper address space on access of the interrupt vector)
-    
-    reg[1:0] state;
-    localparam NORMAL = 2'h0;
-    localparam ARMED = 2'h1;
-    localparam OVERLAY = 2'h2;
+    assign stopped = (cpuState == CPUSTATE_STOP);    
 
 endmodule

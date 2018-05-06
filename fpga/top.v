@@ -48,7 +48,6 @@ module top(
     assign OPT1_csN = 1;
     assign OPT2_csN = 1;
         
-    assign IRQ = 0;
     assign RDY = 0;
     assign SO = 1;
     
@@ -134,9 +133,6 @@ module top(
     assign DataDir = ~(RW&~FPGA_csN); //DataDir is false only when the FPGA drives the data bus
     assign D = DataDir ? 8'hzz : Dout;
     
-    wire FPGA_csNsync;
-    ff_sync sync_fpgaCSn(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(FPGA_csN), .out(FPGA_csNsync));
-    
     wire phi2rising;
     edge_detect rising_phi2(.clk(CLK25MHZ), .rst_n(rst_n), .in(PHI2sync), .out(phi2rising));
     
@@ -150,14 +146,13 @@ module top(
     wire[7:0] sr;
     wire[15:0] pc;
     
-    assign G[7:0] = DataDir ? 8'h00 : Dout;
+    assign G[7:0] = 8'h00;
     
     wire stopped;
     cpu_control pcpu(
         .clk(CLK25MHZ),
         .rst_n(rst_n),
         .A(Async[7:0]),
-        .csP(~FPGA_csNsync),
         .write(writeNow),
         .Din(Dsync),
         .Dout(Dout),
@@ -170,9 +165,21 @@ module top(
         .pc(pc),
         .sp(sp),
         .sr(sr),
-        .nmi(NMIn),
+        .nmiN(NMIn),
+        .irq(IRQ),
         .stopped(stopped),
-        .sync(SYNCsync)
+        .sync(SYNCsync),
+        .userInput(16'h0000),
+        .inputValid(1'b0),
+        .b_storeinc(b_storeinc),
+        .b_irq(b_irq),
+        .b_dec(b_dec),
+        .b_load(b_load),
+        .b_toA(b_toA),
+        .b_toSP(b_toSP),
+        .b_toX(b_toX),
+        .b_toY(b_toY),
+        .b_toPC(b_toPC)
         );
     
     assign led_neg = sr[7];
@@ -219,7 +226,7 @@ module top(
 		.led_dec(led_dec), 
 		.led_irq(led_irq), 
 		.led_zero(led_zero), 
-		.led_carry(led_carry), 
+		.led_carry(led_carry),
 		.ledsValid(stopped), 
 		.sclk(LCD_CLK), 
 		.sdata(LCD_DATA), 
