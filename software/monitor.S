@@ -26,22 +26,30 @@ nmi_handler:
             tsx             ;SP is now the original value
             stx sp_disp     ;store SP
 
-            ;restore the SP to its original value
-            dex
-            dex
-            dex
-            txs
+            ;TODO Stack pointer user operations here will mess up the NMI return
 
-chkstatus:  bit status
-            bmi chkstatus            
+chkstatus:  
+            bit status      ;Check bit 7 of the status word
+            bmi chkstatus   ;Continue looping until it is set (we are released)
 
-            ;Restore the clobbered X and A
+            ;By writing the data from the *_disp back to the stack/registers,
+            ;we allow the FPGA to modify the state of the machine before
+            ;resuming execution.
+            lda pch_disp
+            pha
+            lda pcl_disp
+            pha
+            lda sr_disp
+            pha
+
+            ldy y_disp
             ldx x_disp
             lda a_disp
-;Writing anything to status immediately after being told to resume (by bit 7
-;of the status word) will inform the FPGA that only 2 instructions remain to be
+
+;Writing anything to "status" right after being told to resume (via bit 7 of 
+;the status word), will inform the FPGA that only 2 instructions remain to be
 ;executed before it should stop us again (in the case of single stepping). The
-;write otherwise has no effect, and does nothing in all other states.
+;write otherwise has no effect, and does nothing at all in other states.
             stx status
             rti
 
