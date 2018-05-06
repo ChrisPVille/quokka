@@ -28,7 +28,8 @@ module cpu_control(
     input b_toSP,
     input b_toX,
     input b_toY,
-    input b_toPC
+    input b_toPC,
+    output reg[7:0] userData
     );
         
     reg[7:0] controlROM[255:0];
@@ -55,7 +56,6 @@ module cpu_control(
     interrupt_counter irqCounter(.clk(clk), .rst_n(rst_n), .start(doIrq), .intN(irqN));
     assign irq = ~irqN;
 
-    reg[7:0] userData;
     reg[15:0] userAddr;
     reg readyToStep, doStore, doLoad, updateStoreAddr;
     always @(posedge clk or negedge rst_n) begin

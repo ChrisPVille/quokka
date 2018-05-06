@@ -149,6 +149,16 @@ module top(
     assign G[7:0] = 8'h00;
     
     wire stopped;
+    wire[23:0] uiDisp;
+    wire[7:0] uiData;
+    wire uiDispValid;
+    uiControl ui(.clk(CLK25MHZ), .rst_n(rst_n), .stopped(stopped),
+        .b_0(b_0), .b_1(b_1), .b_2(b_2), .b_3(b_3), .b_4(b_4), .b_5(b_5),
+        .b_6(b_6), .b_7(b_7), .b_8(b_8), .b_9(b_9), .b_a(b_a), .b_b(b_b),
+        .b_c(b_c), .b_d(b_d), .b_e(b_e), .b_f(b_f),
+        .disp(uiDisp), .dispValid(uiDispValid)
+        );
+    
     cpu_control pcpu(
         .clk(CLK25MHZ),
         .rst_n(rst_n),
@@ -169,8 +179,8 @@ module top(
         .irq(IRQ),
         .stopped(stopped),
         .sync(SYNCsync),
-        .userInput(16'h0000),
-        .inputValid(1'b0),
+        .userInput(uiDisp[15:0]),
+        .inputValid(uiDispValid),
         .b_storeinc(b_storeinc),
         .b_irq(b_irq),
         .b_dec(b_dec),
@@ -179,7 +189,8 @@ module top(
         .b_toSP(b_toSP),
         .b_toX(b_toX),
         .b_toY(b_toY),
-        .b_toPC(b_toPC)
+        .b_toPC(b_toPC),
+        .userData(uiData)
         );
     
     assign led_neg = sr[7];
@@ -212,8 +223,8 @@ module top(
 		.led_y(y), 
 		.led_sp({8'h01,sp}), 
 		.led_pc(pc), 
-		.led_mem({4'h0,Ahigh,Async}), 
-		.led_data(Dsync), 
+		.led_mem(stopped ? uiDisp : {4'h0,Ahigh,Async}), 
+		.led_data(steopped ? uiData : Dsync), 
 		.led_test(led_test), 
 		.led_physical(led_physical), 
 		.led_soft(led_soft), 
