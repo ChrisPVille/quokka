@@ -5,6 +5,7 @@ module cpu_control(
     input csP,
     input write,
     input b_step,
+    input b_reset,
     input b_runhalt,
     input[7:0] Din,
     output[7:0] Dout,
@@ -106,11 +107,12 @@ module cpu_control(
     
     reg[1:0] syncCount;
     
-    localparam CPUSTATE_RUN = 2'h0;
-    localparam CPUSTATE_STOP = 2'h1;
-    localparam CPUSTATE_STEPARMED = 2'h2;
-    localparam CPUSTATE_STEPWAIT = 2'h3;
-    reg[1:0] cpuState;
+    localparam CPUSTATE_RUN = 3'h0;
+    localparam CPUSTATE_STOP = 3'h1;
+    localparam CPUSTATE_STEPARMED = 3'h2;
+    localparam CPUSTATE_STEPWAIT = 3'h3;
+    localparam CPUSTATE_RESETSTEP = 3'h4;
+    reg[2:0] cpuState;
     always @(posedge clk or negedge rst_n) begin
         if(~rst_n) begin
             doNmi <= 0;
@@ -126,22 +128,37 @@ module cpu_control(
                     end
                 end
                 CPUSTATE_STOP: begin
-                    if(b_runhalt) begin
+                    if(b_reset) begin
+                        syncCount <= 0;
+                        cpuState <= CPUSTATE_RESETSTEP;
+                    end else if(b_runhalt) begin
                         cpuState <= CPUSTATE_RUN;
                     end else if(b_step) begin
                         cpuState <= CPUSTATE_STEPARMED;
                     end
                 end
                 CPUSTATE_STEPARMED: begin
-                    if(readyToStep) begin
+                    if(b_reset) cpuState <= CPUSTATE_RUN;
+                    else if(readyToStep) begin
                         syncCount <= 0;
                         cpuState <= CPUSTATE_STEPWAIT;
                     end
                 end
                 CPUSTATE_STEPWAIT: begin
-                    if(syncRising) begin
+                    if(b_reset) cpuState <= CPUSTATE_RUN;
+                    else if(syncRising) begin
                         syncCount <= syncCount + 1;
                         if(syncCount == 2'h1) begin
+                            doNmi <= 1;
+                            cpuState <= CPUSTATE_STOP;
+                        end
+                    end
+                end
+                CPUSTATE_RESETSTEP: begin
+                    if(b_reset) cpuState <= CPUSTATE_RUN;
+                    else if(syncRising) begin
+                        syncCount <= syncCount + 1;
+                        if(syncCount == 2'h0) begin
                             doNmi <= 1;
                             cpuState <= CPUSTATE_STOP;
                         end

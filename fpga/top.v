@@ -98,13 +98,16 @@ module top(
     cpu_clockgen cpuclk1(.CLK10MHZ(CLK10MHZ), .rst_n(rst_n), .CLK1MHZ(CLK1MHZ));
     assign PHI0 = CLK1MHZ;
     
-    reg[7:0] counter;
-    always@(posedge CLK25MHZ) begin
-        if(b_0) counter <= counter + 1;
+    reg[15:0] cpuRstCount = 16'h0000;
+    always@(posedge CLK25MHZ or negedge rst_n) begin
+        if(~rst_n) cpuRstCount <= 0;
+        else begin
+            if(b_reset) cpuRstCount <= 0;
+            else if(cpuRstCount != 16'hFFFF) cpuRstCount <= cpuRstCount + 1;
+        end
     end
-        
-    assign phys6502_RESn = counter[0];
-    assign RES = rst_n;
+    assign phys6502_RESn = &cpuRstCount;
+    assign RES = phys6502_RESn;
     
     //We treat PHI1 and PHI2 as asynchronous signals. Although they are derived from
     //our PHI0 clock, they have an unknown phase offset that we cannot predict
@@ -119,8 +122,7 @@ module top(
     ff_sync #(.WIDTH(8)) sync_d(.clk(CLK25MHZ), .rst_p(~rst_n), .in_async(D), .out(Dsync));
     
     //TODO we will eventually only take over the RAM when a user action has 
-    //been requested, or possibly we will allow writes into the FPGA acting
-    //as RAM but override the vectors on a UI interrupt
+    //been requested.
     wire FPGA_csN;
     
     //RAM - 0x0000-0xFEFF (Default, fills all empty portions of map)
@@ -159,6 +161,7 @@ module top(
         .write(writeNow),
         .Din(Dsync),
         .Dout(Dout),
+        .b_reset(b_reset),
         .b_step(b_step),
         .b_runhalt(b_runhalt),
         .acc(acc),
