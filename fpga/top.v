@@ -137,6 +137,7 @@ module top(
     edge_detect rising_phi2(.clk(CLK25MHZ), .rst_n(rst_n), .in(PHI2sync), .out(phi2rising));
     
     //Write on the rising edge of phi2 when RW is low (write)
+    wire writeNow;
     assign writeNow = phi2rising & ~RWsync;
     
     wire[7:0] acc;
@@ -192,6 +193,9 @@ module top(
         .b_toPC(b_toPC),
         .userData(uiData)
         );
+    
+    wire led_neg, led_ovf, led_dash, led_brk, led_dec, led_irq, led_zero;
+    wire led_test, led_physical, led_soft, led_carry;
     
     assign led_neg = sr[7];
     assign led_ovf = sr[6];
