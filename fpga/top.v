@@ -224,7 +224,7 @@ module top(
 		.led_sp({8'h01,sp}), 
 		.led_pc(pc), 
 		.led_mem(stopped ? uiDisp : {4'h0,Ahigh,Async}), 
-		.led_data(steopped ? uiData : Dsync), 
+		.led_data(stopped ? uiData : Dsync), 
 		.led_test(led_test), 
 		.led_physical(led_physical), 
 		.led_soft(led_soft), 
