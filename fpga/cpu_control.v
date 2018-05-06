@@ -43,7 +43,7 @@ module cpu_control(
         $readmemh("../software/monitor.hex", controlROM);
     
     wire rwRange;
-    assign rwRange = (A < 8'hFA) && (A >= 8'hE0) && (A != 8'hE9) && (A != 8'hEC) && (A != 8'hED) && (A != 8'hEE) && (A != 8'hEF) && (A != 8'hF2) && (A != 8'hF3) && (A != 8'hF4);
+    assign rwRange = ((A < 8'hE9) && (A >= 8'hE0)) || (A == 8'hEA) || (A == 8'hEB) || (A == 8'hF0) || (A == 8'hF1);
     
     assign Dout = rwRange ? RAMout : ROMout;
     
@@ -133,10 +133,12 @@ module cpu_control(
                     end
                     5'h7: begin
                         RAMout <= {doStore, doLoad, stopped, 5'h00};
-                        doStore <= 0;
-                        doLoad <= 0;
-                        updateStoreAddr <= 1;
-                        if(write) readyToStep <= 1;
+                        if(write) begin
+                            doStore <= 0;
+                            if(doStore) updateStoreAddr <= 1;
+                            else if(doLoad) doLoad <= 0;
+                            else readyToStep <= 1;
+                        end
                     end
                     5'h8: begin
                         RAMout <= userData;

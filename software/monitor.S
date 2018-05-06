@@ -59,11 +59,15 @@ readWord:
             jmp dynRead
 finishRead:
             sta udata
+            stx status
             jmp chkstatus
 
 writeWord:
             lda udata
             jmp dynWrite
+finishWrite:
+            stx status
+            jmp chkstatus
 
 .segment "EXCHANGE"
 a_disp:     .byte $00
@@ -76,11 +80,11 @@ sr_disp:    .byte $00
 status:     .byte $00
 udata:      .byte $00
 dynRead:    .byte $AD   ;LDA (Absolute)
-            .addr $0000 ;To be filled in by the FPGA
+            .addr $BEEF ;To be filled in by the FPGA
             jmp finishRead
 dynWrite:   .byte $8D   ;STA (Absolute)
-            .addr $0000 ;To be filled in by the FPGA
-            jmp chkstatus
+            .addr $BEEF ;To be filled in by the FPGA
+            jmp finishWrite
 
 .segment "VECTORS"
 vec_nmi:    .addr nmi_handler
