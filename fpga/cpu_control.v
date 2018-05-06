@@ -30,6 +30,7 @@ module cpu_control(
     input b_toY,
     input b_toPC,
     output reg[7:0] userData,
+    output reg[15:0] userAddr,
     output[7:0] test
     );
         
@@ -57,8 +58,7 @@ module cpu_control(
     interrupt_counter irqCounter(.clk(clk), .rst_n(rst_n), .start(doIrq), .intN(irqN));
     assign irq = ~irqN;
 
-    reg[15:0] userAddr;
-    reg readyToStep, doStore, doLoad;
+    reg readyToStep, doStore, doLoad, decrementing, incrementing;
     always @(posedge clk or negedge rst_n) begin
         if(~rst_n) begin
             acc <= 0;
@@ -74,18 +74,20 @@ module cpu_control(
             doLoad <= 0;
             doIrq <= 0;
             RAMout <= 0;
+            decrementing <= 0;
+            incrementing <= 0;
         end else begin
             if(b_load & inputValid) begin
                 userAddr <= userInput;
                 if(stopped) doLoad <= 1;
             end else if(b_dec & stopped) begin
                 doLoad <= 1;
-                userAddr <= userAddr - 1;
+                decrementing <= 1;
             end else if(b_irq) begin
                 doIrq <= 1; //TODO Should we provide some additional support other than just firing the interrupt?
             end else if(b_storeinc & stopped) begin
                 doStore <= 1;
-                userAddr <= userAddr + 1;
+                incrementing <= 1;
                 if(inputValid) userData <= userInput[7:0];
             end else if(b_toA & inputValid) begin
                 acc <= userInput[7:0];
@@ -97,6 +99,16 @@ module cpu_control(
                 y <= userInput[7:0];
             end else if(b_toPC & inputValid) begin
                 pc <= userInput;
+            end else if(decrementing) begin
+                if(~doLoad) begin
+                    userAddr <= userAddr - 1;
+                    decrementing <= 0;
+                end
+            end else if(incrementing) begin
+                if(~doStore) begin
+                    userAddr <= userAddr + 1;
+                    incrementing <= 0;
+                end
             end
             
             if(rwRange) begin

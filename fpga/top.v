@@ -152,6 +152,7 @@ module top(
     
     wire stopped;
     wire[23:0] uiDisp;
+    wire[15:0] uiCurLoadAddr;
     wire[7:0] uiData;
     wire uiDispValid;
     wire clearDisp;
@@ -159,9 +160,10 @@ module top(
         .b_0(b_0), .b_1(b_1), .b_2(b_2), .b_3(b_3), .b_4(b_4), .b_5(b_5),
         .b_6(b_6), .b_7(b_7), .b_8(b_8), .b_9(b_9), .b_a(b_a), .b_b(b_b),
         .b_c(b_c), .b_d(b_d), .b_e(b_e), .b_f(b_f), .clearDisp(clearDisp),
-        .disp(uiDisp), .dispValid(uiDispValid)
+        .disp(uiDisp), .dispValid(uiDispValid), .addr(uiCurLoadAddr), 
+        .b_load(b_load), .b_storeinc(b_storeinc), .b_dec(b_dec)
         );
-    
+
     assign clearDisp = b_runhalt | b_reset | b_reset | b_step | b_storeinc |
                        b_irq | b_dec | b_load | b_toA | b_toSP | b_toX | 
                        b_toY | b_toPC;
@@ -198,6 +200,7 @@ module top(
         .b_toY(b_toY),
         .b_toPC(b_toPC),
         .userData(uiData),
+        .userAddr(uiCurLoadAddr),
         .test(test)
         );
     
@@ -234,7 +237,7 @@ module top(
 		.led_y(y), 
 		.led_sp({8'h01,sp}), 
 		.led_pc(pc), 
-		.led_mem(/*stopped ? uiDisp : */{4'h0,Ahigh,Async}), 
+		.led_mem(stopped ? uiDisp : {4'h0,Ahigh,Async}), 
 		.led_data(stopped ? uiData : Dsync), 
 		.led_test(led_test), 
 		.led_physical(led_physical), 

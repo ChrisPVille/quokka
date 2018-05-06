@@ -20,7 +20,11 @@ module uiControl(
     input b_e,
     input b_f,
     output reg[23:0] disp,
-    output dispValid
+    output dispValid,
+    input[15:0] addr,
+    input b_load,
+    input b_storeinc,
+    input b_dec
     );
     
     assign dispValid = 1;
@@ -52,6 +56,16 @@ module uiControl(
         else if(b_f) lowerDigit = 4'hf;
         else lowerDigit = 4'h0;
     end
+        
+    reg addrPreferenceMode;
+    always@(posedge clk or negedge rst_n) begin
+        if(~rst_n) begin
+            addrPreferenceMode <= 0;
+        end else begin
+            if(b_load) addrPreferenceMode <= 1;
+            else if(clearDisp & ~(b_storeinc|b_dec)) addrPreferenceMode <= 0;
+        end
+    end
     
     reg clearOnNext;
     always@(posedge clk or negedge rst_n) begin
@@ -70,7 +84,8 @@ module uiControl(
             if(stopping) begin
                 disp <= 0;
             end else if(somethingPressed) begin
-                if(clearOnNext) disp <= {20'h00000, lowerDigit};
+                if(addrPreferenceMode) disp <= {4'h0, addr};
+                else if(clearOnNext) disp <= {20'h00000, lowerDigit};
                 else disp <= {disp[19:0], lowerDigit};
             end
         end
