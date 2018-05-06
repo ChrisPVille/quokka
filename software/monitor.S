@@ -29,8 +29,10 @@ nmi_handler:
             ;TODO Stack pointer user operations here will mess up the NMI return
 
 chkstatus:  
-            bit status      ;Check bit 7 of the status word
-            bmi chkstatus   ;Continue looping until it is set (we are released)
+            bit status      ;Check bit 7,6 of the status word for read/write commands
+            bvs writeWord   ;Do write if bit 7 is set
+            bmi readWord    ;Do read if bit 6 is set
+            bne chkstatus   ;Continue looping until status word is clear
 
             ;By writing the data from the *_disp back to the stack/registers,
             ;we allow the FPGA to modify the state of the machine before
@@ -53,6 +55,16 @@ chkstatus:
             stx status
             rti
 
+readWord:
+            jmp dynRead
+finishRead:
+            sta udata
+            jmp chkstatus
+
+writeWord:
+            lda udata
+            jmp dynWrite
+
 .segment "EXCHANGE"
 a_disp:     .byte $00
 x_disp:     .byte $00
@@ -62,6 +74,13 @@ pcl_disp:   .byte $00
 pch_disp:   .byte $00
 sr_disp:    .byte $00
 status:     .byte $00
+udata:      .byte $00
+dynRead:    .byte $AD   ;LDA (Absolute)
+            .addr $0000 ;To be filled in by the FPGA
+            jmp finishRead
+dynWrite:   .byte $8D   ;STA (Absolute)
+            .addr $0000 ;To be filled in by the FPGA
+            jmp chkstatus
 
 .segment "VECTORS"
 vec_nmi:    .addr nmi_handler

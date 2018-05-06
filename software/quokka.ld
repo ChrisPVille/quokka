@@ -1,6 +1,6 @@
 MEMORY {
 	FPGAPROG: start $ff00, size $f0, fill = yes, fillval = $EA;
-	FPGARAM: start $fff0, size $0a, fill = yes, fillval = $55;
+	FPGARAM: start $ffe0, size $1a, fill = yes, fillval = $55;
 	FPGAVECTORS: start $fffa, size $06, fill = yes, fillval = $55;
 }
 
