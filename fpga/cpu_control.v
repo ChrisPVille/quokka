@@ -71,10 +71,12 @@ module cpu_control(
             readyToStep <= 0;
             doStore <= 0;
             doLoad <= 0;
+            doIrq <= 0;
             updateStoreAddr <= 0;
         end else begin
             if(updateStoreAddr) begin
                 userAddr <= userAddr + 1;
+                updateStoreAddr <= 0;
             end else if(b_load & inputValid) begin
                 userAddr <= userInput;
                 if(stopped) doLoad <= 1;
@@ -87,15 +89,15 @@ module cpu_control(
                 if(stopped) doStore <= 1;
                 if(inputValid) userData <= userInput[7:0];
             end else if(b_toA & inputValid) begin
-                acc <= userData[7:0];
+                acc <= userInput[7:0];
             end else if(b_toSP & inputValid) begin
-                //sp <= userData[7:0]; //TODO need a clean way to implement without blowing up NMI return
+                //sp <= userInput[7:0]; //TODO need a clean way to implement without blowing up NMI return
             end else if(b_toX & inputValid) begin
-                x <= userData[7:0];
+                x <= userInput[7:0];
             end else if(b_toY & inputValid) begin
-                y <= userData[7:0];
+                y <= userInput[7:0];
             end else if(b_toPC & inputValid) begin
-                pc <= userData;
+                pc <= userInput;
             end
             
             if(rwRange) begin
