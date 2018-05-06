@@ -30,7 +30,7 @@ module cpu_control(
     input b_toY,
     input b_toPC,
     output reg[7:0] userData,
-    output[3:0] test
+    output[7:0] test
     );
         
     reg[7:0] controlROM[255:0];
@@ -58,7 +58,7 @@ module cpu_control(
     assign irq = ~irqN;
 
     reg[15:0] userAddr;
-    reg readyToStep, doStore, doLoad, updateStoreAddr;
+    reg readyToStep, doStore, doLoad;
     always @(posedge clk or negedge rst_n) begin
         if(~rst_n) begin
             acc <= 0;
@@ -73,21 +73,19 @@ module cpu_control(
             doStore <= 0;
             doLoad <= 0;
             doIrq <= 0;
-            updateStoreAddr <= 0;
+            RAMout <= 0;
         end else begin
-            if(updateStoreAddr) begin
-                userAddr <= userAddr + 1;
-                updateStoreAddr <= 0;
-            end else if(b_load & inputValid) begin
+            if(b_load & inputValid) begin
                 userAddr <= userInput;
                 if(stopped) doLoad <= 1;
-            end else if(b_dec) begin
+            end else if(b_dec & stopped) begin
+                doLoad <= 1;
                 userAddr <= userAddr - 1;
-                if(stopped) doLoad <= 1;
             end else if(b_irq) begin
                 doIrq <= 1; //TODO Should we provide some additional support other than just firing the interrupt?
-            end else if(b_storeinc) begin
-                if(stopped) doStore <= 1;
+            end else if(b_storeinc & stopped) begin
+                doStore <= 1;
+                userAddr <= userAddr + 1;
                 if(inputValid) userData <= userInput[7:0];
             end else if(b_toA & inputValid) begin
                 acc <= userInput[7:0];
@@ -135,10 +133,8 @@ module cpu_control(
                     5'h7: begin
                         RAMout <= {doStore, doLoad, stopped, 5'h00};
                         if(write) begin
-                            if(Din[7]) begin
-                                doStore <= 0;
-                                updateStoreAddr <= 1;
-                            end else if(Din[6]) doLoad <= 0;
+                            if(Din[7]) doStore <= 0;
+                            else if(Din[6]) doLoad <= 0;
                             else if(Din[5]) readyToStep <= 1;
                         end
                     end
@@ -166,7 +162,7 @@ module cpu_control(
     localparam CPUSTATE_STEPWAIT = 3'h3;
     localparam CPUSTATE_RESETSTEP = 3'h4;
     reg[2:0] cpuState;
-    assign test = cpuState;
+    assign test = {cpuState, doStore, doLoad, readyToStep, 1'b0};
     always @(posedge clk or negedge rst_n) begin
         if(~rst_n) begin
             doNmi <= 0;

@@ -38,6 +38,8 @@ ba
 8e
 e3
 ff
+a9
+ff
 2c
 e7
 ff
@@ -46,7 +48,7 @@ ff
 70
 20
 d0
-f7
+f5
 ad
 e5
 ff
@@ -220,8 +222,6 @@ ea
 ea
 ea
 ea
-ea
-ea
 00
 00
 00
@@ -235,13 +235,13 @@ ad
 ef
 be
 4c
-52
+54
 ff
 8d
 ef
 be
 4c
-63
+65
 ff
 55
 55

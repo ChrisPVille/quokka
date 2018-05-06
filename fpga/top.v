@@ -147,8 +147,8 @@ module top(
     wire[7:0] sr;
     wire[15:0] pc;
     
-    wire[3:0] test;
-    assign G[7:0] = {test, 4'h0};
+    wire[7:0] test;
+    assign G[7:0] = test;
     
     wire stopped;
     wire[23:0] uiDisp;
@@ -234,7 +234,7 @@ module top(
 		.led_y(y), 
 		.led_sp({8'h01,sp}), 
 		.led_pc(pc), 
-		.led_mem(stopped ? uiDisp : {4'h0,Ahigh,Async}), 
+		.led_mem(/*stopped ? uiDisp : */{4'h0,Ahigh,Async}), 
 		.led_data(stopped ? uiData : Dsync), 
 		.led_test(led_test), 
 		.led_physical(led_physical), 

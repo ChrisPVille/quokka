@@ -29,6 +29,7 @@ nmi_handler:
             ;TODO Stack pointer user operations here will mess up the NMI return
 
 chkstatus:  
+            lda #$FF
             bit status      ;Check bit 7,6 of the status word for read/write commands
             bmi writeWord   ;Do write if bit 7 is set
             bvs readWord    ;Do read if bit 6 is set
