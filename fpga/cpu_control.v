@@ -134,10 +134,11 @@ module cpu_control(
                     5'h7: begin
                         RAMout <= {doStore, doLoad, stopped, 5'h00};
                         if(write) begin
-                            doStore <= 0;
-                            if(doStore) updateStoreAddr <= 1;
-                            else if(doLoad) doLoad <= 0;
-                            else readyToStep <= 1;
+                            if(Din[7]) begin
+                                doStore <= 0;
+                                updateStoreAddr <= 1;
+                            end else if(Din[6]) doLoad <= 0;
+                            else if(Din[5]) readyToStep <= 1;
                         end
                     end
                     5'h8: begin

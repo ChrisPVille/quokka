@@ -52,6 +52,7 @@ chkstatus:
 ;the status word), will inform the FPGA that only 2 instructions remain to be
 ;executed before it should stop us again (in the case of single stepping). The
 ;write otherwise has no effect, and does nothing at all in other states.
+            ldx #$20
             stx status
             rti
 
@@ -59,6 +60,7 @@ readWord:
             jmp dynRead
 finishRead:
             sta udata
+            ldx #$40
             stx status
             jmp chkstatus
 
@@ -66,6 +68,7 @@ writeWord:
             lda udata
             jmp dynWrite
 finishWrite:
+            ldx #$80
             stx status
             jmp chkstatus
 
