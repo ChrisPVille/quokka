@@ -30,8 +30,8 @@ nmi_handler:
 
 chkstatus:  
             bit status      ;Check bit 7,6 of the status word for read/write commands
-            bvs writeWord   ;Do write if bit 7 is set
-            bmi readWord    ;Do read if bit 6 is set
+            bmi writeWord   ;Do write if bit 7 is set
+            bvs readWord    ;Do read if bit 6 is set
             bne chkstatus   ;Continue looping until status word is clear
 
             ;By writing the data from the *_disp back to the stack/registers,
