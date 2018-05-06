@@ -87,9 +87,8 @@ module cpu_control(
                 doIrq <= 1; //TODO Should we provide some additional support other than just firing the interrupt?
             end else if(b_storeinc & stopped) begin
                 doStore <= 1;
-                incrementing <= 1;
-                if(inputValid & ~incrementing)
-                    userData <= userInput[7:0];
+                //incrementing <= 1;
+                if(inputValid) userData <= userInput[7:0];
             end else if(b_toA & inputValid) begin
                 acc <= userInput[7:0];
             end else if(b_toSP & inputValid) begin
@@ -106,7 +105,7 @@ module cpu_control(
                     decrementing <= 0;
                 end
             end else if(incrementing) begin
-                if(~doStore) begin
+                if(~doLoad) begin
                     userAddr <= userAddr + 1;
                     incrementing <= 0;
                 end

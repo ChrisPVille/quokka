@@ -23,7 +23,7 @@ module uiControl(
     output dispValid,
     input[15:0] addr,
     input b_load,
-    input b_storeinc,
+    input b_inc,
     input b_dec
     );
     
@@ -63,7 +63,7 @@ module uiControl(
             addrPreferenceMode <= 0;
         end else begin
             if(b_load) addrPreferenceMode <= 1;
-            else if(somethingPressed | (clearDisp & ~(b_storeinc|b_dec))) addrPreferenceMode <= 0;
+            else if(somethingPressed | (clearDisp & ~(b_inc|b_dec))) addrPreferenceMode <= 0;
         end
     end
     

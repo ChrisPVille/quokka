@@ -161,7 +161,7 @@ module top(
         .b_6(b_6), .b_7(b_7), .b_8(b_8), .b_9(b_9), .b_a(b_a), .b_b(b_b),
         .b_c(b_c), .b_d(b_d), .b_e(b_e), .b_f(b_f), .clearDisp(clearDisp),
         .disp(uiDisp), .dispValid(uiDispValid), .addr(uiCurLoadAddr), 
-        .b_load(b_load), .b_storeinc(b_storeinc), .b_dec(b_dec)
+        .b_load(b_load), .b_inc(1'b0), .b_dec(b_dec)
         );
 
     assign clearDisp = b_runhalt | b_reset | b_reset | b_step | b_storeinc |
