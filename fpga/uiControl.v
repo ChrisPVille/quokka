@@ -86,9 +86,9 @@ module uiControl(
             end else if(somethingPressed) begin
                 if(clearOnNext) disp <= {20'h00000, lowerDigit};
                 else disp <= {disp[19:0], lowerDigit};
-            end else if(addrPreferenceMode) begin
-                disp <= {4'h0, addr};
-            end
+            end// else if(addrPreferenceMode) begin
+                //disp <= {4'h0, addr};
+            //end
         end
     end
 
